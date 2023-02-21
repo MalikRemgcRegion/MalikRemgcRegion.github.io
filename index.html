@@ -2,16 +2,19 @@
 <!-- https://www.w3schools.com/bootstrap4/ -->
 <html lang="en">
 <head>
-  <title></title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  
-  <link href="css/styles.css" rel="stylesheet" />
-  
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  
-  
-  
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>malikremgcregion.github.io</title>
+	<meta name="description" content="MalikRemgcRegion brings an insight into regional account hoppers">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="malikremgcregion.github.io">
+	<meta property="og:description" content="Showing you regional account hoppers from malikremgcregion.github.io">
+	<meta property="og:url" content="https://malikremgcregion.github.io/">
+	<meta property="og:image" content="https://malikremgcregion.github.io/assets/colored_body_top2.png">
+	<meta name="twitter:site" content="@malikremgcregion">
+	<meta name="twitter:image" content="https://malikremgcregion.github.io/assets/colored_body_top2.png">
+	<meta name="twitter:card" content="summary_large_image">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   
 </head>
 <body>
@@ -20,13 +23,16 @@
 	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 	  <ul class="navbar-nav">
 		<li class="nav-item active">
-		  <a class="nav-link" href="#">Home</a>
+		  <a class="nav-link" href="https://malikremgcregion.github.io/">Home</a>
 		</li>
 		<li class="nav-item">
-		  <a class="nav-link" href="https://raw.githubusercontent.com/MalikRemgcRegion/RemGC_DB/main/db/db.json">Github</a>
+		  <a class="nav-link" href="https://raw.githubusercontent.com/MalikRemgcRegion/malikremgcregion.github.io/main/db/db.json">Github</a>
 		</li>
 		<li class="nav-item">
 		  <a class="nav-link" href="https://discord.gg/4X96kRjety">Discord</a>
+		</li>
+		<li class="nav-item">
+		  <a class="nav-link" href="https://github.com/MalikRemgcRegion/MalikRemgcRegion.github.io/raw/main/rrgc.user.js">userscript</a>
 		</li>
 	  </ul>
 	</nav>
@@ -267,25 +273,18 @@
 		</div>
 	</div>
 	<!-- Profile related stuff -->
-	
-	
-	
-	
+
 	<script src="./js/test.js"></script>
-	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-	
+
 	<!-- <script src="./js/search.js"></script> -->
 	<script src="./js/getUser.js"></script>
 	<script type="text/javascript" src="./js/RepoChanges.js"></script>
-
-
-
+	
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 	<script>
-	
 	const queryString = window.location.search;
 	const urlParams = new URLSearchParams(queryString);
 	const url_p_id = urlParams.get('id')
@@ -295,17 +294,11 @@
 			console.log(url_p_id);
 			
 			//lets create the user profile page.
-			//$("body > div:nth-child(3)").hide();
 			$("#main_data").hide();
-			//$("body > div:nth-child(2)").after('<div id="profile" class="container mt-3"><div class="jumbotron jumbotron-fluid"><div class="container">  <canvas id="myChart" style="width:100%;"></canvas>  </div></div></div>');
 			$("#profile_data").show();
 			//add the profile shit into the id "profile"
 			
-			
-			
 			var _steamid = url_p_id;
-			
-			
 			
 			$.ajax({
 			   url: "https://raw.githubusercontent.com/MalikRemgcRegion/RemGC_DB/main/db/db.json",
@@ -366,36 +359,18 @@
 						test += '<div class="row"><div class="col-auto text-center flex-column d-none d-sm-flex"><div class="row h-50"><div class="col border-right">&nbsp;</div><div class="col">&nbsp;</div></div><h5 class="m-2"><span class="badge badge-pill bg-light border">&nbsp;</span></h5><div class="row h-50"><div class="col">&nbsp;</div><div class="col">&nbsp;</div></div></div><div class="col py-2"><div class="card" style="background-image: url(\'./assets/cc_flags/png_16px/'+profile_region[x].toLowerCase()+'.png\');"> <div class="card-body"><div class="float-right text-muted">'+date.toLocaleDateString("da-DK")+'</div><h4 class="card-title">'+'Breaking the SSA, so i can purchase cheaper games in '+profile_region[x]+'</p></div></div></div></div>';
 					}
 					$("#timeline_data").append(test);
-					
-					
-					
-					
-					
-					
 				}
 			});
-			
-			
-			
-			
-			
-			
 		}else{
 			console.log("false");
 			console.log(url_p_id);
 			//lets not do anything then?
-			
 		}
 	}else{
 		$("#profile_data").hide();
 	}
-	
-	
-	
-	
 	</script>
 	<!-- jQuery Datatable js --><script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
 	<!-- Bootstrap Datatable js --><script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
 </body>
-
 </html>
