@@ -1,0 +1,45 @@
+.icon_center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.state_danger {
+  margin-left: auto;
+  margin-right: auto;
+  height: 16px;
+  width: 16px;
+  background-color: Crimson;
+  border-radius: 50%;
+}
+.state_success {
+  margin-left: auto;
+  margin-right: auto;
+  height: 16px;
+  width: 16px;
+  background-color: SeaGreen;
+  border-radius: 50%;
+}
+.state_warning {
+  margin-left: auto;
+  margin-right: auto;
+  height: 16px;
+  width: 16px;
+  background-color: #fffc33;
+  border-radius: 50%;
+}
+.state_disabled {
+  margin-left: auto;
+  margin-right: auto;
+  height: 16px;
+  width: 16px;
+  background-color: grey;
+  border-radius: 50%;
+}
+.state_neutral {
+  margin-left: auto;
+  margin-right: auto;
+  height: 16px;
+  width: 16px;
+  background-color: blue;
+  border-radius: 50%;
+}

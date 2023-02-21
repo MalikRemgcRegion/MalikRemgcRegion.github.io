@@ -1,6 +1,4 @@
-# RemGC_DB
-RemGC GetOwnedGames API
+# remgcregiontracker
+tracking the jumpers.
 
-RemGC Weekly History
-
-RemFC Regional Jumps
+live
