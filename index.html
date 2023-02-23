@@ -351,14 +351,46 @@
 					
 					profile_time_stamp = profile_time_stamp.reverse();
 					profile_region = profile_region.reverse();
-					var test = "";
+					var tLine = "";
 					for (let x = 0; x < profile_time_stamp.length; x++) {
 						const date = new Date(profile_time_stamp[x] * 1000);
 						console.log(date);
 						console.log(profile_region[x]);
-						test += '<div class="row"><div class="col-auto text-center flex-column d-none d-sm-flex"><div class="row h-50"><div class="col border-right">&nbsp;</div><div class="col">&nbsp;</div></div><h5 class="m-2"><span class="badge badge-pill bg-light border">&nbsp;</span></h5><div class="row h-50"><div class="col">&nbsp;</div><div class="col">&nbsp;</div></div></div><div class="col py-2"><div class="card" style="background-image: url(\'./assets/cc_flags/png_16px/'+profile_region[x].toLowerCase()+'.png\');"> <div class="card-body"><div class="float-right text-muted">'+date.toLocaleDateString("da-DK")+'</div><h4 class="card-title">'+'Breaking the SSA, so i can purchase cheaper games in '+profile_region[x]+'</p></div></div></div></div>';
+						tLine += '<div class="row"><div class="col-auto text-center flex-column d-none d-sm-flex"><div class="row h-50"><div class="col border-right">&nbsp;</div><div class="col">&nbsp;</div></div><h5 class="m-2"><span class="badge badge-pill bg-light border">&nbsp;</span></h5><div class="row h-50"><div class="col">&nbsp;</div><div class="col">&nbsp;</div></div></div><div class="col py-2"><div class="card" style="background-image: url(\'./assets/cc_flags/png_16px/'+profile_region[x].toLowerCase()+'.png\');"> <div class="card-body"><div class="float-right text-muted">'+date.toLocaleDateString("da-DK")+'</div><h4 class="card-title">'+'Breaking the SSA, so i can purchase cheaper games in '+profile_region[x]+'</p></div></div></div></div>';
 					}
-					$("#timeline_data").append(test);
+					$("#timeline_data").append(tLine);
+					
+					
+					//change meta tags:
+					let = m_dtitle = data[i].id;
+					let = m_ndescription;
+					//let = m_ptype = 
+					let = m_ptitle = data[i].id;
+					let = m_pdescription = m_ndescription;
+					let = m_purl = 'https://malikremgcregion.github.io/?id=${data[i].id}';
+					let = m_pimage ="https://malikremgcregion.github.io/assets/colored_body_top2.png";
+					let = m_nsite = "@malikremgcregion";
+					let = m_nimage = "https://malikremgcregion.github.io/assets/colored_body_top2.png";
+					let = m_ncard = "summary_large_image";
+					
+					if(data[i].region.length < 2 && data[i].region[0] !== "ZZ"){m_ndescription = "unconfirmed regional jumper";}
+					if(data[i].region.length > 1 && data[i].region.length <= 2 && data[i].region[0] !== "ZZ"){m_ndescription = "unconfirmed regional jumper, confirmed regional change";}
+					if(data[i].region.length > 2){m_ndescription = "confirmed regional jumper";}
+
+					document.title = m_dtitle;
+					document.querySelector('meta[name="description"]').setAttribute("content", m_ndescription);
+					//document.querySelector('meta[property="og:type"]').setAttribute("content", m_ptype);
+					document.querySelector('meta[property="og:title"]').setAttribute("content", m_ptitle);
+					document.querySelector('meta[property="og:description"]').setAttribute("content", m_pdescription);
+					document.querySelector('meta[property="og:url"]').setAttribute("content", m_purl);
+					document.querySelector('meta[property="og:image"]').setAttribute("content", m_pimage);
+					document.querySelector('meta[name="twitter:site"]').setAttribute("content", m_nsite);
+					document.querySelector('meta[name="twitter:image"]').setAttribute("content", m_nimage);
+					document.querySelector('meta[name="twitter:card"]').setAttribute("content", m_ncard);
+					
+					
+					
+					
 				}
 			});
 		}else{
