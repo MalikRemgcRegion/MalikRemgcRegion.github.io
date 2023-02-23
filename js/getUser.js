@@ -34,7 +34,6 @@ $.ajax({
 			$( ".rrc_view_profile_"+i ).attr("id",regionChanges[i].id);
 			$( ".card-title.hopper_"+i ).append( '<a href="' + window.location.href +'?id=' +regionChanges[i].id+'">'+regionChanges[i].id+'</a>' );
 			if(regionChanges[i].region[0] === null){
-				//console.log(regionChanges[i].id +" => account doesn't own publisher api key appids.");	
 			}else{
 				for (let j = 0; j < regionChanges[i].region.length; j++) {
 					//console.log(regionChanges[i].id+ " => " +regionChanges[i].region[j]);
@@ -54,7 +53,6 @@ $.ajax({
 			$( ".trh_view_profile_"+i ).attr("id",tophoppers[i].id);
 			$( ".card-title.tophopper_"+i ).append( '<a href="' + window.location.href +'?id=' +tophoppers[i].id+'">'+tophoppers[i].id+'</a>' );
 			if(tophoppers[i].region[0] === null){
-				//console.log(tophoppers[i].id +" => account doesn't own publisher api key appids.");	
 			}else{
 				for (let j = 0; j < tophoppers[i].region.length; j++) {
 					//console.log(tophoppers[i].id+ " => " +tophoppers[i].region[j]);
