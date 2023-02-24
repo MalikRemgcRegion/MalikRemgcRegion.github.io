@@ -329,13 +329,12 @@
 						}
 					});
 					
-					
 					//add this to their profile.
 					//marking profiles accordingly to their regional account changing behaviour. 
-					if(profile_region.length <= 2 && profile_region[0] == "ZZ"){
+					if(profile_region.length <= 2 && profile_region[0] == "ZZ" || profile_region.length <= 1 && profile_region[0] !== "ZZ"){
 						$("#jumpCheck_text").append("Upstanding member of the steam community"); 
 						$( "#jumpCheck_card" ).addClass( "border-primary" );
-					}					
+					}			
 					
 					if(profile_region.length > 1 && profile_region.length <= 2 && profile_region[0] !== "ZZ"){
 						$("#jumpCheck_text").append("Accounts Region has been Changed. (WARNING!)"); 
@@ -346,7 +345,6 @@
 						$("#jumpCheck_text").append("confirmed regional jumper"); 
 						$( "#jumpCheck_card" ).addClass( "border-danger" );
 					}
-
 					
 					console.log(profile_id + "\n" + profile_time_stamp + "\n" + profile_region + "\n" + profile_game_count);
 					
