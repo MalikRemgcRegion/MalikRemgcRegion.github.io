@@ -331,9 +331,21 @@
 					
 					
 					//add this to their profile.
-					if(profile_region.length > 1 && profile_region.length <= 2 && profile_region[0] !== "ZZ"){$("#jumpCheck_text").append("unconfirmed regional jumper, confirmed regional change"); $( "#jumpCheck_card" ).addClass( "border-warning" );}
-					if(profile_region.length < 2 && profile_region[0] !== "ZZ"){$("#jumpCheck_text").append("unconfirmed regional jumper"); $( "#jumpCheck_card" ).addClass( "border-warning" );}
-					if(profile_region.length > 2){$("#jumpCheck_text").append("confirmed regional jumper"); $( "#jumpCheck_card" ).addClass( "border-danger" );}
+					//marking profiles accordingly to their regional account changing behaviour. 
+					if(profile_region.length <= 2 && profile_region[0] == "ZZ"){
+						$("#jumpCheck_text").append("Upstanding member of the steam community"); 
+						$( "#jumpCheck_card" ).addClass( "border-primary" );
+					}					
+					
+					if(profile_region.length > 1 && profile_region.length <= 2 && profile_region[0] !== "ZZ"){
+						$("#jumpCheck_text").append("Accounts Region has been Changed. (WARNING!)"); 
+						$( "#jumpCheck_card" ).addClass( "border-warning" );
+					}
+					
+					if(profile_region.length > 2){
+						$("#jumpCheck_text").append("confirmed regional jumper"); 
+						$( "#jumpCheck_card" ).addClass( "border-danger" );
+					}
 
 					
 					console.log(profile_id + "\n" + profile_time_stamp + "\n" + profile_region + "\n" + profile_game_count);
@@ -368,7 +380,7 @@
 						const date = new Date(profile_time_stamp[x] * 1000);
 						console.log(date);
 						console.log(profile_region[x]);
-						tLine += '<div class="row"><div class="col-auto text-center flex-column d-none d-sm-flex"><div class="row h-50"><div class="col border-right">&nbsp;</div><div class="col">&nbsp;</div></div><h5 class="m-2"><span class="badge badge-pill bg-light border">&nbsp;</span></h5><div class="row h-50"><div class="col">&nbsp;</div><div class="col">&nbsp;</div></div></div><div class="col py-2"><div class="card" style="background-image: url(\'./assets/cc_flags/png_16px/'+profile_region[x].toLowerCase()+'.png\');"> <div class="card-body"><div class="float-right text-muted">'+date.toLocaleDateString("da-DK")+'</div><h4 class="card-title">'+'Breaking the SSA, so i can purchase cheaper games in '+profile_region[x]+'</p></div></div></div></div>';
+						tLine += '<div class="row"><div class="col-auto text-center flex-column d-none d-sm-flex"><div class="row h-50"><div class="col border-right">&nbsp;</div><div class="col">&nbsp;</div></div><h5 class="m-2"><span class="badge badge-pill bg-light border">&nbsp;</span></h5><div class="row h-50"><div class="col">&nbsp;</div><div class="col">&nbsp;</div></div></div><div class="col py-2"><div class="card" style="background-image: url(\'./assets/cc_flags/png_16px/'+profile_region[x].toLowerCase()+'.png\');"> <div class="card-body"><div class="float-right">'+date.toLocaleDateString("da-DK")+'</div><h4 class="card-title"></p></div></div></div></div>';
 					}
 					$("#timeline_data").append(tLine);
 					
