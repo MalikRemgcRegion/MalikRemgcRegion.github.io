@@ -400,7 +400,7 @@
 							for (let x = 0; x < profile_time_stamp.length; x++) {
 								const date = new Date(profile_time_stamp[x] * 1000);
 								let commit_diff = "https://github.com/MalikRemgcRegion/MalikRemgcRegion.github.io/commit/"+data2[x].sha;
-								let region_flag = '<img class="card-img-top" src="./assets/cc_flags/png_100px/'+profile_region[x]+'.png" alt="'+profile_time_stamp+'" title="'+profile_region[x]+'" style="width:100px;height:70px;">'
+								let region_flag = '<img class="card-img-top" src="./assets/cc_flags/png_100px/'+profile_region[x].toLowerCase()+'.png" alt="'+profile_time_stamp[x]+'" title="'+profile_region[x]+'" style="width:100px;height:70px;">'
 
 								tLine += '<div class="row"><div class="col-auto text-center flex-column d-none d-sm-flex"><div class="row h-50"><div class="col border-right">&nbsp;</div><div class="col">&nbsp;</div></div><h5 class="m-2"><span class="badge badge-pill bg-light border">&nbsp;</span></h5><div class="row h-50"><div class="col">&nbsp;</div><div class="col">&nbsp;</div></div></div><div class="col py-2"><div class="card"> <div class="card-body"><div class="float-left">'+'<a class="btn btn-primary btn-block" href="'+commit_diff+'" role="button">Appid Changes<br>'+date.toLocaleDateString("da-DK")+'</a>'+'</div><div class="float-right">'+ region_flag +'</div><h4 class="card-title"></p></div></div></div></div>';
 							}
