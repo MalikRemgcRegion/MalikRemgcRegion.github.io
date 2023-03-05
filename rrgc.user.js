@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         rrgc userscript
 // @namespace    http://tampermonkey.net/
-// @version      0.1
+// @version      0.2
 // @description  try to take over the world!
 // @author       You
 // @match        https://malikremgcregion.github.io/*
@@ -55,5 +55,44 @@
                 }
             });
         }
+    }
+    if (window.location.href.indexOf("ladder.html?cc=") > -1) {
+        $('td:first-child').each(function(){
+            var $td = $(this);
+            let avatar_url,persona_name;
+            let steamids = $td[0].innerText;
+
+            GM_xmlhttpRequest({
+                method: "GET",
+                url: `https://steamcommunity.com/actions/ajaxresolveusers?steamids=${steamids}`,
+                synchronous: true,
+                onload: function(res) {
+                    let t_ajaxresolveusers = res.responseText;
+                    let j_ajaxresolveusers = JSON.parse(t_ajaxresolveusers);
+
+                    let avatar_url = j_ajaxresolveusers[0].avatar_url;
+                    let persona_name = j_ajaxresolveusers[0].persona_name;
+                    let steamid = j_ajaxresolveusers[0].steamid;
+
+                    $td.html('<a href="https://malikremgcregion.github.io/?id="'+steamid+'>' + persona_name + '</a>');
+
+                    //[
+                    //    {
+                    //        "steamid": "76561198034957967",
+                    //        "accountid": 74692239,
+                    //        "persona_name": "MalikQayum",
+                    //        "avatar_url": "bc7c8dbc3e6ffb7c6d07066c1024fb26182035ff",
+                    //        "profile_url": "MalikQayum",
+                    //        "persona_state": 1,
+                    //        "city": "",
+                    //        "state": "",
+                    //        "country": "",
+                    //        "real_name": "Malik Qayum"
+                    //    }
+                    //]
+
+                }
+            });
+        });
     }
 })();
