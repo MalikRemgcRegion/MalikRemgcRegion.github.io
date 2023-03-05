@@ -74,7 +74,7 @@
                     let persona_name = j_ajaxresolveusers[0].persona_name;
                     let steamid = j_ajaxresolveusers[0].steamid;
 
-                    $td.html('<a href="https://malikremgcregion.github.io/?id="'+steamid+'>' + persona_name + '</a>');
+                    $td.html('<a href="https://malikremgcregion.github.io/?id='+steamid+'">' + persona_name + '</a>');
 
                     //[
                     //    {
