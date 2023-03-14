@@ -385,7 +385,7 @@
 						url: "https://api.github.com/repos/MalikRemgcRegion/MalikRemgcRegion.github.io/commits?sha=main&path=ids/"+profile_id+".json",
 						type:"get",
 						dataType: 'text',  
-						error: function(data){
+						error: function(data2){
 							//debugger;
 							//alert('err');
 						},
@@ -395,6 +395,10 @@
 							if(profile_time_stamp.length > 3){
 								profile_time_stamp = profile_time_stamp.slice(-3).reverse();
 								profile_region = profile_region.slice(-3).reverse();
+							}
+							else{
+								profile_time_stamp = profile_time_stamp.reverse();
+								profile_region = profile_region.slice.reverse();
 							}
 							var tLine = "";
 							for (let x = 0; x < profile_time_stamp.length; x++) {
