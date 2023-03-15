@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         rrgc userscript
 // @namespace    http://tampermonkey.net/
-// @version      0.3
+// @version      0.4
 // @description  try to take over the world!
 // @author       You
 // @match        https://malikremgcregion.github.io/*
@@ -46,7 +46,8 @@
                         //let avatar_frame = g_steamprofile['avatar_frame'];
 
                         $("#steamAvatar").attr("src", avatar_url);
-                        $("#steamAlias").html(persona_name);
+                        //$("#steamAlias").html(persona_name);
+						$("#steamAlias").html('<a href="https://steamcommunity.com/profiles/'+steamid+'">'+persona_name+'</a>');
                     }
                 });
             }

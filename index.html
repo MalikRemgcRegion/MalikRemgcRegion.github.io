@@ -257,21 +257,27 @@
 					<div class="card-body">
 					  <h5 id="steamAlias" class="card-title"></h5>
 					  <p id="jumpCheck_text" class="card-text"></p>
-					  <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
 					</div>
 				  </div>
 				  <div id="jumpCheck_card" class="card">
 					<div class="card-body">
 					  <h5 class="card-title">Card title</h5>
 					  <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-					  <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+					  <p id="profile_time_stamp" class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
 					</div>
 				  </div>
 				</div>
 				
 			
 			
-				<div id="profile" class="container mt-3">
+				
+			</div>
+			<div class="col-sm-6">
+				<div id="timeline_data" class="container py-2 mt-4 mb-4">
+			  
+				</div>
+			</div>
+			<div id="profile" class="container mt-3">
 					<div class="jumbotron jumbotron-fluid">
 						<div class="container">  
 							<canvas id="myChart" style="width:100%;">
@@ -279,12 +285,6 @@
 						</div>
 					</div>
 				</div>
-			</div>
-			<div class="col-sm-6">
-				<div id="timeline_data" class="container py-2 mt-4 mb-4">
-			  
-				</div>
-			</div>
 		</div>
 	</div>
 	<!-- Profile related stuff -->
@@ -306,6 +306,7 @@
 		if(url_p_id.length == 17 && typeof parseInt(url_p_id) == "number" ){
 			console.log("true");
 			console.log(url_p_id);
+			
 			
 			//lets create the user profile page.
 			$("#main_data").hide();
@@ -337,6 +338,7 @@
 						
 						}
 					});
+					
 					
 					//add this to their profile.
 					//marking profiles accordingly to their regional account changing behaviour. 
@@ -411,6 +413,14 @@
 							$("#timeline_data").append(tLine);
 						}
 					});
+					
+					///profile user info stuff 
+					const date = new Date(profile_time_stamp[profile_time_stamp.length -1] * 1000);
+					$("#profile_time_stamp").html("Last Account Region Change: " + date.toLocaleDateString("da-DK"));
+					$("#steamAlias").html('<a href="https://steamcommunity.com/profiles/'+url_p_id+'">'+url_p_id+'</a>');
+					
+					
+
 				}
 			});
 		}else{
