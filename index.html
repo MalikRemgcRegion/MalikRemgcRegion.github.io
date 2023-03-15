@@ -13,8 +13,7 @@
 	<meta name="twitter:site" content="@malikremgcregion">
 	<meta name="twitter:image" content="https://malikremgcregion.github.io/assets/colored_body_top2.png">
 	<meta name="twitter:card" content="summary_large_image">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">  
 </head>
 <body>
 
@@ -419,10 +418,9 @@
 					$("#profile_time_stamp").html("Last Account Region Change: " + date.toLocaleDateString("da-DK"));
 					$("#steamAlias").html('<a href="https://steamcommunity.com/profiles/'+url_p_id+'">'+url_p_id+'</a>');
 					
-					
-
 				}
 			});
+			
 		}else{
 			console.log("false");
 			console.log(url_p_id);
@@ -432,6 +430,7 @@
 		$("#profile_data").hide();
 	}
 	</script>
+	<script>$('body').css('background-image', 'url("./assets/colored_body_top2.png")');</script>
 	<!-- jQuery Datatable js --><script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
 	<!-- Bootstrap Datatable js --><script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
 </body>
