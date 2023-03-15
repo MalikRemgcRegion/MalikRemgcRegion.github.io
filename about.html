@@ -110,7 +110,7 @@
 				ProfilesArrayData.push({'profile_id': j_db[i].id, 'profile_time_stamp': j_db[i].time_stamp, 'profile_region': j_db[i].region, 'profile_game_count': j_db[i].game_count});
 				z++;
 				if(z > 2){
-					break;
+					return false;
 				}
 			}
 		});
