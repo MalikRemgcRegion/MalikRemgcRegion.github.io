@@ -51,19 +51,131 @@
 	  </ul>
 	</nav>
 	
+	<div class="container mt-3">
+
+		<div class="jumbotron jumbotron-fluid">
+		  <div class="container">
+			<h1 class="display-4">RealRemovedGamesCollectors.com</h1>
+			<p class="lead">This service takes a look at the specific group of users, which have shown that they are willing to break the <a href="https://store.steampowered.com/subscriber_agreement/">SSA</a>.</p>
+			<blockquote cite="https://store.steampowered.com/subscriber_agreement/">
+			<h6>A. Payment Authorization</h6>
+			
+			You agree that you will not use IP proxying or other methods to disguise the place of your residence, whether to circumvent geographical restrictions on game content, to order or purchase at pricing not applicable to your geography, or for any other purpose. If you do this, Valve may terminate your access to your Account.
+			</blockquote>
+			
+			<p>
+			https://partner.steamgames.com/doc/store/pricing#5
+			<br>
+			https://partner.steamgames.com/doc/store/pricing/currencies
+			</p>
+			
+		  </div>
+		</div>
+	
+	</div>
+	
+	<!-- Profile related stuff -->
+	
+	<div id="profile_data" class="container mt-3">
+	
+	
+		<!-- 
+		
+		Dynamically create this stuff 
+		
+		-->
+	
+		<!-- Jieyu 76561198355625888-->
+		<div class="row">
+			<div class="col-sm-6">
+				<div class="card-group">
+				  <div class="card">
+					<img id="steamAvatar_76561198355625888" class="card-img-top" src="https://avatars.akamai.steamstatic.com/fef49e7fa7e1997310d705b2a6158ff8dc1cdfeb_full.jpg" alt="Card image cap">
+					<div class="card-body">
+					  <h5 id="steamAlias_76561198355625888" class="card-title"></h5>
+					  <p id="jumpCheck_text_76561198355625888" class="card-text"></p>
+					</div>
+				  </div>
+				  <div id="jumpCheck_card" class="card">
+					<div class="card-body">
+					  <h5 class="card-title">76561198355625888</h5>
+					  <p id="ProfilesArrayData_76561198355625888" class="card-text">76561198355625888 <br> Jieyu </p>
+					  <p id="profile_time_stamp_76561198355625888" class="card-text"><small class="text-muted"></small></p>
+					</div>
+				  </div>
+				</div>
+			</div>
+			
+			<div class="col-sm-6">
+			
+			</div>
+		</div>
+		
+		<!-- Thomas 76561198192399786-->
+		<div class="row">
+			<div class="col-sm-6">
+
+			</div>
+			
+			<div class="col-sm-6">
+				<div class="card-group">
+				  <div class="card">
+					<img id="steamAvatar_76561198192399786" class="card-img-top" src="https://avatars.akamai.steamstatic.com/fef49e7fa7e1997310d705b2a6158ff8dc1cdfeb_full.jpg" alt="Card image cap">
+					<div class="card-body">
+					  <h5 id="steamAlias_76561198192399786" class="card-title"></h5>
+					  <p id="jumpCheck_text_76561198192399786" class="card-text"></p>
+					</div>
+				  </div>
+				  <div id="jumpCheck_card" class="card">
+					<div class="card-body">
+					  <h5 class="card-title">76561198192399786</h5>
+					  <p id="ProfilesArrayData_76561198192399786" class="card-text">76561198192399786 <br> Thomas AKA Unmetplayer </p>
+					  <p id="profile_time_stamp_76561198192399786" class="card-text"><small class="text-muted"></small></p>
+					</div>
+				  </div>
+				</div>
+			</div>
+		</div>
+		
+		<!-- Malik 76561198034957967-->
+		<div class="row">
+			<div class="col-sm-6">
+				<div class="card-group">
+				  <div class="card">
+					<img id="steamAvatar_76561198034957967" class="card-img-top" src="https://avatars.akamai.steamstatic.com/fef49e7fa7e1997310d705b2a6158ff8dc1cdfeb_full.jpg" alt="Card image cap">
+					<div class="card-body">
+					  <h5 id="steamAlias_76561198034957967" class="card-title"></h5>
+					  <p id="jumpCheck_text_76561198034957967" class="card-text"></p>
+					</div>
+				  </div>
+				  <div id="jumpCheck_card" class="card">
+					<div class="card-body">
+					  <h5 class="card-title">76561198034957967</h5>
+					  <p id="ProfilesArrayData_76561198034957967" class="card-text">76561198034957967 <br> Malik </p>
+					  <p id="profile_time_stamp_76561198034957967" class="card-text"><small class="text-muted"></small></p>
+					</div>
+				  </div>
+				</div>
+			</div>
+			
+			<div class="col-sm-6">
+
+			</div>
+		</div>
+		
+		
+		
+		
+		
+	</div>
 	
 	
 	
 	
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script>$('body').css('background-image', 'url("./assets/colored_body_top2.png")');</script>
 	<script>
-		/*
-		fetch these 3 profiles:
-		1 - jieyu					: 76561198355625888
-		2 - thomas aka unmetplayer	: 76561198192399786
-		3 - malikqayum				: 76561198034957967
-		*/
 	
 		jQuery.extend({
 			getValues: function(url) {
@@ -93,22 +205,10 @@
 		
 		var j_db = JSON.parse( _db );
 		
-		var profile_id, profile_time_stamp, profile_region;
-		
-		
-		//we are going to have to iterate over the ProfilesArray as well.
-		
-		
 		var ProfilesArrayData = [];
 		var z = 0;
 		$.each(j_db, function (i) {				
 			if(j_db[i].id === ProfilesArray[z] ){
-				
-				profile_id = j_db[i].id;
-				profile_time_stamp = j_db[i].time_stamp; 
-				profile_region = j_db[i].region;
-				profile_game_count = j_db[i].game_count;
-				
 				ProfilesArrayData.push({'profile_id': j_db[i].id, 'profile_time_stamp': j_db[i].time_stamp, 'profile_region': j_db[i].region, 'profile_game_count': j_db[i].game_count});
 				z++;
 				if(z > 2){
@@ -116,6 +216,71 @@
 				}
 			}
 		});
+		
+		$("#ProfilesArrayData_76561198034957967").append(ProfilesArrayData[0]); 
+		$("#ProfilesArrayData_76561198192399786").append(ProfilesArrayData[1]); 
+		$("#ProfilesArrayData_76561198355625888").append(ProfilesArrayData[2]); 
+		
+		/* ProfilesArrayData
+		[
+		  {
+			"profile_id": "76561198034957967",
+			"profile_time_stamp": [
+			  1665525269
+			],
+			"profile_region": [
+			  "DK"
+			],
+			"profile_game_count": [
+			  13847
+			]
+		  },
+		  {
+			"profile_id": "76561198192399786",
+			"profile_time_stamp": [
+			  1651416976,
+			  1666372433
+			],
+			"profile_region": [
+			  "GB",
+			  "TR"
+			],
+			"profile_game_count": [
+			  6229,
+			  22879
+			]
+		  },
+		  {
+			"profile_id": "76561198355625888",
+			"profile_time_stamp": [
+			  1662596578,
+			  1662596578,
+			  1662596578,
+			  1662596578,
+			  1670286477,
+			  1672273739
+			],
+			"profile_region": [
+			  "CN",
+			  "AZ",
+			  "AR",
+			  "TR",
+			  "AR",
+			  "CN"
+			],
+			"profile_game_count": [
+			  0,
+			  0,
+			  0,
+			  0,
+			  51285,
+			  53598
+			]
+		  }
+		]
+		*/
+		
+		
 		
 		/*
 		//add this to their profile.
@@ -138,7 +303,6 @@
 		console.log(profile_id + "\n" + profile_time_stamp + "\n" + profile_region + "\n" + profile_game_count);
 		
 		*/
-		console.log(ProfilesArrayData);
 	</script>
 </body>
 </html>
