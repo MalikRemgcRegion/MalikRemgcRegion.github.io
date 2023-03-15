@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>malikremgcregion.github.io</title>
+	<meta name="description" content="MalikRemgcRegion brings an insight into regional account hoppers">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="malikremgcregion.github.io">
+	<meta property="og:description" content="Showing you regional account hoppers from malikremgcregion.github.io">
+	<meta property="og:url" content="https://malikremgcregion.github.io/">
+	<meta property="og:image" content="https://malikremgcregion.github.io/assets/colored_body_top2.png">
+	<meta name="twitter:site" content="@malikremgcregion">
+	<meta name="twitter:image" content="https://malikremgcregion.github.io/assets/colored_body_top2.png">
+	<meta name="twitter:card" content="summary_large_image">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">  
+</head>
+<body>
+
+	<!-- put into a nav file -->
+	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+	  <ul class="navbar-nav">
+		<li class="nav-item active">
+		  <a class="nav-link" href="https://malikremgcregion.github.io/">Home</a>
+		</li>
+		<li class="nav-item">
+		  <a class="nav-link" href="https://github.com/MalikRemgcRegion/MalikRemgcRegion.github.io">Github</a>
+		</li>
+		<li class="nav-item">
+		  <a class="nav-link" href="https://discord.gg/4X96kRjety">Discord</a>
+		</li>
+		<div class="dropdown">
+		  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			Ladders
+		  </button>
+		  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+			<a class="dropdown-item" href="./shame.html">Shame Ladder</a>
+			<a class="dropdown-item" href="./ladder.html">RRGC Ladder</a>
+		  </div>
+		</div>
+		
+		<div class="dropdown">
+		  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			Userscripts
+		  </button>
+		  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+			<a class="dropdown-item" href="https://github.com/MalikRemgcRegion/MalikRemgcRegion.github.io/raw/main/rrgc.user.js">Profile Userscript</a>
+			<a class="dropdown-item" href="https://github.com/MalikRemgcRegion/MalikRemgcRegion.github.io/raw/main/rrgcladder.user.js">steam-tracker/steamdb Userscript</a>
+		  </div>
+		</div>
+	  </ul>
+	</nav>
+	
+	
+	
+	
+	
+	<script>
+		/*
+		fetch these 3 profiles:
+		1 - jieyu					: 76561198355625888
+		2 - thomas aka unmetplayer	: 76561198192399786
+		3 - malikqayum				: 76561198034957967
+		*/
+	
+		jQuery.extend({
+			getValues: function(url) {
+				var result = null;
+				$.ajax({
+					url: url,
+					type: 'get',
+					dataType: 'text',
+					async: false,
+					success: function(data) {
+						result = data;
+					}
+				});
+			   return result;
+			}
+		});
+		
+		
+		var _db = $.getValues("./db/db.json");
+		
+		
+		const ProfilesArray = [
+			"76561198034957967",
+			"76561198192399786",
+			"76561198355625888"
+		];
+		
+		var j_db = JSON.parse( _db );
+		
+		var profile_id, profile_time_stamp, profile_region;
+		
+		
+		//we are going to have to iterate over the ProfilesArray as well.
+		
+		
+		var ProfilesArrayData = [];
+		var z = 0;
+		$.each(j_db, function (i) {				
+			if(j_db[i].id === ProfilesArray[z] ){
+				
+				profile_id = j_db[i].id;
+				profile_time_stamp = j_db[i].time_stamp; 
+				profile_region = j_db[i].region;
+				profile_game_count = j_db[i].game_count;
+				
+				ProfilesArrayData.push({'profile_id': j_db[i].id, 'profile_time_stamp': j_db[i].time_stamp, 'profile_region': j_db[i].region, 'profile_game_count': j_db[i].game_count});
+				z++;
+				if(z > 2){
+					break;
+				}
+			}
+		});
+		
+		/*
+		//add this to their profile.
+		//marking profiles accordingly to their regional account changing behaviour. 
+		if(profile_region.length <= 2 && profile_region[0] == "ZZ" || profile_region.length <= 1 && profile_region[0] !== "ZZ"){
+			$("#jumpCheck_text").append("Upstanding member of the steam community"); 
+			$( "#jumpCheck_card" ).addClass( "border-primary" );
+		}			
+		
+		if(profile_region.length > 1 && profile_region.length <= 2 && profile_region[0] !== "ZZ"){
+			$("#jumpCheck_text").append("Accounts Region has been Changed. (WARNING!)"); 
+			$( "#jumpCheck_card" ).addClass( "border-warning" );
+		}
+		
+		if(profile_region.length > 2){
+			$("#jumpCheck_text").append("confirmed regional jumper"); 
+			$( "#jumpCheck_card" ).addClass( "border-danger" );
+		}
+		
+		console.log(profile_id + "\n" + profile_time_stamp + "\n" + profile_region + "\n" + profile_game_count);
+		
+		*/
+		console.log(ProfilesArrayData);
+	</script>
+</body>
+</html>
