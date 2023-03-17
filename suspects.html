@@ -36,6 +36,7 @@
 		  </button>
 		  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 			<a class="dropdown-item" href="./shame.html">Shame Ladder</a>
+			<a class="dropdown-item" href="./suspects.html">Sus Ladder</a>
 			<a class="dropdown-item" href="./ladder.html">RRGC Ladder</a>
 		  </div>
 		</div>
@@ -49,11 +50,14 @@
 			<a class="dropdown-item" href="https://github.com/MalikRemgcRegion/MalikRemgcRegion.github.io/raw/main/rrgcladder.user.js">steam-tracker/steamdb Userscript</a>
 		  </div>
 		</div>
+		<li class="nav-item">
+		  <a class="nav-link" href="./about.html">About</a>
+		</li>
 	  </ul>
 	</nav>
 	
     <div class="container">
-        <table class="table sortable">
+        <table class="table sortable text-light">
 		  <thead class="thead-dark">
 			<tr>
 			  <th scope="col">id</th>
@@ -73,65 +77,9 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 	<script>
-	const queryString = window.location.search;
-	const urlParams = new URLSearchParams(queryString);
-	const url_p_cc = urlParams.get('cc')
-	if (url_p_cc) {
-		if(/^[A-Z]{2}$/.test(url_p_cc)){
-		document.title = url_p_cc + " | RRGC Ladder";
+
+		document.title = "Sus | RRGC Ladder";
 	
-			$.ajax({
-			   url: "https://raw.githubusercontent.com/MalikRemgcRegion/MalikRemgcRegion.github.io/main/db/db.json",
-				type:"get",
-				dataType: 'text',  
-				error: function(data){
-				//debugger;
-				  //alert('err');
-				},
-				success:function(data) {
-					var data = JSON.parse( data );
-					
-					var profile_id, profile_time_stamp, profile_region;
-					
-					var tr = '';
-					
-					$.each(data, function (i) {					
-						profile_id = data[i].id;
-						profile_time_stamp = data[i].time_stamp; 
-						profile_region = data[i].region;
-						profile_game_count = data[i].game_count;
-						
-						/* this is for everyone that has only 2 region changes on record, first being ZZ, then we also require that their last known game count is public.
-						if(profile_region.length < 3 && profile_region[0] == "ZZ" && profile_game_count[0] > 1){
-							tr += '<tr><td><a href="https://malikremgcregion.github.io/?id='+profile_id+'">' + profile_id +'</a></td><td>'  + profile_region[profile_region.length - 1] + '</td><td>'+profile_game_count[profile_game_count.length - 1] + '</td><td>' + profile_time_stamp[profile_time_stamp.length - 1] + '</td></tr>';
-						}
-						*/
-						
-						/*this of everyone where 
-						if(profile_region.length < 2 && profile_region[0] !== "ZZ"){
-							tr += '<tr><td><a href="https://malikremgcregion.github.io/?id='+profile_id+'">' + profile_id +'</a></td><td>'  + profile_region[profile_region.length - 1] + '</td><td>'+profile_game_count[profile_game_count.length - 1] + '</td><td>' + profile_time_stamp[profile_time_stamp.length - 1] + '</td></tr>';
-						}
-						*/
-						let cc = url_p_cc;
-						if(profile_region.length < 2 && profile_region.includes(cc)){
-							tr += '<tr><td><a href="https://malikremgcregion.github.io/?id='+profile_id+'">' + profile_id +'</a></td><td>'  + '<a href="' + window.location.href + '?cc=' + profile_region[profile_region.length - 1] +'"><img class="card-img-top" src="./assets/cc_flags/png_16px/'+profile_region[profile_region.length - 1].toLowerCase()+'.png" alt="'+profile_region[profile_region.length - 1]+'" title="'+profile_region[profile_region.length - 1]+'" style="width:16px;height:16px;"></a>' /* profile_region*/ /*profile_region[profile_region.length - 1]*/ + '</td><td>'+profile_game_count[profile_game_count.length - 1] + '</td><td>' + profile_time_stamp[profile_time_stamp.length - 1] + '</td></tr>';
-						}
-						
-					});
-					
-					$('#rrgc').append(tr); 
-				}
-			});
-		}
-		else{
-			console.log(url_p_cc);
-			no_cc_ladder()
-		}
-	}else{
-		no_cc_ladder()
-	}
-	
-	function no_cc_ladder(){
 		$.ajax({
 		   url: "https://raw.githubusercontent.com/MalikRemgcRegion/MalikRemgcRegion.github.io/main/db/db.json",
 			type:"get",
@@ -153,16 +101,17 @@
 					profile_region = data[i].region;
 					profile_game_count = data[i].game_count;
 					
-
-					if(profile_region.length > 0 && profile_region[0] !== "ZZ"){
-						tr += '<tr><td><a href="https://malikremgcregion.github.io/?id='+profile_id+'">' + profile_id +'</a></td><td>'  + '<a href="' + window.location.href + '?cc=' + profile_region[profile_region.length - 1] +'"><img class="card-img-top" src="./assets/cc_flags/png_16px/'+profile_region[profile_region.length - 1].toLowerCase()+'.png" alt="'+profile_region[profile_region.length - 1]+'" title="'+profile_region[profile_region.length - 1]+'" style="width:16px;height:16px;"></a>' + '</td><td>'+profile_game_count[profile_game_count.length - 1] + '</td><td>' + profile_time_stamp[profile_time_stamp.length - 1] + '</td></tr>';
-					}						
+					if( profile_region.length > 1 && profile_region.length <= 2 && profile_region[0] !== "ZZ"){
+						tr += '<tr><td><a href="https://malikremgcregion.github.io/?id='+profile_id+'">' + profile_id +'</a></td><td>'  + '<a href="' + window.location.href + '?cc=' + profile_region[profile_region.length - 1] +'"><img class="card-img-top" src="./assets/cc_flags/png_16px/'+profile_region[profile_region.length - 1].toLowerCase()+'.png" alt="'+profile_region[profile_region.length - 1]+'" title="'+profile_region[profile_region.length - 1]+'" style="width:16px;height:16px;"></a>' /* profile_region*/ /*profile_region[profile_region.length - 1]*/ + '</td><td>'+profile_game_count[profile_game_count.length - 1] + '</td><td>' + profile_time_stamp[profile_time_stamp.length - 1] + '</td></tr>';
+					}
+					
+					
 				});
 				
-				$('#rrgc').append(tr); 
+				$('#rrgc').append(tr);				
 			}
 		});
-	}
 	</script>
+	<script>$('body').css('background-image', 'url("./assets/colored_body_top2.png")');</script>
 </body>
 </html>
