@@ -209,7 +209,20 @@
 		var z = 0;
 		$.each(j_db, function (i) {				
 			if(j_db[i].id === ProfilesArray[z] ){
-				ProfilesArrayData.push({'profile_id': j_db[i].id, 'profile_time_stamp': j_db[i].time_stamp, 'profile_region': j_db[i].region, 'profile_game_count': j_db[i].game_count});
+				
+				/* behaviourScore
+				0 - $("#jumpCheck_text").append("Upstanding member of the steam community"); $( "#jumpCheck_card" ).addClass( "border-primary" );
+				1 - $("#jumpCheck_text").append("Accounts Region has been Changed. (WARNING!)"); $( "#jumpCheck_card" ).addClass( "border-warning" );
+				2 - $("#jumpCheck_text").append("confirmed regional jumper"); $( "#jumpCheck_card" ).addClass( "border-danger" );
+				*/
+				
+				var behaviourScore = 0;
+				if(j_db[i].region.length <= 2 && j_db[i].region[0] == "ZZ" || j_db[i].region.length <= 1 && j_db[i].region[0] !== "ZZ"){behaviourScore = 0;}			
+				if(j_db[i].region.length > 1 && j_db[i].region.length <= 2 && j_db[i].region[0] !== "ZZ"){behaviourScore = 1;}
+				if(j_db[i].region.length > 2){behaviourScore = 2;}
+								
+				ProfilesArrayData.push({'profile_id': j_db[i].id, 'profile_time_stamp': j_db[i].time_stamp, 'profile_region': j_db[i].region, 'profile_game_count': j_db[i].game_count, 'behaviour_score': behaviourScore});
+								
 				z++;
 				if(z > 2){
 					return false;
@@ -220,6 +233,10 @@
 		$("#ProfilesArrayData_76561198034957967").append(JSON.stringify(ProfilesArrayData[0])); 
 		$("#ProfilesArrayData_76561198192399786").append(JSON.stringify(ProfilesArrayData[1])); 
 		$("#ProfilesArrayData_76561198355625888").append(JSON.stringify(ProfilesArrayData[2])); 
+		
+		//we can use this to create a badge and then use a gradient color to overlay the badge.
+		//https://www.google.com/search?q=jquery+add+gradient+color+on+top+of+image&oq=jquery+add+gradient+color+on+top+of&aqs=chrome.2.69i57j33i160l4.22714j0j7&sourceid=chrome&ie=UTF-8#kpvalbx=_3koSZIjgNtOSrwTbja_gCA_35
+		
 		
 		/* ProfilesArrayData
 		[
@@ -279,6 +296,8 @@
 		  }
 		]
 		*/
+		
+		
 		
 		
 		
