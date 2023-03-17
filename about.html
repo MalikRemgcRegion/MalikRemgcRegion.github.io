@@ -121,11 +121,6 @@
 		$.each(j_db, function (i) {				
 			if(j_db[i].id === ProfilesArray[z] ){
 				
-				/* behaviourScore
-				0 - $("#jumpCheck_text").append("Upstanding member of the steam community"); $( "#jumpCheck_card" ).addClass( "border-primary" );
-				1 - $("#jumpCheck_text").append("Accounts Region has been Changed. (WARNING!)"); $( "#jumpCheck_card" ).addClass( "border-warning" );
-				2 - $("#jumpCheck_text").append("confirmed regional jumper"); $( "#jumpCheck_card" ).addClass( "border-danger" );
-				*/
 				var behaviourScore = 0;
 				if(j_db[i].region.length <= 2 && j_db[i].region[0] == "ZZ" || j_db[i].region.length <= 1 && j_db[i].region[0] !== "ZZ"){behaviourScore = 0; var behaviourData = {0: "Upstanding member of the steam community", 1:"#27dde0"};}				
 				if(j_db[i].region.length > 1 && j_db[i].region.length <= 2 && j_db[i].region[0] !== "ZZ"){behaviourScore = 1; var behaviourData = {0: "Accounts Region has been Changed. (WARNING!)", 1:"#e07f27"};}
@@ -136,6 +131,13 @@
 				
 				const date = new Date(j_db[i].time_stamp[j_db[i].time_stamp.length -1] * 1000);
 				
+				
+				/*<br>Account regions: ' + j_db[i].region
+				for (let j = 0; j < tophoppers[i].region.length; j++) {
+					//console.log(tophoppers[i].id+ " => " +tophoppers[i].region[j]);
+				  $( ".card-text.tophopper_"+i ).append('<img class="card-img-top" src="./assets/cc_flags/png_16px/'+tophoppers[i].region[j].toLowerCase()+'.png" alt="'+tophoppers[i].time_stamp[j]+'" title="'+tophoppers[i].time_stamp[j]+'" style="width:16px;height:16px;">');
+				}
+				*/
 				
 				if(z == 0 || z == 2){
 				$("#profile_data").prepend( '<div class="row mt-3">' +
@@ -158,12 +160,12 @@
 						'</div>' +
 					'</div>' +
 					
-					'<div class="col-sm-6">' +
+					'<div class="col-sm-6 mt-5">' +
 					
 						'<section style="background-color: #eee;">'+
 							'<figure class="bg-white p-3 rounded" style="border-left: .50rem solid '+behaviourData[1]+';">'+
 							  '<blockquote class="blockquote pb-2">'+
-								'<p>'+ 'profile_region change count: ' + j_db[i].region.length + 'profile_region: ' + j_db[i].region + '<br>behaviour_score: '+ behaviourScore +'</p>'+
+								'<p>'+ 'Account regional count changes: ' + j_db[i].region.length + '<br>Account regions: ' + j_db[i].region + '<br>behaviour_score: '+ behaviourScore +'</p>'+
 							  '</blockquote>'+
 							  '<figcaption class="blockquote-footer mb-0 font-italic">'+ j_db[i].id+ '</figcaption>'+
 							'</figure>'+
@@ -174,7 +176,7 @@
 				}
 				if(z == 1){
 				$("#profile_data").prepend('<div class="row mt-3">' +
-					'<div class="col-sm-6">' +
+					'<div class="col-sm-6 mt-5">' +
 						'<section style="background-color: #eee;">'+
 							'<figure class="bg-white p-3 rounded" style="border-left: .50rem solid '+behaviourData[1]+';">'+
 							  '<blockquote class="blockquote pb-2">'+
