@@ -68,7 +68,6 @@
 			<br>
 			https://partner.steamgames.com/doc/store/pricing/currencies
 			</p>
-			
 		  </div>
 		</div>
 	
@@ -126,13 +125,16 @@
 				1 - $("#jumpCheck_text").append("Accounts Region has been Changed. (WARNING!)"); $( "#jumpCheck_card" ).addClass( "border-warning" );
 				2 - $("#jumpCheck_text").append("confirmed regional jumper"); $( "#jumpCheck_card" ).addClass( "border-danger" );
 				*/
-				
 				var behaviourScore = 0;
-				if(j_db[i].region.length <= 2 && j_db[i].region[0] == "ZZ" || j_db[i].region.length <= 1 && j_db[i].region[0] !== "ZZ"){behaviourScore = 0;}			
-				if(j_db[i].region.length > 1 && j_db[i].region.length <= 2 && j_db[i].region[0] !== "ZZ"){behaviourScore = 1;}
-				if(j_db[i].region.length > 2){behaviourScore = 2;}
+				if(j_db[i].region.length <= 2 && j_db[i].region[0] == "ZZ" || j_db[i].region.length <= 1 && j_db[i].region[0] !== "ZZ"){behaviourScore = 0; var behaviourData = {0: "Upstanding member of the steam community", 1:"#27dde0"};}				
+				if(j_db[i].region.length > 1 && j_db[i].region.length <= 2 && j_db[i].region[0] !== "ZZ"){behaviourScore = 1; var behaviourData = {0: "Accounts Region has been Changed. (WARNING!)", 1:"#e07f27"};}
+				if(j_db[i].region.length > 2){behaviourScore = 2; var behaviourData = {0: "Confirmed Changes Accounts Region.", 1:"#f14747"};}
 								
 				ProfilesArrayData.push({'profile_id': j_db[i].id, 'profile_time_stamp': j_db[i].time_stamp, 'profile_region': j_db[i].region, 'profile_game_count': j_db[i].game_count, 'behaviour_score': behaviourScore});
+				
+				
+				const date = new Date(j_db[i].time_stamp[j_db[i].time_stamp.length -1] * 1000);
+				
 				
 				if(z == 0 || z == 2){
 				$("#profile_data").prepend( '<div class="row mt-3">' +
@@ -141,15 +143,15 @@
 						  '<div class="card">' +
 							'<img id="steamAvatar_'+j_db[i].id+'" class="card-img-top" src="https://avatars.akamai.steamstatic.com/fef49e7fa7e1997310d705b2a6158ff8dc1cdfeb_full.jpg" alt="Card image cap">' +
 							'<div class="card-body">' +
-							  '<h5 id="steamAlias_'+j_db[i].id+'" class="card-title">'+j_db[i].id+'</h5>' +
-							  '<p id="jumpCheck_text_'+j_db[i].id+'" class="card-text">'+j_db[i].id+'</p>' +
+							  '<h5 id="steamAlias_'+j_db[i].id+'" class="card-title"><a href="https://steamcommunity.com/profiles/'+j_db[i].id+'">'+j_db[i].id+'</a></h5>' +
+							  '<p id="jumpCheck_text_'+j_db[i].id+'" class="card-text">'+behaviourData[0]+'</p>' +
 							'</div>' +
 						  '</div>' +
 						  '<div id="jumpCheck_card" class="card">' +
 							'<div class="card-body">' +
-							  '<h5 class="card-title">'+j_db[i].id+'</h5>' +
+							  '<h5 class="card-title"></h5>' +
 							  '<p id="ProfilesArrayData_'+j_db[i].id+'" class="card-text"><img class="card-img-top" src="./assets/SteamGuard_'+behaviourScore+'.png" alt="Card image cap"></p>' +
-							  '<p id="profile_time_stamp_'+j_db[i].id+'" class="card-text"><small class="text-muted"></small></p>' +
+							  '<p id="profile_time_stamp_'+j_db[i].id+'" class="card-text"><small class="text-muted"></small>'+"Last Account Region Change: " + date.toLocaleDateString()+'</p>' +
 							'</div>' +
 						  '</div>' +
 						'</div>' +
@@ -158,9 +160,9 @@
 					'<div class="col-sm-6">' +
 					
 						'<section style="background-color: #eee;">'+
-							'<figure class="bg-white p-3 rounded" style="border-left: .50rem solid #a34e78;">'+
+							'<figure class="bg-white p-3 rounded" style="border-left: .50rem solid '+behaviourData[1]+';">'+
 							  '<blockquote class="blockquote pb-2">'+
-								'<p>'+ 'profile_id: ' + j_db[i].id + '<br>profile_time_stamp: ' + j_db[i].time_stamp + '<br>profile_region: ' + j_db[i].region + '<br>profile_game_count: '+ j_db[i].game_count + '<br>behaviour_score: '+ behaviourScore +'</p>'+
+								'<p>'+ 'profile_region change count: ' + j_db[i].region.length + 'profile_region: ' + j_db[i].region + '<br>behaviour_score: '+ behaviourScore +'</p>'+
 							  '</blockquote>'+
 							  '<figcaption class="blockquote-footer mb-0 font-italic">'+ j_db[i].id+ '</figcaption>'+
 							'</figure>'+
@@ -173,29 +175,30 @@
 				$("#profile_data").prepend('<div class="row mt-3">' +
 					'<div class="col-sm-6">' +
 						'<section style="background-color: #eee;">'+
-							'<figure class="bg-white p-3 rounded" style="border-left: .50rem solid #a34e78;">'+
+							'<figure class="bg-white p-3 rounded" style="border-left: .50rem solid '+behaviourData[1]+';">'+
 							  '<blockquote class="blockquote pb-2">'+
-								'<p>'+ 'profile_id: ' + j_db[i].id + '<br>profile_time_stamp: ' + j_db[i].time_stamp + '<br>profile_region: ' + j_db[i].region + '<br>profile_game_count: '+ j_db[i].game_count + '<br>behaviour_score: '+ behaviourScore +'</p>'+
+								'<p>'+ 'profile_region change count: ' + j_db[i].region.length + 'profile_region: ' + j_db[i].region + '<br>behaviour_score: '+ behaviourScore +'</p>'+
 							  '</blockquote>'+
 							  '<figcaption class="blockquote-footer mb-0 font-italic">'+ j_db[i].id+ '</figcaption>'+
 							'</figure>'+
 						'</section>'+
 					'</div>' +
 					
+					$("#profile_data").prepend( '<div class="row mt-3">' +
 					'<div class="col-sm-6">' +
 						'<div class="card-group">' +
 						  '<div class="card">' +
 							'<img id="steamAvatar_'+j_db[i].id+'" class="card-img-top" src="https://avatars.akamai.steamstatic.com/fef49e7fa7e1997310d705b2a6158ff8dc1cdfeb_full.jpg" alt="Card image cap">' +
 							'<div class="card-body">' +
-							  '<h5 id="steamAlias_'+j_db[i].id+'" class="card-title">'+j_db[i].id+'</h5>' +
-							  '<p id="jumpCheck_text_'+j_db[i].id+'" class="card-text">'+j_db[i].id+'</p>' +
+							  '<h5 id="steamAlias_'+j_db[i].id+'" class="card-title"><a href="https://steamcommunity.com/profiles/'+j_db[i].id+'">'+j_db[i].id+'</a></h5>' +
+							  '<p id="jumpCheck_text_'+j_db[i].id+'" class="card-text">'+behaviourData[0]+'</p>' +
 							'</div>' +
 						  '</div>' +
 						  '<div id="jumpCheck_card" class="card">' +
 							'<div class="card-body">' +
-							  '<h5 class="card-title">'+j_db[i].id+'</h5>' +
+							  '<h5 class="card-title"></h5>' +
 							  '<p id="ProfilesArrayData_'+j_db[i].id+'" class="card-text"><img class="card-img-top" src="./assets/SteamGuard_'+behaviourScore+'.png" alt="Card image cap"></p>' +
-							  '<p id="profile_time_stamp_'+j_db[i].id+'" class="card-text"><small class="text-muted"></small></p>' +
+							  '<p id="profile_time_stamp_'+j_db[i].id+'" class="card-text"><small class="text-muted"></small>'+"Last Account Region Change: " + date.toLocaleDateString()+'</p>' +
 							'</div>' +
 						  '</div>' +
 						'</div>' +
