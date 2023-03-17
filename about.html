@@ -77,93 +77,7 @@
 	<!-- Profile related stuff -->
 	
 	<div id="profile_data" class="container mt-3">
-	
-	
-		<!-- 
-		
-		Dynamically create this stuff 
-		
-		-->
-		<!--
-		<div class="row">
-			<div class="col-sm-6">
-				<div class="card-group">
-				  <div class="card">
-					<img id="steamAvatar_76561198355625888" class="card-img-top" src="https://avatars.akamai.steamstatic.com/fef49e7fa7e1997310d705b2a6158ff8dc1cdfeb_full.jpg" alt="Card image cap">
-					<div class="card-body">
-					  <h5 id="steamAlias_76561198355625888" class="card-title"></h5>
-					  <p id="jumpCheck_text_76561198355625888" class="card-text"></p>
-					</div>
-				  </div>
-				  <div id="jumpCheck_card" class="card">
-					<div class="card-body">
-					  <h5 class="card-title">76561198355625888</h5>
-					  <p id="ProfilesArrayData_76561198355625888" class="card-text">76561198355625888 <br> Jieyu </p>
-					  <p id="profile_time_stamp_76561198355625888" class="card-text"><small class="text-muted"></small></p>
-					</div>
-				  </div>
-				</div>
-			</div>
 			
-			<div class="col-sm-6">
-			
-			</div>
-		</div>
-		
-		<div class="row">
-			<div class="col-sm-6">
-
-			</div>
-			
-			<div class="col-sm-6">
-				<div class="card-group">
-				  <div class="card">
-					<img id="steamAvatar_76561198192399786" class="card-img-top" src="https://avatars.akamai.steamstatic.com/fef49e7fa7e1997310d705b2a6158ff8dc1cdfeb_full.jpg" alt="Card image cap">
-					<div class="card-body">
-					  <h5 id="steamAlias_76561198192399786" class="card-title"></h5>
-					  <p id="jumpCheck_text_76561198192399786" class="card-text"></p>
-					</div>
-				  </div>
-				  <div id="jumpCheck_card" class="card">
-					<div class="card-body">
-					  <h5 class="card-title">76561198192399786</h5>
-					  <p id="ProfilesArrayData_76561198192399786" class="card-text">76561198192399786 <br> Thomas AKA Unmetplayer </p>
-					  <p id="profile_time_stamp_76561198192399786" class="card-text"><small class="text-muted"></small></p>
-					</div>
-				  </div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="row">
-			<div class="col-sm-6">
-				<div class="card-group">
-				  <div class="card">
-					<img id="steamAvatar_76561198034957967" class="card-img-top" src="https://avatars.akamai.steamstatic.com/fef49e7fa7e1997310d705b2a6158ff8dc1cdfeb_full.jpg" alt="Card image cap">
-					<div class="card-body">
-					  <h5 id="steamAlias_76561198034957967" class="card-title"></h5>
-					  <p id="jumpCheck_text_76561198034957967" class="card-text"></p>
-					</div>
-				  </div>
-				  <div id="jumpCheck_card" class="card">
-					<div class="card-body">
-					  <h5 class="card-title">76561198034957967</h5>
-					  <p id="ProfilesArrayData_76561198034957967" class="card-text">76561198034957967 <br> Malik </p>
-					  <p id="profile_time_stamp_76561198034957967" class="card-text"><small class="text-muted"></small></p>
-					</div>
-				  </div>
-				</div>
-			</div>
-			
-			<div class="col-sm-6">
-
-			</div>
-		</div>
-		-->
-		
-		
-		
-		
 	</div>
 	
 	
@@ -227,14 +141,14 @@
 						  '<div class="card">' +
 							'<img id="steamAvatar_'+j_db[i].id+'" class="card-img-top" src="https://avatars.akamai.steamstatic.com/fef49e7fa7e1997310d705b2a6158ff8dc1cdfeb_full.jpg" alt="Card image cap">' +
 							'<div class="card-body">' +
-							  '<h5 id="steamAlias_'+j_db[i].id+'" class="card-title"></h5>' +
-							  '<p id="jumpCheck_text_'+j_db[i].id+'" class="card-text"></p>' +
+							  '<h5 id="steamAlias_'+j_db[i].id+'" class="card-title">'+j_db[i].id+'</h5>' +
+							  '<p id="jumpCheck_text_'+j_db[i].id+'" class="card-text">'+j_db[i].id+'</p>' +
 							'</div>' +
 						  '</div>' +
 						  '<div id="jumpCheck_card" class="card">' +
 							'<div class="card-body">' +
 							  '<h5 class="card-title">'+j_db[i].id+'</h5>' +
-							  '<p id="ProfilesArrayData_'+j_db[i].id+'" class="card-text">'+j_db[i].id+'</p>' +
+							  '<p id="ProfilesArrayData_'+j_db[i].id+'" class="card-text"><img class="card-img-top" src="./assets/SteamGuard.png" alt="Card image cap"></p>' +
 							  '<p id="profile_time_stamp_'+j_db[i].id+'" class="card-text"><small class="text-muted"></small></p>' +
 							'</div>' +
 						  '</div>' +
@@ -273,14 +187,14 @@
 						  '<div class="card">' +
 							'<img id="steamAvatar_'+j_db[i].id+'" class="card-img-top" src="https://avatars.akamai.steamstatic.com/fef49e7fa7e1997310d705b2a6158ff8dc1cdfeb_full.jpg" alt="Card image cap">' +
 							'<div class="card-body">' +
-							  '<h5 id="steamAlias_'+j_db[i].id+'" class="card-title"></h5>' +
-							  '<p id="jumpCheck_text_'+j_db[i].id+'" class="card-text"></p>' +
+							  '<h5 id="steamAlias_'+j_db[i].id+'" class="card-title">'+j_db[i].id+'</h5>' +
+							  '<p id="jumpCheck_text_'+j_db[i].id+'" class="card-text">'+j_db[i].id+'</p>' +
 							'</div>' +
 						  '</div>' +
 						  '<div id="jumpCheck_card" class="card">' +
 							'<div class="card-body">' +
 							  '<h5 class="card-title">'+j_db[i].id+'</h5>' +
-							  '<p id="ProfilesArrayData_'+j_db[i].id+'" class="card-text">'+j_db[i].id+'</p>' +
+							  '<p id="ProfilesArrayData_'+j_db[i].id+'" class="card-text"><img class="card-img-top" src="./assets/SteamGuard.png" alt="Card image cap"></p>' +
 							  '<p id="profile_time_stamp_'+j_db[i].id+'" class="card-text"><small class="text-muted"></small></p>' +
 							'</div>' +
 						  '</div>' +
@@ -365,32 +279,6 @@
 			]
 		  }
 		]
-		*/
-		
-		
-		
-		
-		
-		/*
-		//add this to their profile.
-		//marking profiles accordingly to their regional account changing behaviour. 
-		if(profile_region.length <= 2 && profile_region[0] == "ZZ" || profile_region.length <= 1 && profile_region[0] !== "ZZ"){
-			$("#jumpCheck_text").append("Upstanding member of the steam community"); 
-			$( "#jumpCheck_card" ).addClass( "border-primary" );
-		}			
-		
-		if(profile_region.length > 1 && profile_region.length <= 2 && profile_region[0] !== "ZZ"){
-			$("#jumpCheck_text").append("Accounts Region has been Changed. (WARNING!)"); 
-			$( "#jumpCheck_card" ).addClass( "border-warning" );
-		}
-		
-		if(profile_region.length > 2){
-			$("#jumpCheck_text").append("confirmed regional jumper"); 
-			$( "#jumpCheck_card" ).addClass( "border-danger" );
-		}
-		
-		console.log(profile_id + "\n" + profile_time_stamp + "\n" + profile_region + "\n" + profile_game_count);
-		
 		*/
 	</script>
 </body>
