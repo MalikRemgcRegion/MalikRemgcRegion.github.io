@@ -117,14 +117,14 @@
 				
 				var behaviourScore = 0;
 				if(j_db[i].region.length <= 2 && j_db[i].region[0] == "ZZ" || j_db[i].region.length <= 1 && j_db[i].region[0] !== "ZZ"){behaviourScore = 0; var behaviourData = {0: "Upstanding member of the steam community", 1:"#27dde0"};}				
-				if(j_db[i].region.length > 1 && j_db[i].region.length <= 2 && j_db[i].region[0] !== "ZZ"){behaviourScore = 1; var behaviourData = {0: "Accounts Region has been Changed. (WARNING!)", 1:"#e07f27"};}
-				if(j_db[i].region.length > 2){behaviourScore = 2; var behaviourData = {0: "Confirmed Changes Accounts Region.", 1:"#f14747"};}
+				if(j_db[i].region.length > 1 && j_db[i].region.length <= 2 && j_db[i].region[0] !== "ZZ"){behaviourScore = 1; var behaviourData = {0: "Account Region has been Changed. (WARNING!)", 1:"#e07f27"};}
+				if(j_db[i].region.length > 2){behaviourScore = 2; var behaviourData = {0: "Confirmed Changes Account Region.", 1:"#f14747"};}
 
 				ProfilesArrayData.push({'profile_id': j_db[i].id, 'profile_time_stamp': j_db[i].time_stamp, 'profile_region': j_db[i].region, 'profile_game_count': j_db[i].game_count, 'behaviour_score': behaviourScore});
 				
 				let date = new Date(j_db[i].time_stamp[j_db[i].time_stamp.length -1] * 1000);
 				
-				/*<br>Account regions: ' + j_db[i].region
+				/*<br>Account regions: ' + j_db[i].region //change the Regions into flags
 				for (let j = 0; j < tophoppers[i].region.length; j++) {
 					//console.log(tophoppers[i].id+ " => " +tophoppers[i].region[j]);
 				  $( ".card-text.tophopper_"+i ).append('<img class="card-img-top" src="./assets/cc_flags/png_16px/'+tophoppers[i].region[j].toLowerCase()+'.png" alt="'+tophoppers[i].time_stamp[j]+'" title="'+tophoppers[i].time_stamp[j]+'" style="width:16px;height:16px;">');
@@ -138,7 +138,7 @@
 						  '<div class="card">' +
 							'<img id="steamAvatar_'+j_db[i].id+'" class="card-img-top" src="https://avatars.akamai.steamstatic.com/fef49e7fa7e1997310d705b2a6158ff8dc1cdfeb_full.jpg" alt="Card image cap">' +
 							'<div class="card-body">' +
-							  '<h5 id="steamAlias_'+j_db[i].id+'" class="card-title"><a href="https://steamcommunity.com/profiles/'+j_db[i].id+'">'+j_db[i].id+'</a></h5>' +
+							  '<h5 id="steamAlias_'+j_db[i].id+'" class="card-title"><a href="https://malikremgcregion.github.io/?id='+j_db[i].id+'">'+j_db[i].id+'</a></h5>' +
 							  '<p id="jumpCheck_text_'+j_db[i].id+'" class="card-text">'+behaviourData[0]+'</p>' +
 							'</div>' +
 						  '</div>' +
@@ -184,7 +184,7 @@
 						  '<div class="card">' +
 							'<img id="steamAvatar_'+j_db[i].id+'" class="card-img-top" src="https://avatars.akamai.steamstatic.com/fef49e7fa7e1997310d705b2a6158ff8dc1cdfeb_full.jpg" alt="Card image cap">' +
 							'<div class="card-body">' +
-							  '<h5 id="steamAlias_'+j_db[i].id+'" class="card-title"><a href="https://steamcommunity.com/profiles/'+j_db[i].id+'">'+j_db[i].id+'</a></h5>' +
+							  '<h5 id="steamAlias_'+j_db[i].id+'" class="card-title"><a href="https://malikremgcregion.github.io/?id='+j_db[i].id+'">'+j_db[i].id+'</a></h5>' +
 							  '<p id="jumpCheck_text_'+j_db[i].id+'" class="card-text">'+behaviourData[0]+'</p>' +
 							'</div>' +
 						  '</div>' +
@@ -208,73 +208,6 @@
 				}
 			}
 		});
-		
-		//$("#ProfilesArrayData_76561198034957967").append(JSON.stringify(ProfilesArrayData[0])); 
-		//$("#ProfilesArrayData_76561198192399786").append(JSON.stringify(ProfilesArrayData[1])); 
-		//$("#ProfilesArrayData_76561198355625888").append(JSON.stringify(ProfilesArrayData[2])); 
-		
-		//we can use this to create a badge and then use a gradient color to overlay the badge.
-		//https://www.google.com/search?q=jquery+add+gradient+color+on+top+of+image&oq=jquery+add+gradient+color+on+top+of&aqs=chrome.2.69i57j33i160l4.22714j0j7&sourceid=chrome&ie=UTF-8#kpvalbx=_3koSZIjgNtOSrwTbja_gCA_35
-		
-		
-		/* ProfilesArrayData
-		[
-		  {
-			"profile_id": "76561198034957967",
-			"profile_time_stamp": [
-			  1665525269
-			],
-			"profile_region": [
-			  "DK"
-			],
-			"profile_game_count": [
-			  13847
-			]
-		  },
-		  {
-			"profile_id": "76561198192399786",
-			"profile_time_stamp": [
-			  1651416976,
-			  1666372433
-			],
-			"profile_region": [
-			  "GB",
-			  "TR"
-			],
-			"profile_game_count": [
-			  6229,
-			  22879
-			]
-		  },
-		  {
-			"profile_id": "76561198355625888",
-			"profile_time_stamp": [
-			  1662596578,
-			  1662596578,
-			  1662596578,
-			  1662596578,
-			  1670286477,
-			  1672273739
-			],
-			"profile_region": [
-			  "CN",
-			  "AZ",
-			  "AR",
-			  "TR",
-			  "AR",
-			  "CN"
-			],
-			"profile_game_count": [
-			  0,
-			  0,
-			  0,
-			  0,
-			  51285,
-			  53598
-			]
-		  }
-		]
-		*/
 	</script>
 </body>
 </html>
