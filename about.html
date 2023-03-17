@@ -221,7 +221,7 @@
 				ProfilesArrayData.push({'profile_id': j_db[i].id, 'profile_time_stamp': j_db[i].time_stamp, 'profile_region': j_db[i].region, 'profile_game_count': j_db[i].game_count, 'behaviour_score': behaviourScore});
 				
 				if(z == 0 || z == 2){
-				$("#profile_data").append( '<div class="row">' +
+				$("#profile_data").prepend( '<div class="row mt-3">' +
 					'<div class="col-sm-6">' +
 						'<div class="card-group">' +
 						  '<div class="card">' +
@@ -244,7 +244,7 @@
 					'<div class="col-sm-6">' +
 					
 						'<section style="background-color: #eee;">'+
-						  '<div class="container py-3">'+
+						  '<div class="container py-4">'+
 							'<div class="row d-flex align-items-center">'+
 							  '<div class="col col-lg-12 mb-4 mb-lg-0">'+
 								'<figure class="bg-white p-3 rounded" style="border-left: .25rem solid #a34e78;">'+
@@ -262,10 +262,10 @@
 				'</div>');
 				}
 				if(z == 1){
-				$("#profile_data").append('<div class="row">' +
+				$("#profile_data").prepend('<div class="row mt-3">' +
 					'<div class="col-sm-6">' +
 						'<section style="background-color: #eee;">'+
-						  '<div class="container py-3">'+
+						  '<div class="container py-4">'+
 							'<div class="row d-flex align-items-center">'+
 							  '<div class="col col-lg-12 mb-4 mb-lg-0">'+
 								'<figure class="bg-white p-3 rounded" style="border-left: .25rem solid #a34e78;">'+
@@ -312,9 +312,9 @@
 			}
 		});
 		
-		$("#ProfilesArrayData_76561198034957967").append(JSON.stringify(ProfilesArrayData[0])); 
-		$("#ProfilesArrayData_76561198192399786").append(JSON.stringify(ProfilesArrayData[1])); 
-		$("#ProfilesArrayData_76561198355625888").append(JSON.stringify(ProfilesArrayData[2])); 
+		//$("#ProfilesArrayData_76561198034957967").append(JSON.stringify(ProfilesArrayData[0])); 
+		//$("#ProfilesArrayData_76561198192399786").append(JSON.stringify(ProfilesArrayData[1])); 
+		//$("#ProfilesArrayData_76561198355625888").append(JSON.stringify(ProfilesArrayData[2])); 
 		
 		//we can use this to create a badge and then use a gradient color to overlay the badge.
 		//https://www.google.com/search?q=jquery+add+gradient+color+on+top+of+image&oq=jquery+add+gradient+color+on+top+of&aqs=chrome.2.69i57j33i160l4.22714j0j7&sourceid=chrome&ie=UTF-8#kpvalbx=_3koSZIjgNtOSrwTbja_gCA_35
