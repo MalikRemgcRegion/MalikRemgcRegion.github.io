@@ -73,14 +73,10 @@
 	
 	</div>
 	
-	<!-- Profile related stuff -->
-	
+	<!-- Profile related stuff -->	
 	<div id="profile_data" class="container mt-3">
 			
 	</div>
-	
-	
-	
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -104,10 +100,8 @@
 			}
 		});
 		
-		
 		var _db = $.getValues("./db/db.json");
-		
-		
+
 		const ProfilesArray = [
 			"76561198034957967",
 			"76561198192399786",
@@ -125,12 +119,10 @@
 				if(j_db[i].region.length <= 2 && j_db[i].region[0] == "ZZ" || j_db[i].region.length <= 1 && j_db[i].region[0] !== "ZZ"){behaviourScore = 0; var behaviourData = {0: "Upstanding member of the steam community", 1:"#27dde0"};}				
 				if(j_db[i].region.length > 1 && j_db[i].region.length <= 2 && j_db[i].region[0] !== "ZZ"){behaviourScore = 1; var behaviourData = {0: "Accounts Region has been Changed. (WARNING!)", 1:"#e07f27"};}
 				if(j_db[i].region.length > 2){behaviourScore = 2; var behaviourData = {0: "Confirmed Changes Accounts Region.", 1:"#f14747"};}
-								
+
 				ProfilesArrayData.push({'profile_id': j_db[i].id, 'profile_time_stamp': j_db[i].time_stamp, 'profile_region': j_db[i].region, 'profile_game_count': j_db[i].game_count, 'behaviour_score': behaviourScore});
 				
-				
-				const date = new Date(j_db[i].time_stamp[j_db[i].time_stamp.length -1] * 1000);
-				
+				let date = new Date(j_db[i].time_stamp[j_db[i].time_stamp.length -1] * 1000);
 				
 				/*<br>Account regions: ' + j_db[i].region
 				for (let j = 0; j < tophoppers[i].region.length; j++) {
@@ -180,7 +172,7 @@
 						'<section style="background-color: #eee;">'+
 							'<figure class="bg-white p-3 rounded" style="border-left: .50rem solid '+behaviourData[1]+';">'+
 							  '<blockquote class="blockquote pb-2">'+
-								'<p>'+ 'profile_region change count: ' + j_db[i].region.length + 'profile_region: ' + j_db[i].region + '<br>behaviour_score: '+ behaviourScore +'</p>'+
+								'<p>'+ 'Account regional count changes: ' + j_db[i].region.length + '<br>Account regions: ' + j_db[i].region + '<br>behaviour_score: '+ behaviourScore +'</p>'+
 							  '</blockquote>'+
 							  '<figcaption class="blockquote-footer mb-0 font-italic">'+ j_db[i].id+ '</figcaption>'+
 							'</figure>'+
@@ -209,8 +201,6 @@
 				'</div>');
 				
 				}
-				
-				
 				
 				z++;
 				if(z > 2){
