@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         rrgc userscript
 // @namespace    malikremgcregion.github.io/
-// @version      0.7
+// @version      0.8
 // @description  try to take over the world!
 // @author       rrgc
 // @match        https://malikremgcregion.github.io/*
@@ -122,38 +122,35 @@
             url: "https://raw.githubusercontent.com/MalikRemgcRegion/malikremgcregion.github.io/main/db/db.json",
             synchronous: true,
             onload: function(res) {
-                let db = res.responseText;
-                let json = JSON.parse(db);
+                const db = JSON.parse(res.responseText);
+                const currentURL = window.location.href;
 
-                if (window.location.href.indexOf("steam-tracker") > -1) {
-                    jQuery("tr").each(function() {
-                        let id = $(this).attr('id');
-                        let g_getSteamID = getSteamID("s" + id, json);
-                        if (g_getSteamID.length > 0) {
-                            let countries = "";
-                            for (let i = 0; i < g_getSteamID[0]['region'].length; i++) {
-                                if (g_getSteamID[0]['region'][i] !== "ZZ") {
-                                    countries += '<img src="https://steam-tracker.com/images/cc16px/' + g_getSteamID[0]['region'][i].toLowerCase() + '.png">';
-                                }
-                            }
-                            $(this).children('td').eq(2).html(countries);
+                if (currentURL.includes("steam-tracker")) {
+                    const rows = document.querySelectorAll("tr");
+                    rows.forEach(row => {
+                        const id = row.getAttribute("id");
+                        const steamID = getSteamID("s" + id, db);
+                        if (steamID.length > 0) {
+                            const countries = steamID[0]["region"]
+                            .filter(r => r !== "ZZ")
+                            .map(r => `<img src="https://steam-tracker.com/images/cc16px/${r.toLowerCase()}.png">`)
+                            .join("");
+                            row.children[2].innerHTML = countries;
                         }
                     });
                 }
 
-                if (window.location.href.indexOf("steamdb") > -1) {
+                if (currentURL.includes("steamdb")) {
                     jQuery(document).ready(function() {
                         jQuery("tr").each(function() {
-                            let id = jQuery(this).prop('id');
-                            let g_getSteamID = getSteamID(id, json);
-                            if (g_getSteamID.length > 0) {
-                                let countries = "";
-                                for (let i = 0; i < g_getSteamID[0]['region'].length; i++) {
-                                    if (g_getSteamID[0]['region'][i] !== "ZZ") {
-                                        countries += '<img src="https://steamdb.info/static/country/' + g_getSteamID[0]['region'][i].toLowerCase() + '.svg">';
-                                    }
-                                }
-                                $(this).children('td').eq(2).html(countries);
+                            const id = jQuery(this).prop("id");
+                            const steamID = getSteamID(id, db);
+                            if (steamID.length > 0) {
+                                const countries = steamID[0]["region"]
+                                .filter(r => r !== "ZZ")
+                                .map(r => `<img src="https://steamdb.info/static/country/${r.toLowerCase()}.svg">`)
+                                .join("");
+                                jQuery(this).children("td").eq(2).html(countries);
                             }
                         });
                     });
@@ -161,13 +158,8 @@
             }
         });
 
-        function getSteamID(ids, json) {
-            if (ids === "") {
-                return json;
-            } else {
-                let steamids = ids.split(",");
-                return json.filter(c => c.id !== "" && steamids.includes(c.id));
-            }
+        function getSteamID(ids, db) {
+            return db.filter(c => c.id !== "" && ids.includes(c.id));
         }
     }
 })();
