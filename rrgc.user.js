@@ -1,13 +1,22 @@
 // ==UserScript==
 // @name         rrgc userscript
-// @namespace    http://tampermonkey.net/
-// @version      0.6
+// @namespace    malikremgcregion.github.io/
+// @version      0.7
 // @description  try to take over the world!
-// @author       You
+// @author       rrgc
 // @match        https://malikremgcregion.github.io/*
+// @match        https://steam-tracker.com/ranking/apps
+// @match        https://steamdb.info/badge/13/
+// @connect     malikremgcregion.github.io
+// @connect     raw.githubusercontent.com
+// @connect     steamcommunity.com
+// @connect     steam-tracker.com
+// @connect     steamdb.info
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=undefined.
 // @require     https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js
 // @grant        GM_xmlhttpRequest
+// @downloadURL      https://github.com/MalikRemgcRegion/MalikRemgcRegion.github.io/raw/main/rrgc.user.js
+// @updateURL        https://github.com/MalikRemgcRegion/MalikRemgcRegion.github.io/raw/main/rrgc.user.js
 // ==/UserScript==
 
 (function() {
@@ -101,4 +110,64 @@
             resolveSteamIDs();
         }
     });
+
+    // Steam-tracker + SteamDB
+    if (window.location.href.indexOf("steamdb") > -1 || window.location.href.indexOf("steam-tracker") > -1) {
+        jQuery( "tr" ).each(function() {
+            $(this).children('td').eq(2).css("width","200px");
+        });
+
+        GM_xmlhttpRequest({
+            method: "GET",
+            url: "https://raw.githubusercontent.com/MalikRemgcRegion/malikremgcregion.github.io/main/db/db.json",
+            synchronous: true,
+            onload: function(res) {
+                let db = res.responseText;
+                let json = JSON.parse(db);
+
+                if (window.location.href.indexOf("steam-tracker") > -1) {
+                    jQuery("tr").each(function() {
+                        let id = $(this).attr('id');
+                        let g_getSteamID = getSteamID("s" + id, json);
+                        if (g_getSteamID.length > 0) {
+                            let countries = "";
+                            for (let i = 0; i < g_getSteamID[0]['region'].length; i++) {
+                                if (g_getSteamID[0]['region'][i] !== "ZZ") {
+                                    countries += '<img src="https://steam-tracker.com/images/cc16px/' + g_getSteamID[0]['region'][i].toLowerCase() + '.png">';
+                                }
+                            }
+                            $(this).children('td').eq(2).html(countries);
+                        }
+                    });
+                }
+
+                if (window.location.href.indexOf("steamdb") > -1) {
+                    jQuery(document).ready(function() {
+                        jQuery("tr").each(function() {
+                            let id = jQuery(this).prop('id');
+                            let g_getSteamID = getSteamID(id, json);
+                            if (g_getSteamID.length > 0) {
+                                let countries = "";
+                                for (let i = 0; i < g_getSteamID[0]['region'].length; i++) {
+                                    if (g_getSteamID[0]['region'][i] !== "ZZ") {
+                                        countries += '<img src="https://steamdb.info/static/country/' + g_getSteamID[0]['region'][i].toLowerCase() + '.svg">';
+                                    }
+                                }
+                                $(this).children('td').eq(2).html(countries);
+                            }
+                        });
+                    });
+                }
+            }
+        });
+
+        function getSteamID(ids, json) {
+            if (ids === "") {
+                return json;
+            } else {
+                let steamids = ids.split(",");
+                return json.filter(c => c.id !== "" && steamids.includes(c.id));
+            }
+        }
+    }
 })();
