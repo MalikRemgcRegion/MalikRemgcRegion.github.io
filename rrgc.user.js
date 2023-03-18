@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         rrgc userscript
 // @namespace    malikremgcregion.github.io/
-// @version      0.8
+// @version      0.9
 // @description  try to take over the world!
 // @author       rrgc
 // @match        https://malikremgcregion.github.io/*
@@ -25,6 +25,7 @@
     // Your code here...
     $(document).ready(function() {
         const shameUrl = "https://malikremgcregion.github.io/shame.html";
+        const suspectsUrl = "https://malikremgcregion.github.io/suspects.html";
         const aboutUrl = "https://malikremgcregion.github.io/about.html";
         const mainUrl = "https://malikremgcregion.github.io/";
         const queryString = window.location.search;
@@ -32,7 +33,7 @@
         const steamid = urlParams.get('id');
 
         // Shame page
-        if (window.location.href === shameUrl || window.location.href.includes("cc")) {
+        if (window.location.href === shameUrl || window.location.href === suspectsUrl || window.location.href.includes("cc")) {
             $('td:first-child').each(function() {
                 const $td = $(this);
                 const steamids = $td[0].innerText;
