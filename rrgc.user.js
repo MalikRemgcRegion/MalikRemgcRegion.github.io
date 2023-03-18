@@ -55,7 +55,7 @@
 
         // About page
         if (window.location.href === aboutUrl) {
-            const profilesArray = [STEAM_ID_1, STEAM_ID_2, STEAM_ID_3]; // Replace with your Steam IDs
+            const profilesArray = ["76561198034957967", "76561198192399786", "76561198355625888"];
             profilesArray.forEach(steamid => {
                 GM_xmlhttpRequest({
                     method: "GET",
