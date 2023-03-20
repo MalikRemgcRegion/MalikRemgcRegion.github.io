@@ -211,6 +211,24 @@
 				  </div>
 				</div>
 				
+				<div class="container">
+					<table class="table sortable text-light">
+					  <thead class="thead-dark">
+						<tr>
+							<th>Currency Code</th>
+							<th>Symbol</th>
+							<th>Symbol is Prefix</th>
+							<th>Decimal Symbol</th>
+							<th>Thousands Separator</th>
+							<th>Symbol and Number Separator</th>
+						</tr>
+					  </thead>
+					  <tbody id="table-body">
+					  </tbody>
+					</table>
+				</div>
+
+				
 			</div>
 			
 			<div class="col-sm-3">
@@ -444,5 +462,63 @@
 	<script>$('body').css('background-image', 'url("./assets/colored_body_top2.png")');</script>
 	<!-- jQuery Datatable js --><script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
 	<!-- Bootstrap Datatable js --><script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
+	
+	<script>
+	jQuery.extend({
+		getValues: function(url) {
+			var result = null;
+			$.ajax({
+				url: url,
+				type: 'get',
+				dataType: 'text',
+				async: false,
+				success: function(data) {
+					result = data;
+				}
+			});
+		   return result;
+		}
+	});
+	
+		
+	var data = $.getValues("./db/ecurrencycodes.json");
+
+		// get the table body
+		var tableBody = document.getElementById('table-body');
+
+		// loop through the data object
+		for (var key in data) {
+			// create a new row for each object
+			var row = document.createElement('tr');
+
+			// create a new cell for each property in the object
+			var codeCell = document.createElement('td');
+			var symbolCell = document.createElement('td');
+			var prefixCell = document.createElement('td');
+			var decimalCell = document.createElement('td');
+			var thousandsCell = document.createElement('td');
+			var separatorCell = document.createElement('td');
+
+			// add the data to the cells
+			codeCell.innerHTML = data[key].strCode;
+			symbolCell.innerHTML = data[key].strSymbol;
+			prefixCell.innerHTML = data[key].bSymbolIsPrefix;
+			decimalCell.innerHTML = data[key].strDecimalSymbol;
+			thousandsCell.innerHTML = data[key].strThousandsSeparator;
+			separatorCell.innerHTML = data[key].strSymbolAndNumberSeparator;
+
+			// append the cells to the row
+			row.appendChild(codeCell);
+			row.appendChild(symbolCell);
+			row.appendChild(prefixCell);
+			row.appendChild(decimalCell);
+			row.appendChild(thousandsCell);
+			row.appendChild(separatorCell);
+
+			// append the row to the table body
+			tableBody.appendChild(row);
+		}
+	</script>
+	
 </body>
 </html>
