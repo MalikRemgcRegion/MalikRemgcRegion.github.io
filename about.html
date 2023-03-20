@@ -107,6 +107,7 @@
 		
 		var j_db = JSON.parse( _db );
 		
+		//ProfilesArrayData is for the userscript to access.
 		var ProfilesArrayData = [];
 		var z = 0;
 		$.each(j_db, function (i) {				
@@ -120,6 +121,8 @@
 				ProfilesArrayData.push({'profile_id': j_db[i].id, 'profile_time_stamp': j_db[i].time_stamp, 'profile_region': j_db[i].region, 'profile_game_count': j_db[i].game_count, 'behaviour_score': behaviourScore});
 				
 				let date = new Date(j_db[i].time_stamp[j_db[i].time_stamp.length -1] * 1000);
+								
+				var BehaviourBlob = 'This Account has changed their account region ' + j_db[i].region.length + ' times. Since the site began to track the account, it has been to this/these region(s): ' + j_db[i].region + '<br> the owner is an '+ behaviourData[0];
 				
 				/*<br>Account regions: ' + j_db[i].region //change the Regions into flags
 				for (let j = 0; j < tophoppers[i].region.length; j++) {
@@ -129,6 +132,8 @@
 				*/
 				
 				if(z == 0 || z == 2){
+				
+				
 				$("#profile_data").prepend( '<div class="row mt-3">' +
 					'<div class="col-sm-6">' +
 						'<div class="card-group">' +
@@ -154,7 +159,7 @@
 						'<section style="background-color: #eee;">'+
 							'<figure class="bg-white p-3 rounded" style="border-left: .50rem solid '+behaviourData[1]+';">'+
 							  '<blockquote class="blockquote pb-2">'+
-								'<p>'+ 'Account regional count changes: ' + j_db[i].region.length + '<br>Account regions: ' + j_db[i].region + '<br>behaviour_score: '+ behaviourScore +'</p>'+
+								'<p>'+ BehaviourBlob +'</p>'+
 							  '</blockquote>'+
 							  '<figcaption class="blockquote-footer mb-0 font-italic">'+ j_db[i].id+ '</figcaption>'+
 							'</figure>'+
@@ -169,7 +174,7 @@
 						'<section style="background-color: #eee;">'+
 							'<figure class="bg-white p-3 rounded" style="border-left: .50rem solid '+behaviourData[1]+';">'+
 							  '<blockquote class="blockquote pb-2">'+
-								'<p>'+ 'Account regional count changes: ' + j_db[i].region.length + '<br>Account regions: ' + j_db[i].region + '<br>behaviour_score: '+ behaviourScore +'</p>'+
+								'<p>'+ BehaviourBlob +'</p>'+
 							  '</blockquote>'+
 							  '<figcaption class="blockquote-footer mb-0 font-italic">'+ j_db[i].id+ '</figcaption>'+
 							'</figure>'+
