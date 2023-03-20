@@ -121,9 +121,13 @@
 				ProfilesArrayData.push({'profile_id': j_db[i].id, 'profile_time_stamp': j_db[i].time_stamp, 'profile_region': j_db[i].region, 'profile_game_count': j_db[i].game_count, 'behaviour_score': behaviourScore});
 				
 				let date = new Date(j_db[i].time_stamp[j_db[i].time_stamp.length -1] * 1000);
-								
-				var BehaviourBlob = 'This Account has changed their account region ' + j_db[i].region.length + ' times. Since the site began to track the account, it has been to this/these region(s): ' + j_db[i].region + '<br> the owner is an '+ behaviourData[0];
 				
+				var BehaviourBlob = "";
+				if(behaviourScore == 0){
+					BehaviourBlob = 'The owner of the Account has not changed their account region. Since the site began to track the account, it has been in this region: ' + j_db[i].region + '.<br>The owner of this account has supported the developers/publishers pricings by remaining in their region.;
+				}else{
+					BehaviourBlob = 'The owner of the Account has changed the account region ' + j_db[i].region.length + ' times. Since the site began to track the account, it has been to this/these region(s): ' + j_db[i].region + '.<br>The owner of this account, likes to steal from the developers/publishers by bypasassing regional pricings.';
+				}
 				/*<br>Account regions: ' + j_db[i].region //change the Regions into flags
 				for (let j = 0; j < tophoppers[i].region.length; j++) {
 					//console.log(tophoppers[i].id+ " => " +tophoppers[i].region[j]);
@@ -132,8 +136,6 @@
 				*/
 				
 				if(z == 0 || z == 2){
-				
-				
 				$("#profile_data").prepend( '<div class="row mt-3">' +
 					'<div class="col-sm-6">' +
 						'<div class="card-group">' +
