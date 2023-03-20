@@ -211,10 +211,6 @@
 				  </div>
 				</div>
 				
-				<table id="currency-table"></table>
-				
-				
-				
 			</div>
 			
 			<div class="col-sm-3">
@@ -440,7 +436,6 @@
 			console.log("false");
 			console.log(url_p_id);
 			//lets not do anything then?
-			
 		}
 	}else{
 		$("#profile_data").hide();
@@ -449,48 +444,5 @@
 	<script>$('body').css('background-image', 'url("./assets/colored_body_top2.png")');</script>
 	<!-- jQuery Datatable js --><script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
 	<!-- Bootstrap Datatable js --><script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
-	
-	<script>
-	// JSON data
-	jQuery.extend({
-		getValues: function(url) {
-			var result = null;
-			$.ajax({
-				url: url,
-				type: 'get',
-				dataType: 'text',
-				async: false,
-				success: function(data) {
-					result = data;
-				}
-			});
-		   return result;
-		}
-	});
-	
-	
-	const ecurrencycodes = $.getValues("./db/ecurrencycodes.json");
-	
-
-	// Get the table element
-	const table = document.getElementById("currency-table");
-
-	// Create table header row
-	const headerRow = table.insertRow();
-	for (let key in ecurrencycodes[Object.keys(ecurrencycodes)[0]]) {
-		const headerCell = document.createElement("th");
-		headerCell.innerHTML = key;
-		headerRow.appendChild(headerCell);
-	}
-
-	// Create table rows and cells from JSON data
-	for (let key in ecurrencycodes) {
-		const row = table.insertRow();
-		for (let prop in ecurrencycodes[key]) {
-			const cell = row.insertCell();
-			cell.innerHTML = ecurrencycodes[key][prop];
-		}
-	}
-	</script>		
 </body>
 </html>
