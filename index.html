@@ -482,43 +482,43 @@
 	
 		
 	var data = $.getValues("./db/ecurrencycodes.json");
+	data = JSON.parse(data);
+	// get the table body
+	var tableBody = document.getElementById('table-body');
 
-		// get the table body
-		var tableBody = document.getElementById('table-body');
+	// loop through the data object
+	for (var key in data) {
+		// create a new row for each object
+		console.log(data[key]);
+		var row = document.createElement('tr');
 
-		// loop through the data object
-		for (var key in data) {
-			// create a new row for each object
-			console.log(data[key]);
-			var row = document.createElement('tr');
+		// create a new cell for each property in the object
+		var codeCell = document.createElement('td');
+		var symbolCell = document.createElement('td');
+		var prefixCell = document.createElement('td');
+		var decimalCell = document.createElement('td');
+		var thousandsCell = document.createElement('td');
+		var separatorCell = document.createElement('td');
 
-			// create a new cell for each property in the object
-			var codeCell = document.createElement('td');
-			var symbolCell = document.createElement('td');
-			var prefixCell = document.createElement('td');
-			var decimalCell = document.createElement('td');
-			var thousandsCell = document.createElement('td');
-			var separatorCell = document.createElement('td');
+		// add the data to the cells
+		codeCell.innerHTML = data[key].strCode;
+		symbolCell.innerHTML = data[key].strSymbol;
+		prefixCell.innerHTML = data[key].bSymbolIsPrefix;
+		decimalCell.innerHTML = data[key].strDecimalSymbol;
+		thousandsCell.innerHTML = data[key].strThousandsSeparator;
+		separatorCell.innerHTML = data[key].strSymbolAndNumberSeparator;
 
-			// add the data to the cells
-			codeCell.innerHTML = data[key].strCode;
-			symbolCell.innerHTML = data[key].strSymbol;
-			prefixCell.innerHTML = data[key].bSymbolIsPrefix;
-			decimalCell.innerHTML = data[key].strDecimalSymbol;
-			thousandsCell.innerHTML = data[key].strThousandsSeparator;
-			separatorCell.innerHTML = data[key].strSymbolAndNumberSeparator;
+		// append the cells to the row
+		row.appendChild(codeCell);
+		row.appendChild(symbolCell);
+		row.appendChild(prefixCell);
+		row.appendChild(decimalCell);
+		row.appendChild(thousandsCell);
+		row.appendChild(separatorCell);
 
-			// append the cells to the row
-			row.appendChild(codeCell);
-			row.appendChild(symbolCell);
-			row.appendChild(prefixCell);
-			row.appendChild(decimalCell);
-			row.appendChild(thousandsCell);
-			row.appendChild(separatorCell);
-
-			// append the row to the table body
-			tableBody.appendChild(row);
-		}
+		// append the row to the table body
+		tableBody.appendChild(row);
+	}
 	</script>
 	
 </body>
