@@ -50,7 +50,6 @@
 	
 	
 	<div class="container mt-3">
-
 		<div class="jumbotron jumbotron-fluid">
 		  <div class="container">
 			<h1 class="display-4">RealRemovedGamesCollectors.com</h1>
@@ -61,15 +60,13 @@
 			You agree that you will not use IP proxying or other methods to disguise the place of your residence, whether to circumvent geographical restrictions on game content, to order or purchase at pricing not applicable to your geography, or for any other purpose. If you do this, Valve may terminate your access to your Account.
 			</blockquote>
 			
-			<p>
+			<br>
 			https://partner.steamgames.com/doc/store/pricing#5
 			<br>
 			https://partner.steamgames.com/doc/store/pricing/currencies
-			</p>
-			
+			<br>
 		  </div>
 		</div>
-	
 	</div>
 	
 	<div id="main_data" class="container text-light mt-3">
@@ -176,8 +173,7 @@
 					</div>
 				  </div>
 				</div>
-				
-				
+
 				<div class="card-group mt-3 mb-3">
 				  <div class="card rrc_view_profile_3">
 					<!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
@@ -210,31 +206,6 @@
 					</div>
 				  </div>
 				</div>
-				
-				<!-- ecurrencycodes -->
-				<div class="container">
-					<table class="table sortable text-light">
-					  <thead class="thead-dark">
-						<tr>
-							<th>Currency Code</th>
-							<th>Symbol</th>
-							<th>Symbol is Prefix</th>
-							<th>Decimal Symbol</th>
-							<th>Thousands Separator</th>
-							<th>Symbol and Number Separator</th>
-						</tr>
-					  </thead>
-					  <tbody id="table-body">
-					  </tbody>
-					</table>
-				</div>
-				<!-- pricing -->
-				<div class="container">
-					<table id="pricing" class="table sortable text-light">
-
-					</table>
-				</div>
-				
 			</div>
 			
 			<div class="col-sm-3">
@@ -269,8 +240,6 @@
 	<div id="profile_data" class="container mt-3">
 		<div class="row">
 			<div class="col-sm-6">
-				
-
 				<div class="card-group">
 				  <div class="card">
 					<img id="steamAvatar" class="card-img-top" src="https://avatars.akamai.steamstatic.com/fef49e7fa7e1997310d705b2a6158ff8dc1cdfeb_full.jpg" alt="Card image cap">
@@ -287,10 +256,6 @@
 					</div>
 				  </div>
 				</div>
-				
-			
-			
-				
 			</div>
 			<div class="col-sm-6">
 				<div id="timeline_data" class="container py-2 mt-4 mb-4">
@@ -298,13 +263,13 @@
 				</div>
 			</div>
 			<div id="profile" class="container mt-3">
-					<div class="jumbotron jumbotron-fluid">
-						<div class="container">  
-							<canvas id="myChart" style="width:100%;">
-							</canvas>  
-						</div>
+				<div class="jumbotron jumbotron-fluid">
+					<div class="container">  
+						<canvas id="myChart" style="width:100%;">
+						</canvas>  
 					</div>
 				</div>
+			</div>
 		</div>
 	</div>
 	<!-- Profile related stuff -->
@@ -468,115 +433,5 @@
 	<script>$('body').css('background-image', 'url("./assets/colored_body_top2.png")');</script>
 	<!-- jQuery Datatable js --><script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
 	<!-- Bootstrap Datatable js --><script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
-	
-	<script>
-	jQuery.extend({
-		getValues: function(url) {
-			var result = null;
-			$.ajax({
-				url: url,
-				type: 'get',
-				dataType: 'text',
-				async: false,
-				success: function(data) {
-					result = data;
-				}
-			});
-		   return result;
-		}
-	});
-	
-		
-	var data = $.getValues("./db/ecurrencycodes.json");
-	data = JSON.parse(data);
-	// get the table body
-	var tableBody = document.getElementById('table-body');
-
-	// loop through the data object
-	for (var key in data) {
-		// create a new row for each object
-		console.log(data[key]);
-		var row = document.createElement('tr');
-
-		// create a new cell for each property in the object
-		var codeCell = document.createElement('td');
-		var symbolCell = document.createElement('td');
-		var prefixCell = document.createElement('td');
-		var decimalCell = document.createElement('td');
-		var thousandsCell = document.createElement('td');
-		var separatorCell = document.createElement('td');
-
-		// add the data to the cells
-		codeCell.innerHTML = data[key].strCode;
-		symbolCell.innerHTML = data[key].strSymbol;
-		prefixCell.innerHTML = data[key].bSymbolIsPrefix;
-		decimalCell.innerHTML = data[key].strDecimalSymbol;
-		thousandsCell.innerHTML = data[key].strThousandsSeparator;
-		separatorCell.innerHTML = data[key].strSymbolAndNumberSeparator;
-
-		// append the cells to the row
-		row.appendChild(codeCell);
-		row.appendChild(symbolCell);
-		row.appendChild(prefixCell);
-		row.appendChild(decimalCell);
-		row.appendChild(thousandsCell);
-		row.appendChild(separatorCell);
-
-		// append the row to the table body
-		tableBody.appendChild(row);
-	}
-	</script>
-	<script>
-		jQuery.extend({
-			getValues: function(url) {
-				var result = null;
-				$.ajax({
-					url: url,
-					type: 'get',
-					dataType: 'text',
-					async: false,
-					success: function(data) {
-						result = data;
-					}
-				});
-			   return result;
-			}
-		});
-		
-			
-		var data = $.getValues("./db/pricing.json");
-		data = JSON.parse(data);
-		
-		// create a table element
-		const table = document.createElement("table");
-		table.setAttribute("id", "pricing");
-		const headers = Object.keys(data[Object.keys(data)[0]]);
-		headers.unshift("");
-
-		// Create the header row
-		const headerRow = table.insertRow();
-
-		// Loop through the headers and create a cell for each one
-		headers.forEach(header => {
-		  const cell = headerRow.insertCell();
-		  cell.innerHTML = '<b>' + header +'</b>';
-		});
-
-		// create a row for each currency
-		for (const [currency, values] of Object.entries(data)) {
-		  if (currency !== "timestamp") {
-			const row = table.insertRow();
-			const cell1 = row.insertCell();
-			cell1.innerHTML = currency.toUpperCase();
-			for (const [key, value] of Object.entries(values)) {
-			  const cell = row.insertCell();
-			  cell.innerHTML = value;
-			}
-		  }
-		}
-		// add the table to the HTML document
-		document.getElementById('pricing').appendChild(table);
-		//document.body.appendChild(table);
-	</script>
 </body>
 </html>
