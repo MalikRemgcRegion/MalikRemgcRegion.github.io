@@ -551,6 +551,7 @@
 		const table = document.createElement("table");
 		table.setAttribute("id", "pricing");
 		const headers = Object.keys(data[Object.keys(data)[0]]);
+		headers.unshift("");
 
 		// Create the header row
 		const headerRow = table.insertRow();
