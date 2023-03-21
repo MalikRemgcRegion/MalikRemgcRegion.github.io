@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>malikremgcregion.github.io</title>
+	<meta name="description" content="MalikRemgcRegion brings an insight into regional account hoppers">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="malikremgcregion.github.io">
+	<meta property="og:description" content="Showing you regional account hoppers from malikremgcregion.github.io">
+	<meta property="og:url" content="https://malikremgcregion.github.io/">
+	<meta property="og:image" content="https://malikremgcregion.github.io/assets/colored_body_top2.png">
+	<meta name="twitter:site" content="@malikremgcregion">
+	<meta name="twitter:image" content="https://malikremgcregion.github.io/assets/colored_body_top2.png">
+	<meta name="twitter:card" content="summary_large_image">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">  
+</head>
+<body>
+
+	<!-- put into a nav file -->
+	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+	  <ul class="navbar-nav">
+		<li class="nav-item active">
+		  <a class="nav-link" href="https://malikremgcregion.github.io/">Home</a>
+		</li>
+		<li class="nav-item">
+		  <a class="nav-link" href="https://github.com/MalikRemgcRegion/MalikRemgcRegion.github.io">Github</a>
+		</li>
+		<li class="nav-item">
+		  <a class="nav-link" href="https://discord.gg/4X96kRjety">Discord</a>
+		</li>
+		<div class="dropdown">
+		  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			Ladders
+		  </button>
+		  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+			<a class="dropdown-item" href="./shame.html">Shame Ladder</a>
+			<a class="dropdown-item" href="./suspects.html">Suspects Ladder</a>
+			<a class="dropdown-item" href="./ladder.html">RRGC Ladder</a>
+		  </div>
+		</div>
+		<li class="nav-item">
+		  <a class="nav-link" href="https://github.com/MalikRemgcRegion/MalikRemgcRegion.github.io/raw/main/rrgc.user.js">RRGC Userscript</a>
+		</li>
+		<li class="nav-item">
+		  <a class="nav-link" href="./about.html">About</a>
+		</li>
+	  </ul>
+	</nav>
+	
+	<div id="main_data" class="container text-light mt-3">
+		<div class="row">
+			<div class="col-sm-9">
+
+				<!-- ecurrencycodes -->
+				<div class="container">
+					<table class="table sortable text-light">
+					  <thead class="thead-dark">
+						<tr>
+							<th>Currency Code</th>
+							<th>Symbol</th>
+							<th>Symbol is Prefix</th>
+							<th>Decimal Symbol</th>
+							<th>Thousands Separator</th>
+							<th>Symbol and Number Separator</th>
+						</tr>
+					  </thead>
+					  <tbody id="table-body">
+					  </tbody>
+					</table>
+				</div>
+				<!-- pricing -->
+				<div class="container">
+					<table id="pricing" class="table sortable text-light">
+
+					</table>
+				</div>
+				
+			</div>
+			
+			<div class="col-sm-3">
+			
+
+				
+			</div>
+		</div>
+		
+		<!-- <div class="chartContainer" style="height: 300px; width: 100%;"></div> -->
+	</div>
+	
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<script>$('body').css('background-image', 'url("./assets/colored_body_top2.png")');</script>
+	<!-- jQuery Datatable js --><script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+	<!-- Bootstrap Datatable js --><script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
+	
+	<script>
+	jQuery.extend({
+		getValues: function(url) {
+			var result = null;
+			$.ajax({
+				url: url,
+				type: 'get',
+				dataType: 'text',
+				async: false,
+				success: function(data) {
+					result = data;
+				}
+			});
+		   return result;
+		}
+	});
+	
+		
+	var data = $.getValues("./db/ecurrencycodes.json");
+	data = JSON.parse(data);
+	// get the table body
+	var tableBody = document.getElementById('table-body');
+
+	// loop through the data object
+	for (var key in data) {
+		// create a new row for each object
+		console.log(data[key]);
+		var row = document.createElement('tr');
+
+		// create a new cell for each property in the object
+		var codeCell = document.createElement('td');
+		var symbolCell = document.createElement('td');
+		var prefixCell = document.createElement('td');
+		var decimalCell = document.createElement('td');
+		var thousandsCell = document.createElement('td');
+		var separatorCell = document.createElement('td');
+
+		// add the data to the cells
+		codeCell.innerHTML = data[key].strCode;
+		symbolCell.innerHTML = data[key].strSymbol;
+		prefixCell.innerHTML = data[key].bSymbolIsPrefix;
+		decimalCell.innerHTML = data[key].strDecimalSymbol;
+		thousandsCell.innerHTML = data[key].strThousandsSeparator;
+		separatorCell.innerHTML = data[key].strSymbolAndNumberSeparator;
+
+		// append the cells to the row
+		row.appendChild(codeCell);
+		row.appendChild(symbolCell);
+		row.appendChild(prefixCell);
+		row.appendChild(decimalCell);
+		row.appendChild(thousandsCell);
+		row.appendChild(separatorCell);
+
+		// append the row to the table body
+		tableBody.appendChild(row);
+	}
+	</script>
+	<script>
+		jQuery.extend({
+			getValues: function(url) {
+				var result = null;
+				$.ajax({
+					url: url,
+					type: 'get',
+					dataType: 'text',
+					async: false,
+					success: function(data) {
+						result = data;
+					}
+				});
+			   return result;
+			}
+		});
+		
+			
+		var data = $.getValues("./db/pricing.json");
+		data = JSON.parse(data);
+		
+		// create a table element
+		const table = document.createElement("table");
+		table.setAttribute("id", "pricing");
+		const headers = Object.keys(data[Object.keys(data)[0]]);
+		headers.unshift("");
+
+		// Create the header row
+		const headerRow = table.insertRow();
+
+		// Loop through the headers and create a cell for each one
+		headers.forEach(header => {
+		  const cell = headerRow.insertCell();
+		  cell.innerHTML = '<b>' + header +'</b>';
+		});
+
+		// create a row for each currency
+		for (const [currency, values] of Object.entries(data)) {
+		  if (currency !== "timestamp") {
+			const row = table.insertRow();
+			const cell1 = row.insertCell();
+			cell1.innerHTML = currency.toUpperCase();
+			for (const [key, value] of Object.entries(values)) {
+			  const cell = row.insertCell();
+			  cell.innerHTML = value;
+			}
+		  }
+		}
+		// add the table to the HTML document
+		document.getElementById('pricing').appendChild(table);
+		//document.body.appendChild(table);
+	</script>
+	<!-- https://steamdb.info/blog/valve-price-matrix-2022-update/  is this way of showing the pricings better?--> 
+	
+</body>
+</html>
