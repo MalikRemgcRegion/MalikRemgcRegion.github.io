@@ -307,6 +307,7 @@ https://preview.keenthemes.com/html/metronic/docs/charts/amcharts/maps
 
 			var root = am5.Root.new("chartdiv");
 			root.setThemes([am5themes_Animated.new(root)]);
+			root._logo.dispose();
 
 			var chart = root.container.children.push(am5map.MapChart.new(root, {}));
 

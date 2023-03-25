@@ -13,7 +13,17 @@
 	<meta name="twitter:site" content="@malikremgcregion">
 	<meta name="twitter:image" content="https://malikremgcregion.github.io/assets/colored_body_top2.png">
 	<meta name="twitter:card" content="summary_large_image">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">  
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<!-- css for the world map --><style>
+	body {
+	  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	}
+
+	#chartdiv {
+	  width: 100%;
+	  height: 600px
+	}
+	</style>
 </head>
 <body>
 
@@ -271,12 +281,22 @@
 			  
 				</div>
 			</div>
-			<div id="profile" class="container mt-3">
-				<div class="jumbotron jumbotron-fluid">
-					<div class="container">  
-						<canvas id="myChart" style="width:100%;">
-						</canvas>  
+
+		</div>
+		<div class="row">
+			<div class="col-sm-6">
+				<div id="profile" class="container mt-3">
+					<div class="jumbotron jumbotron-fluid">
+						<div class="container">  
+							<canvas id="myChart" style="width:100%;">
+							</canvas>  
+						</div>
 					</div>
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="container">
+						<div id="chartdiv"></div>
 				</div>
 			</div>
 		</div>
@@ -427,6 +447,184 @@
 					$("#profile_time_stamp").html("Last Account Region Change: " + date.toLocaleDateString("da-DK"));
 					$("#steamAlias").html('<a href="https://steamcommunity.com/profiles/'+url_p_id+'">'+url_p_id+'</a>');
 					
+					
+					
+					
+					
+					
+					
+					
+					
+					 /**
+					 * ---------------------------------------
+					 * This demo was created using amCharts 5.
+					 * 
+					 * For more information visit:
+					 * https://www.amcharts.com/
+					 * 
+					 * Documentation is available at:
+					 * https://www.amcharts.com/docs/v5/
+					 * ---------------------------------------
+					 */
+					 
+					 
+					 jQuery.extend({
+						getValues: function(url) {
+							var result = null;
+							$.ajax({
+								url: url,
+								type: 'get',
+								dataType: 'text',
+								async: false,
+								success: function(data) {
+									result = data;
+								}
+							});
+						   return result;
+						}
+					});
+					
+					
+					var _db = $.getValues("./db/db.json");
+					
+					var data = JSON.parse( _db );
+					
+					var profile_id, profile_time_stamp, profile_region;
+
+					$.each(data, function (i) {				
+						if(data[i].id === url_p_id ){
+							
+							profile_id = data[i].id;
+							profile_time_stamp = data[i].time_stamp; 
+							profile_region = data[i].region;
+							profile_game_count = data[i].game_count;
+						
+						}
+					});
+					
+					console.log(profile_id + "\n" + profile_time_stamp + "\n" + profile_region + "\n" + profile_game_count);
+					
+					//this is for the id 
+					let unique = [...new Set(profile_region)];
+					console.log(unique); // unique is ['CN', 'AZ', 'AR', 'TR']
+					
+					//this is for the value, counting how many times the account has changed to a specific region.
+					const counts = {};
+					for (const num of profile_region) {
+					  counts[num] = counts[num] ? counts[num] + 1 : 1;
+					}
+					console.log(counts); // count is {CN: 2, AZ: 1, AR: 2, TR: 1}
+					
+					//build the json data for the map.
+					var data = [];
+					for (let i = 0; i < unique.length; i++) {
+						data.push({ id: unique[i], value: counts[unique[i]] });
+					}
+					console.log(JSON.stringify(data)); // data is [{"id":"CN","value":2},{"id":"AZ","value":1},{"id":"AR","value":2},{"id":"TR","value":1}]
+					 
+					
+					var root = am5.Root.new("chartdiv");
+					root.setThemes([am5themes_Animated.new(root)]);
+					root._logo.dispose();
+
+					var chart = root.container.children.push(am5map.MapChart.new(root, {}));
+
+					var polygonSeries = chart.series.push(
+					  am5map.MapPolygonSeries.new(root, {
+						geoJSON: am5geodata_worldLow,
+						exclude: ["AQ"]
+					  })
+					);
+
+					var bubbleSeries = chart.series.push(
+					  am5map.MapPointSeries.new(root, {
+						valueField: "value",
+						calculateAggregates: true,
+						polygonIdField: "id"
+					  })
+					);
+
+					var circleTemplate = am5.Template.new({});
+
+					bubbleSeries.bullets.push(function(root, series, dataItem) {
+					  var container = am5.Container.new(root, {});
+
+					  var circle = container.children.push(
+						am5.Circle.new(root, {
+						  radius: 20,
+						  fillOpacity: 0.7,
+						  fill: am5.color(0xff0000),
+						  cursorOverStyle: "pointer",
+						  tooltipText: `{name}: [bold]{value}[/]`
+						}, circleTemplate)
+					  );
+
+					  var countryLabel = container.children.push(
+						am5.Label.new(root, {
+						  text: "", //text: "{name}", leave this blank?
+						  paddingLeft: 5,
+						  populateText: true,
+						  fontWeight: "bold",
+						  fontSize: 13,
+						  centerY: am5.p50
+						})
+					  );
+
+					  circle.on("radius", function(radius) {
+						countryLabel.set("x", radius);
+					  })
+
+					  return am5.Bullet.new(root, {
+						sprite: container,
+						dynamic: true
+					  });
+					});
+
+					bubbleSeries.bullets.push(function(root, series, dataItem) {
+					  return am5.Bullet.new(root, {
+						sprite: am5.Label.new(root, {
+						  text: "{value.formatNumber('#.')}",
+						  fill: am5.color(0xffffff),
+						  populateText: true,
+						  centerX: am5.p50,
+						  centerY: am5.p50,
+						  textAlign: "center"
+						}),
+						dynamic: true
+					  });
+					});
+
+
+
+					// minValue and maxValue must be set for the animations to work
+					bubbleSeries.set("heatRules", [
+					  {
+						target: circleTemplate,
+						dataField: "value",
+						min: 10,
+						max: 50,
+						minValue: 0,
+						maxValue: 100,
+						key: "radius"
+					  }
+					]);
+
+					bubbleSeries.data.setAll(data);
+
+					updateData();
+					setInterval(function() {
+					  updateData();
+					}, 2000)
+
+					function updateData() {
+					  for (var i = 0; i < bubbleSeries.dataItems.length; i++) {
+						bubbleSeries.data.setIndex(i, { value: data[i].value, id: data[i].id, name: data[i].id })
+					  }
+					}
+
+
+
+
 				}
 			});
 			
