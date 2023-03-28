@@ -491,7 +491,7 @@
 					var data = JSON.parse( _db );
 					
 					var elem = $('<div id="chartdiv"></div>');
-					$('#account_map').append(e);  
+					$('#account_map').append(elem);  
 					
 					var profile_id, profile_time_stamp, profile_region;
 
@@ -658,7 +658,7 @@
 		var data = JSON.parse( _db );
 		
 		var elem = $('<div id="chartdiv"></div>');
-		$('#accounts_heatmap').append(e);  
+		$('#accounts_heatmap').append(elem);  
 		
 		var profile_region = [];
 		$.each(data, function (i) {				
