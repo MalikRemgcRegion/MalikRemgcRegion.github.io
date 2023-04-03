@@ -133,7 +133,8 @@
 				}
 			}
 			
-			$('#rrgc').append(tr); 
+			$('#rrgc').append(tr);
+			$("th:nth-child(3)").click(); //sortable wont default sort the column by games count.
 			
 		}
 		else{
@@ -205,6 +206,7 @@
 		}
 		
 		$('#rrgc').append(tr); 
+		$("th:nth-child(3)").click(); //sortable wont default sort the column by games count.
 	}
 
 	</script>
