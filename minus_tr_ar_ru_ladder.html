@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>RRGC Ladder</title>
+	<meta name="description" content="RRGC Ladder">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="malikremgcregion.github.io">
+	<meta property="og:description" content="Showing you the RRGC Ladder">
+	<meta property="og:url" content="https://malikremgcregion.github.io/ladder.html">
+	<meta property="og:image" content="https://malikremgcregion.github.io/assets/colored_body_top2.png">
+	<meta name="twitter:site" content="@RRGC Ladder">
+	<meta name="twitter:image" content="https://malikremgcregion.github.io/assets/colored_body_top2.png">
+	<meta name="twitter:card" content="summary_large_image">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.1/bootstrap-table.min.css">
+	<script src="./js/sortable.min.js"></script>
+</head>
+<body>
+	<!-- put into a nav file -->
+	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+	  <ul class="navbar-nav">
+		<li class="nav-item active">
+		  <a class="nav-link" href="https://malikremgcregion.github.io/">Home</a>
+		</li>
+		<li class="nav-item">
+		  <a class="nav-link" href="https://github.com/MalikRemgcRegion/MalikRemgcRegion.github.io">Github</a>
+		</li>
+		<li class="nav-item">
+		  <a class="nav-link" href="https://discord.gg/4X96kRjety">Discord</a>
+		</li>
+		<div class="dropdown">
+		  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			Ladders
+		  </button>
+		  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+			<a class="dropdown-item" href="./shame.html">Shame Ladder</a>
+			<a class="dropdown-item" href="./suspects.html">Suspects Ladder</a>
+			<a class="dropdown-item" href="./ladder.html">RRGC Ladder</a>
+		  </div>
+		</div>
+		<li class="nav-item">
+		  <a class="nav-link" href="https://github.com/MalikRemgcRegion/MalikRemgcRegion.github.io/raw/main/rrgc.user.js">RRGC Userscript</a>
+		</li>
+		<li class="nav-item">
+		  <a class="nav-link" href="./about.html">About</a>
+		</li>
+	  </ul>
+	</nav>
+	
+    <div class="container">
+        <table class="table sortable text-light">
+		  <thead class="thead-dark">
+			<tr>
+			  <th scope="col">id</th>
+			  <th scope="col">region</th>
+			  <th scope="col">games count</th>
+			  <th scope="col">time</th>
+			</tr>
+		  </thead>
+		  <tbody id="rrgc">
+		  </tbody>
+		</table>
+    </div>
+	
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.1/bootstrap-table.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<script>
+	const queryString = window.location.search;
+	const urlParams = new URLSearchParams(queryString);
+	const url_p_cc = urlParams.get('cc')
+	if (url_p_cc) {
+		if(/^[A-Z]{2}$/.test(url_p_cc)){
+			document.title = url_p_cc + " | RRGC Ladder";
+		
+			jQuery.extend({
+				getValues: function(url) {
+					var result = null;
+					$.ajax({
+						url: url,
+						type: 'get',
+						dataType: 'text',
+						async: false,
+						success: function(data) {
+							result = data;
+						}
+					});
+				   return result;
+				}
+			});
+			
+			
+			var j_db = $.getValues("./db/db.json");
+			var j_getownedgames = $.getValues("./db/getownedgames.json");
+			
+			//console.log(j_db);
+			//console.log(j_getownedgames);
+			
+			j_db = JSON.parse(j_db);
+			j_getownedgames = JSON.parse(j_getownedgames);
+			
+			var profile_id, profile_time_stamp, profile_region;
+					
+			var tr = '';
+			
+			for (let j = 0; j < j_db.length; j++) {
+				
+				profile_id = j_db[j].id;
+				profile_game_count = j_db[j].game_count;
+				profile_time_stamp = j_db[j].time_stamp; 
+				profile_region = j_db[j].region;
+				
+				for (let k = 0; k < j_getownedgames.length; k++) {
+					if(profile_id === j_getownedgames[k].id) {
+						profile_game_count = j_getownedgames[k].game_count;
+						
+						//console.log("this id: " + j_getownedgames[k].id + ", has had their games count altered > " + j_getownedgames[k].game_count);
+						
+						let cc = url_p_cc;
+						if(profile_region.length <= 1 && profile_region[0] !== "ZZ" && profile_region[0] !== "TR" && profile_region[0] !== "AR" && profile_region[0] !== "RU" && profile_region.includes(cc)){
+							tr += '<tr><td><a href="https://malikremgcregion.github.io/?id='+profile_id+'">' + profile_id +'</a></td><td>'  + '<a href="' + window.location.href + '?cc=' + profile_region[profile_region.length - 1] +'"><img class="card-img-top" src="./assets/cc_flags/png_16px/'+profile_region[profile_region.length - 1].toLowerCase()+'.png" alt="'+profile_region[profile_region.length - 1]+'" title="'+profile_region[profile_region.length - 1]+'" style="width:16px;height:16px;"></a>' /* profile_region*/ /*profile_region[profile_region.length - 1]*/ + '</td><td>'+profile_game_count/*profile_game_count[profile_game_count.length - 1]*/ + '</td><td>' + profile_time_stamp[profile_time_stamp.length - 1] + '</td></tr>';
+						}
+						 break;
+					}
+				}
+			}
+			
+			$('#rrgc').append(tr); 
+			
+		}
+		else{
+			console.log(url_p_cc);
+			no_cc_ladder()
+		}
+	}else{
+		no_cc_ladder()
+	}
+	
+	function no_cc_ladder(){
+	
+	
+	
+		jQuery.extend({
+			getValues: function(url) {
+				var result = null;
+				$.ajax({
+					url: url,
+					type: 'get',
+					dataType: 'text',
+					async: false,
+					success: function(data) {
+						result = data;
+					}
+				});
+			   return result;
+			}
+		});
+		
+		
+		var j_db = $.getValues("./db/db.json");
+		var j_getownedgames = $.getValues("./db/getownedgames.json");
+		
+		//console.log(j_db);
+		//console.log(j_getownedgames);
+		
+		j_db = JSON.parse(j_db);
+		j_getownedgames = JSON.parse(j_getownedgames);
+		
+		var profile_id, profile_time_stamp, profile_region;
+				
+		var tr = '';
+		
+		for (let j = 0; j < j_db.length; j++) {
+			
+			profile_id = j_db[j].id;
+			profile_game_count = j_db[j].game_count;
+			profile_time_stamp = j_db[j].time_stamp; 
+			profile_region = j_db[j].region;
+			
+			for (let k = 0; k < j_getownedgames.length; k++) {
+				if(profile_id === j_getownedgames[k].id) {
+					profile_game_count = j_getownedgames[k].game_count;
+					
+					//console.log("this id: " + j_getownedgames[k].id + ", has had their games count altered > " + j_getownedgames[k].game_count);
+					
+					let cc = url_p_cc;
+					if(profile_region.length <= 1 && profile_region[0] !== "ZZ" && profile_region[0] !== "TR" && profile_region[0] !== "AR" && profile_region[0] !== "RU"){
+						tr += '<tr><td><a href="https://malikremgcregion.github.io/?id='+profile_id+'">' + profile_id +'</a></td><td>'  + '<a href="' + window.location.href + '?cc=' + profile_region[profile_region.length - 1] +'"><img class="card-img-top" src="./assets/cc_flags/png_16px/'+profile_region[profile_region.length - 1].toLowerCase()+'.png" alt="'+profile_region[profile_region.length - 1]+'" title="'+profile_region[profile_region.length - 1]+'" style="width:16px;height:16px;"></a>' /* profile_region*/ /*profile_region[profile_region.length - 1]*/ + '</td><td>'+profile_game_count/*profile_game_count[profile_game_count.length - 1]*/ + '</td><td>' + profile_time_stamp[profile_time_stamp.length - 1] + '</td></tr>';
+					}
+					 break;
+				}
+			}
+		}
+		
+		$('#rrgc').append(tr); 
+	}
+
+	</script>
+	<script>$('body').css('background-image', 'url("./assets/colored_body_top2.png")');</script>
+</body>
+</html>
