@@ -154,6 +154,31 @@ WIP: [valve_recommended_pricing](https://malikremgcregion.github.io/valve_recomm
 WIP cc_history_2023.json is meant to keep a history of region changes each week. this is currently meant to only run for the year 2023. 
 idea is that we can use this with pricing.json to see if there is a correlation between regional account changes as well.
 
+ - [getmarketeligibility.json](https://malikremgcregion.github.io/db/getmarketeligibility.json)
+```json
+{
+    "0": "None",
+    "1": "TemporaryFailure",
+    "2": "AccountDisabled",
+    "4": "AccountLockedDown",
+    "8": "AccountLimited",
+    "16": "TradeBanned",
+    "32": "AccountNotTrusted",
+    "64": "SteamGuardNotEnabled",
+    "128": "SteamGuardOnlyRecentlyEnabled",
+    "256": "RecentPasswordReset",
+    "512": "NewPaymentMethod",
+    "1024": "InvalidCookie",
+    "2048": "UsingNewDevice",
+    "4096": "RecentSelfRefund",
+    "8192": "NewPaymentMethodCannotBeVerified",
+    "16384": "NoRecentPurchases",
+    "32768": "AcceptedWalletGift"
+}
+```
+WIP getmarketeligibility.json gives us the capability to understand whether a regional change is on purpose or because the account has been reset, by either the person behind the account or valve/steam.
+
+
 ## contact
 
 [Discord](https://discord.gg/4X96kRjety)
