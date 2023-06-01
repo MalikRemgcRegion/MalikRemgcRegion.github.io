@@ -176,7 +176,10 @@ idea is that we can use this with pricing.json to see if there is a correlation 
     "32768": "AcceptedWalletGift"
 }
 ```
-WIP getmarketeligibility.json gives us the capability to understand whether a regional change is on purpose or because the account has been reset, by either the person behind the account or valve/steam.
+WIP: getmarketeligibility.json gives us the capability to understand whether a regional change is on purpose or because the account has been reset by either the person behind the account or valve/steam.
+
+
+WIP: May 26/27 -> around June 1. There was a region reset or glitch, which caused a lot of users to revert back to their origin account region. A small group of accounts ended up in a previously registered region. The affected regions were accounts placed in the AR, TR, and RU regions. We can use the timestamps between these 2 dates, if we want to create a more accurate country ladder or use it as a snapshot, as we do when we snapshot their game count during a region change, to indicate that this is most likely with a very high certainty that the account belongs in the said country. (db.json)
 
 
 ## contact
