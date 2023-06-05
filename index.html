@@ -403,7 +403,6 @@
 								}
 								let b_Sha_2 = g_data[x+1].sha;
 								$.ajax({
-									//url: "https://api.github.com/repos/MalikRemgcRegion/MalikRemgcRegion.github.io/commits?sha=main&path=ids/"+profile_id+".json",
 									url: "https://raw.githubusercontent.com/MalikRemgcRegion/MalikRemgcRegion.github.io/"+b_Sha+"/ids/"+profile_id+".json",
 									type:"get",
 									dataType: 'text',  
@@ -414,7 +413,6 @@
 									success:function(b_data) {
 										var b_data = JSON.parse( b_data );
 										$.ajax({
-											//url: "https://api.github.com/repos/MalikRemgcRegion/MalikRemgcRegion.github.io/commits?sha=main&path=ids/"+profile_id+".json",
 											url: "https://raw.githubusercontent.com/MalikRemgcRegion/MalikRemgcRegion.github.io/"+b_Sha_2+"/ids/"+profile_id+".json",
 											type:"get",
 											dataType: 'text',  
