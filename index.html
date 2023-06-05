@@ -373,6 +373,85 @@
 						}
 					});
 					
+					
+					
+					
+					
+					
+					
+					
+
+					$.ajax({
+						url: "https://api.github.com/repos/MalikRemgcRegion/MalikRemgcRegion.github.io/commits?sha=main&path=ids/"+profile_id+".json",
+						type:"get",
+						dataType: 'text',  
+						error: function(g_data){
+							//debugger;
+							//alert('err');
+						},
+						success:function(g_data) {
+							var g_data = JSON.parse( g_data );
+							for (let x = 0; x < g_data.length; x++) {
+								let b_Sha = g_data[x].sha;
+								if(x < 1){
+									
+									if(g_data.length > 1) {
+										b_Sha = g_data[g_data.length -1].sha; 
+									}else{
+										//pretty much means we have no appids to compare with? so lets not do anything.
+									}
+								}
+								let b_Sha_2 = g_data[x+1].sha;
+								$.ajax({
+									//url: "https://api.github.com/repos/MalikRemgcRegion/MalikRemgcRegion.github.io/commits?sha=main&path=ids/"+profile_id+".json",
+									url: "https://raw.githubusercontent.com/MalikRemgcRegion/MalikRemgcRegion.github.io/"+b_Sha+"/ids/"+profile_id+".json",
+									type:"get",
+									dataType: 'text',  
+									error: function(b_data){
+										//debugger;
+										//alert('err');
+									},
+									success:function(b_data) {
+										var b_data = JSON.parse( b_data );
+										$.ajax({
+											//url: "https://api.github.com/repos/MalikRemgcRegion/MalikRemgcRegion.github.io/commits?sha=main&path=ids/"+profile_id+".json",
+											url: "https://raw.githubusercontent.com/MalikRemgcRegion/MalikRemgcRegion.github.io/"+b_Sha_2+"/ids/"+profile_id+".json",
+											type:"get",
+											dataType: 'text',  
+											error: function(n_data){
+												//debugger;
+												//alert('err');
+											},
+											success:function(n_data) {
+												var n_data = JSON.parse( n_data );
+												var diff = [];
+
+												jQuery.grep(n_data, function(el) {
+													if (jQuery.inArray(el, b_data) == -1) diff.push(el);
+												});
+												
+												console.log(b_Sha);
+												console.log(b_Sha_2);
+												console.log("diff: " + diff);
+											
+											}
+										});
+									}
+								});
+							}
+						}
+					});
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
 
 
 					//add this to their profile.
