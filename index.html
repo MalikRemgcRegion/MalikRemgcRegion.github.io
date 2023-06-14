@@ -712,6 +712,128 @@
 						bubbleSeries.data.setIndex(i, { value: data[i].value, id: data[i].id, name: data[i].id })
 					  }
 					}
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					///GetMarketEligibility
+					var ReasonFlags = [0,1,2,4,8,16,32,64,128,256,512,1024,2048,4096,8192,16384,32768];
+					var EMarketNotAllowedReason_Enums = {
+						"0": "None",
+						"1": "TemporaryFailure",
+						"2": "AccountDisabled",
+						"4": "AccountLockedDown",
+						"8": "AccountLimited",
+						"16": "TradeBanned",
+						"32": "AccountNotTrusted",
+						"64": "SteamGuardNotEnabled",
+						"128": "SteamGuardOnlyRecentlyEnabled",
+						"256": "RecentPasswordReset",
+						"512": "NewPaymentMethod",
+						"1024": "InvalidCookie",
+						"2048": "UsingNewDevice",
+						"4096": "RecentSelfRefund",
+						"8192": "NewPaymentMethodCannotBeVerified",
+						"16384": "NoRecentPurchases",
+						"32768": "AcceptedWalletGift"
+					};
+
+					$.ajax({
+					   url: "https://raw.githubusercontent.com/MalikRemgcRegion/MalikRemgcRegion.github.io/main/db/getmarketeligibility.json",
+						type:"get",
+						dataType: 'text',  
+						error: function(data){
+						//debugger;
+						  //alert('err');
+						},
+						success:function(data) {
+							var data = JSON.parse( data );
+							
+							var profile_restricted = [];
+							
+							
+							$.each(data, function (i) {				
+								if(data[i].id === url_p_id ){
+									
+									if(data[i].response.reason > 0 ){
+										var GME = GetMarketEligibility(ReasonFlags, data[i].response.reason);
+										//if(GME[0].includes(2) || GME[0].includes(4)){
+											profile_restricted.push( [data[i].id, data[i].response.reason, GME] );
+										//}
+									}
+								
+								}
+							});
+							
+							console.log(profile_restricted);
+							
+
+							
+							
+							
+
+						}
+					});
+
+					function GetMarketEligibility(reasonsFlags, reasonSum) {
+						reasonsFlags = reasonsFlags.filter(function (value) {
+							return value <= reasonSum;
+						});
+
+						reasonsFlags.sort(function (a, b) {
+							return b - a;
+						});
+
+						var result = [];
+
+						while (reasonsFlags.length > 0) {
+							var i;
+							var sum = 0;
+							var addedIndices = [];
+
+							for (i = 0; i < reasonsFlags.length; i++) {
+								if (sum + reasonsFlags[i] <= reasonSum) {
+									sum += reasonsFlags[i];
+									addedIndices.push(i);
+								}
+							}
+
+							var subset = [];
+							for (i = addedIndices.length - 1; i >= 0; i--) {
+								subset.unshift(reasonsFlags[addedIndices[i]]);
+								reasonsFlags.splice(addedIndices[i], 1);
+							}
+							result.push(subset);
+						}
+						return result;
+					}
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
 
 
 
