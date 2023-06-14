@@ -24,6 +24,7 @@
 
     // Your code here...
     $(document).ready(function() {
+		const restrictedUrl = "https://malikremgcregion.github.io/restricted.html";
         const shameUrl = "https://malikremgcregion.github.io/shame.html";
         const suspectsUrl = "https://malikremgcregion.github.io/suspects.html";
         const aboutUrl = "https://malikremgcregion.github.io/about.html";
@@ -33,7 +34,7 @@
         const steamid = urlParams.get('id');
 
         // Shame page
-        if (window.location.href === shameUrl || window.location.href === suspectsUrl || window.location.href.includes("cc")) {
+        if (window.location.href === restrictedUrl || window.location.href === shameUrl || window.location.href === suspectsUrl || window.location.href.includes("cc")) {
             $('td:first-child').each(function() {
                 const $td = $(this);
                 const steamids = $td[0].innerText;
