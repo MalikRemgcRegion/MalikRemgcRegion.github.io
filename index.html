@@ -273,6 +273,9 @@
 	
 	<!-- Profile related stuff -->
 	
+	<div id="gme" class="container mt-3">
+	</div>
+	
 	<div id="profile_data" class="container mt-3">
 		<div class="row">
 			<div class="col-sm-6">
@@ -760,30 +763,83 @@
 							
 							var profile_restricted = [];
 							
+							var gme_reasons = "";
 							
 							$.each(data, function (i) {				
 								if(data[i].id === url_p_id ){
 									
 									if(data[i].response.reason > 0 ){
 										var GME = GetMarketEligibility(ReasonFlags, data[i].response.reason);
-										//if(GME[0].includes(2) || GME[0].includes(4)){
-											profile_restricted.push( [data[i].id, data[i].response.reason, GME] );
-										//}
+																			
+										if(GME[0].includes(0)){
+											gme_reasons += '<div class="alert alert-secondary" role="alert">None </div>';
+										}
+										if(GME[0].includes(1)){
+											gme_reasons += '<div class="alert alert-secondary" role="alert">TemporaryFailure </div>';
+										}
+										if(GME[0].includes(4)){
+											gme_reasons += '<div class="alert alert-danger" role="alert">AccountDisabled </div>';
+										}
+										if(GME[0].includes(8)){
+											gme_reasons += '<div class="alert alert-danger" role="alert">AccountLockedDown </div>';
+										}
+										if(GME[0].includes(16)){
+											gme_reasons += '<div class="alert alert-warning" role="alert">AccountLimited </div>';
+										}
+										if(GME[0].includes(32)){
+											gme_reasons += '<div class="alert alert-danger" role="alert">TradeBanned </div>';
+										}
+										if(GME[0].includes(64)){
+											gme_reasons += '<div class="alert alert-warning" role="alert">AccountNotTrusted </div>';
+										}
+										if(GME[0].includes(128)){
+											gme_reasons += '<div class="alert alert-warning" role="alert">SteamGuardNotEnabled </div>';
+										}
+										if(GME[0].includes(256)){
+											gme_reasons += '<div class="alert alert-warning" role="alert">SteamGuardOnlyRecentlyEnabled </div>';
+										}
+										if(GME[0].includes(512)){
+											gme_reasons += '<div class="alert alert-secondary" role="alert">RecentPasswordReset </div>';
+										}
+										if(GME[0].includes(1024)){
+											gme_reasons += '<div class="alert alert-warning" role="alert">NewPaymentMethod </div>';
+										}
+										if(GME[0].includes(2048)){
+											gme_reasons += '<div class="alert alert-secondary" role="alert">InvalidCookie </div>';
+										}
+										if(GME[0].includes(4096)){
+											gme_reasons += '<div class="alert alert-warning" role="alert">UsingNewDevice </div>';
+										}
+										if(GME[0].includes(8192)){
+											gme_reasons += '<div class="alert alert-warning" role="alert">RecentSelfRefund </div>';
+										}
+										if(GME[0].includes(16384)){
+											gme_reasons += '<div class="alert alert-warning" role="alert">NewPaymentMethodCannotBeVerified </div>';
+										}
+										if(GME[0].includes(32768)){
+											gme_reasons += '<div class="alert alert-primary" role="alert">AcceptedWalletGift </div>';
+										}
+										
 									}
-								
 								}
 							});
 							
-							console.log(profile_restricted);
+
+							//console.log(profile_restricted);
 							
 
-							
+							$('#gme').append(gme_reasons);
 							
 							
 
 						}
 					});
-
+					
+					
+					
+					
+					
+					
 					function GetMarketEligibility(reasonsFlags, reasonSum) {
 						reasonsFlags = reasonsFlags.filter(function (value) {
 							return value <= reasonSum;
