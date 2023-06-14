@@ -3,14 +3,14 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>RRGC Ladder</title>
-	<meta name="description" content="RRGC Ladder">
+	<title>RRGC Restricted Ladder</title>
+	<meta name="description" content="RRGC Restricted Ladder">
 	<meta property="og:type" content="website">
 	<meta property="og:title" content="malikremgcregion.github.io">
-	<meta property="og:description" content="Showing you the RRGC Ladder">
-	<meta property="og:url" content="https://malikremgcregion.github.io/ladder.html">
+	<meta property="og:description" content="Showing you the RRGC Restricted Ladder">
+	<meta property="og:url" content="https://malikremgcregion.github.io/Restricted.html">
 	<meta property="og:image" content="https://malikremgcregion.github.io/assets/colored_body_top2.png">
-	<meta name="twitter:site" content="@RRGC Ladder">
+	<meta name="twitter:site" content="@RRGC Restricted Ladder">
 	<meta name="twitter:image" content="https://malikremgcregion.github.io/assets/colored_body_top2.png">
 	<meta name="twitter:card" content="summary_large_image">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -44,9 +44,9 @@
 			Ladders
 		  </button>
 		  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-			<a class="dropdown-item" href="./ladder.html">RRGC Ladder</a>
 			<a class="dropdown-item" href="./shame.html">Shame Ladder</a>
 			<a class="dropdown-item" href="./suspects.html">Suspects Ladder</a>
+			<a class="dropdown-item" href="./ladder.html">RRGC Ladder</a>
 			<a class="dropdown-item" href="./restricted.html">RRGC Restricted Ladder</a>
 		  </div>
 		</div>
@@ -64,12 +64,9 @@
 		  <thead class="thead-dark">
 			<tr>
 			  <th scope="col">id</th>
-			  <th scope="col">region</th>
-			  <th scope="col">games count</th>
-			  <th scope="col">time</th>
 			</tr>
 		  </thead>
-		  <tbody id="rrgc">
+		  <tbody id="rrgc_acc_disabled_locked">
 		  </tbody>
 		</table>
     </div>
@@ -80,11 +77,31 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 	<script>
-
-		document.title = "Sus | RRGC Ladder";
 	
+		///GetMarketEligibility
+		var ReasonFlags = [0,1,2,4,8,16,32,64,128,256,512,1024,2048,4096,8192,16384,32768];
+		var EMarketNotAllowedReason_Enums = {
+			"0": "None",
+			"1": "TemporaryFailure",
+			"2": "AccountDisabled",
+			"4": "AccountLockedDown",
+			"8": "AccountLimited",
+			"16": "TradeBanned",
+			"32": "AccountNotTrusted",
+			"64": "SteamGuardNotEnabled",
+			"128": "SteamGuardOnlyRecentlyEnabled",
+			"256": "RecentPasswordReset",
+			"512": "NewPaymentMethod",
+			"1024": "InvalidCookie",
+			"2048": "UsingNewDevice",
+			"4096": "RecentSelfRefund",
+			"8192": "NewPaymentMethodCannotBeVerified",
+			"16384": "NoRecentPurchases",
+			"32768": "AcceptedWalletGift"
+		};
+
 		$.ajax({
-		   url: "https://raw.githubusercontent.com/MalikRemgcRegion/MalikRemgcRegion.github.io/main/db/db.json",
+		   url: "https://raw.githubusercontent.com/MalikRemgcRegion/MalikRemgcRegion.github.io/main/db/getmarketeligibility.json",
 			type:"get",
 			dataType: 'text',  
 			error: function(data){
@@ -94,26 +111,60 @@
 			success:function(data) {
 				var data = JSON.parse( data );
 				
-				var profile_id, profile_time_stamp, profile_region;
-				
-				var tr = '';
-				
-				$.each(data, function (i) {					
-					profile_id = data[i].id;
-					profile_time_stamp = data[i].time_stamp; 
-					profile_region = data[i].region;
-					profile_game_count = data[i].game_count;
-					
-					if( profile_region.length > 1 && profile_region.length <= 2 && profile_region[0] !== "ZZ"){
-						tr += '<tr><td><a href="https://malikremgcregion.github.io/?id='+profile_id+'">' + profile_id +'</a></td><td>'  + '<a href="' + window.location.href + '?cc=' + profile_region[profile_region.length - 1] +'"><img class="card-img-top" src="./assets/cc_flags/png_16px/'+profile_region[profile_region.length - 1].toLowerCase()+'.png" alt="'+profile_region[profile_region.length - 1]+'" title="'+profile_region[profile_region.length - 1]+'" style="width:16px;height:16px;"></a>' /* profile_region*/ /*profile_region[profile_region.length - 1]*/ + '</td><td>'+profile_game_count[profile_game_count.length - 1] + '</td><td>' + profile_time_stamp[profile_time_stamp.length - 1] + '</td></tr>';
+				var profile_restricted = [];
+				$.each(data, function (i) {				
+					if(data[i].response.reason > 0 ){
+						var GME = GetMarketEligibility(ReasonFlags, data[i].response.reason);
+						if(GME[0].includes(2) || GME[0].includes(4)){
+							profile_restricted.push( [data[i].id, data[i].response.reason, GME] );
+						}
 					}
-					
-					
 				});
-				
-				$('#rrgc').append(tr);				
+
+				var tr = '';
+				for (let j = 0; j < profile_restricted.length; j++) {
+					
+					profile_id = profile_restricted[j][0];
+					
+					tr += '<tr><td><a href="https://malikremgcregion.github.io/?id='+profile_id+'">' + profile_id +'</a></td></tr>';
+				}
+				$('#rrgc_acc_disabled_locked').append(tr);
 			}
 		});
+
+		function GetMarketEligibility(reasonsFlags, reasonSum) {
+			reasonsFlags = reasonsFlags.filter(function (value) {
+				return value <= reasonSum;
+			});
+
+			reasonsFlags.sort(function (a, b) {
+				return b - a;
+			});
+
+			var result = [];
+
+			while (reasonsFlags.length > 0) {
+				var i;
+				var sum = 0;
+				var addedIndices = [];
+
+				for (i = 0; i < reasonsFlags.length; i++) {
+					if (sum + reasonsFlags[i] <= reasonSum) {
+						sum += reasonsFlags[i];
+						addedIndices.push(i);
+					}
+				}
+
+				var subset = [];
+				for (i = addedIndices.length - 1; i >= 0; i--) {
+					subset.unshift(reasonsFlags[addedIndices[i]]);
+					reasonsFlags.splice(addedIndices[i], 1);
+				}
+				result.push(subset);
+			}
+			return result;
+		}
+	
 	</script>
 	<script>$('body').css('background-image', 'url("./assets/colored_body_top2.png")');</script>
 </body>
