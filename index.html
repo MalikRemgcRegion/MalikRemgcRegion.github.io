@@ -376,14 +376,6 @@
 						
 						}
 					});
-					
-					
-					
-					
-					
-					
-					
-					
 
 					$.ajax({
 						url: "https://api.github.com/repos/MalikRemgcRegion/MalikRemgcRegion.github.io/commits?sha=main&path=ids/"+profile_id+".json",
@@ -444,18 +436,6 @@
 						}
 					});
 					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-
-
 					//add this to their profile.
 					//marking profiles accordingly to their regional account changing behaviour.
 					var behaviourScore = 0;					
@@ -716,18 +696,6 @@
 					  }
 					}
 					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
 					///GetMarketEligibility
 					var ReasonFlags = [0,1,2,4,8,16,32,64,128,256,512,1024,2048,4096,8192,16384,32768];
 					var EMarketNotAllowedReason_Enums = {
@@ -762,7 +730,6 @@
 							var data = JSON.parse( data );
 							
 							var profile_restricted = [];
-							
 							var gme_reasons = "";
 							
 							$.each(data, function (i) {				
@@ -777,44 +744,47 @@
 										if(GME[0].includes(1)){
 											gme_reasons += '<div class="alert alert-secondary" role="alert">TemporaryFailure </div>';
 										}
-										if(GME[0].includes(4)){
+										if(GME[0].includes(2)){
 											gme_reasons += '<div class="alert alert-danger" role="alert">AccountDisabled </div>';
 										}
-										if(GME[0].includes(8)){
+										if(GME[0].includes(4)){
 											gme_reasons += '<div class="alert alert-danger" role="alert">AccountLockedDown </div>';
 										}
-										if(GME[0].includes(16)){
+										if(GME[0].includes(8)){
 											gme_reasons += '<div class="alert alert-warning" role="alert">AccountLimited </div>';
 										}
-										if(GME[0].includes(32)){
+										if(GME[0].includes(16)){
 											gme_reasons += '<div class="alert alert-danger" role="alert">TradeBanned </div>';
 										}
-										if(GME[0].includes(64)){
+										if(GME[0].includes(32)){
 											gme_reasons += '<div class="alert alert-warning" role="alert">AccountNotTrusted </div>';
 										}
-										if(GME[0].includes(128)){
+										if(GME[0].includes(64)){
 											gme_reasons += '<div class="alert alert-warning" role="alert">SteamGuardNotEnabled </div>';
 										}
-										if(GME[0].includes(256)){
+										if(GME[0].includes(128)){
 											gme_reasons += '<div class="alert alert-warning" role="alert">SteamGuardOnlyRecentlyEnabled </div>';
 										}
-										if(GME[0].includes(512)){
+										if(GME[0].includes(256)){
 											gme_reasons += '<div class="alert alert-secondary" role="alert">RecentPasswordReset </div>';
 										}
-										if(GME[0].includes(1024)){
+										if(GME[0].includes(512)){
 											gme_reasons += '<div class="alert alert-warning" role="alert">NewPaymentMethod </div>';
 										}
-										if(GME[0].includes(2048)){
+										if(GME[0].includes(1024)){
 											gme_reasons += '<div class="alert alert-secondary" role="alert">InvalidCookie </div>';
 										}
-										if(GME[0].includes(4096)){
+										if(GME[0].includes(2048)){
 											gme_reasons += '<div class="alert alert-warning" role="alert">UsingNewDevice </div>';
 										}
-										if(GME[0].includes(8192)){
+										if(GME[0].includes(4096)){
 											gme_reasons += '<div class="alert alert-warning" role="alert">RecentSelfRefund </div>';
 										}
-										if(GME[0].includes(16384)){
+										if(GME[0].includes(8192)){
 											gme_reasons += '<div class="alert alert-warning" role="alert">NewPaymentMethodCannotBeVerified </div>';
+										}
+										if(GME[0].includes(16384)){
+											gme_reasons += '<div class="alert alert-warning" role="alert">NoRecentPurchases </div>';
 										}
 										if(GME[0].includes(32768)){
 											gme_reasons += '<div class="alert alert-primary" role="alert">AcceptedWalletGift </div>';
@@ -824,22 +794,11 @@
 								}
 							});
 							
-
-							//console.log(profile_restricted);
-							
-
+							console.log(profile_restricted);
 							$('#gme').append(gme_reasons);
-							
-							
-
 						}
 					});
-					
-					
-					
-					
-					
-					
+
 					function GetMarketEligibility(reasonsFlags, reasonSum) {
 						reasonsFlags = reasonsFlags.filter(function (value) {
 							return value <= reasonSum;
@@ -872,28 +831,6 @@
 						}
 						return result;
 					}
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-
-
-
-
 				}
 			});
 			
