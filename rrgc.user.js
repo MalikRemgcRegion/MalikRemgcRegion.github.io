@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         rrgc userscript
 // @namespace    malikremgcregion.github.io/
-// @version      0.11
+// @version      0.12
 // @description  try to take over the world!
 // @author       rrgc
 // @match        https://malikremgcregion.github.io/*
@@ -159,7 +159,7 @@
                                 }
                                 const countries = steamID[0]["region"]
                                 .filter(r => r !== "ZZ")
-                                .map(r => `<img src="https://steamdb.info/static/country/${r.toLowerCase()}.svg">`)
+                                .map(r => `<img style="margin-right: 3px;" src="https://steamdb.info/static/country/${r.toLowerCase()}.svg" title="${r}">`)
                                 .join("");
                                 jQuery(this).children("td").eq(2).html(countries);
                             } else {
@@ -168,6 +168,7 @@
                         });
                     });
                 }
+
             }
         });
 
