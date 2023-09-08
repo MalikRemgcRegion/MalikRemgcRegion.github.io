@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         rrgc userscript
 // @namespace    malikremgcregion.github.io/
-// @version      0.10
+// @version      0.11
 // @description  try to take over the world!
 // @author       rrgc
 // @match        https://malikremgcregion.github.io/*
@@ -23,16 +23,17 @@
     'use strict';
 
     // Your code here...
-    $(document).ready(function() {
-		const restrictedUrl = "https://malikremgcregion.github.io/restricted.html";
-        const shameUrl = "https://malikremgcregion.github.io/shame.html";
-        const suspectsUrl = "https://malikremgcregion.github.io/suspects.html";
-        const aboutUrl = "https://malikremgcregion.github.io/about.html";
-        const mainUrl = "https://malikremgcregion.github.io/";
-        const queryString = window.location.search;
-        const urlParams = new URLSearchParams(queryString);
-        const steamid = urlParams.get('id');
+    const restrictedUrl = "https://malikremgcregion.github.io/restricted.html";
+    const shameUrl = "https://malikremgcregion.github.io/shame.html";
+    const suspectsUrl = "https://malikremgcregion.github.io/suspects.html";
+    const aboutUrl = "https://malikremgcregion.github.io/about.html";
+    const mainUrl = "https://malikremgcregion.github.io/";
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const steamid = urlParams.get('id');
+    const ccfilterCriteria = "";
 
+    $(document).ready(function() {
         // Shame page
         if (window.location.href === restrictedUrl || window.location.href === shameUrl || window.location.href === suspectsUrl || window.location.href.includes("cc")) {
             $('td:first-child').each(function() {
@@ -144,15 +145,25 @@
 
                 if (currentURL.includes("steamdb")) {
                     jQuery(document).ready(function() {
-                        jQuery("tr").each(function() {
+                        let i = 0;
+                        jQuery("tr[id]").each(function() {
                             const id = jQuery(this).prop("id");
                             const steamID = getSteamID(id, db);
                             if (steamID.length > 0) {
+                                if (ccfilterCriteria) {
+                                    if (!steamID[0]["region"].includes(ccfilterCriteria)) {
+                                        jQuery(this).hide();
+                                        return;
+                                    }
+                                }
+                                jQuery(this).find(".rank").text(`#${++i}`);
                                 const countries = steamID[0]["region"]
                                 .filter(r => r !== "ZZ")
                                 .map(r => `<img src="https://steamdb.info/static/country/${r.toLowerCase()}.svg">`)
                                 .join("");
                                 jQuery(this).children("td").eq(2).html(countries);
+                            } else {
+                                jQuery(this).hide();
                             }
                         });
                     });
