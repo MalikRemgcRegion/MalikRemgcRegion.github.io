@@ -155,8 +155,8 @@
                                         jQuery(this).hide();
                                         return;
                                     }
+                                    jQuery(this).find(".rank").text(`#${++i}`);
                                 }
-                                jQuery(this).find(".rank").text(`#${++i}`);
                                 const countries = steamID[0]["region"]
                                 .filter(r => r !== "ZZ")
                                 .map(r => `<img src="https://steamdb.info/static/country/${r.toLowerCase()}.svg">`)
