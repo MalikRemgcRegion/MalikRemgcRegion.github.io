@@ -119,6 +119,31 @@
         jQuery( "tr" ).each(function() {
             $(this).children('td').eq(2).css("width","200px");
         });
+        let gamescollectorsDB,club7000DB,remgcnDB;
+        GM_xmlhttpRequest({
+            method: "GET",
+            url: "https://raw.githubusercontent.com/MalikRemgcRegion/malikremgcregion.github.io/main/db_gamescollectors/db/db.json",
+            synchronous: true,
+            onload: function(res) {
+                gamescollectorsDB = JSON.parse(res.responseText);
+            }
+        });
+        GM_xmlhttpRequest({
+            method: "GET",
+            url: "https://raw.githubusercontent.com/MalikRemgcRegion/malikremgcregion.github.io/main/db_club7000/db/db.json",
+            synchronous: true,
+            onload: function(res) {
+                club7000DB = JSON.parse(res.responseText);
+            }
+        });
+        GM_xmlhttpRequest({
+            method: "GET",
+            url: "https://raw.githubusercontent.com/MalikRemgcRegion/malikremgcregion.github.io/main/db_remgcn/db/db.json",
+            synchronous: true,
+            onload: function(res) {
+                remgcnDB = JSON.parse(res.responseText);
+            }
+        });
 
         GM_xmlhttpRequest({
             method: "GET",
@@ -137,36 +162,64 @@
                     if (urlp.searchParams.has('cc')) {
                         const cc = urlp.searchParams.get("cc");
                         if (cc && cc.length === 2 && cc.match(/[A-Z]/i)) {
-                            steamdb(db, cc);
+                            steamdb(db, gamescollectorsDB, club7000DB, remgcnDB, cc);
                         } else {
-                            steamdb(db, "");
+                            steamdb(db, gamescollectorsDB, club7000DB, remgcnDB, "");
                         }
                     } else {
-                        steamdb(db, "");
+                        steamdb(db, gamescollectorsDB, club7000DB, remgcnDB, "");
                     }
                 }
             }
         });
 
-        function getSteamID(ids, db) {
-            return db.filter(c => c.id !== "" && ids.includes(c.id));
+        function getSteamID(ids, db, gamescollectorsDB, club7000DB, remgcnDB) {
+            const steamIDInDB = db.find(c => c.id !== "" && ids.includes(c.id));
+
+            if (steamIDInDB) {
+                return steamIDInDB;
+            }
+
+            if (Array.isArray(gamescollectorsDB)) {
+                const steamIDInGamesCollectorsDB = gamescollectorsDB.find(c => c.id !== "" && ids.includes(c.id));
+                if (steamIDInGamesCollectorsDB) {
+                    return steamIDInGamesCollectorsDB;
+                }
+            }
+
+            if (Array.isArray(club7000DB)) {
+                const steamIDInClub7000DB = club7000DB.find(c => c.id !== "" && ids.includes(c.id));
+                if (steamIDInClub7000DB) {
+                    return steamIDInClub7000DB;
+                }
+            }
+
+            if (Array.isArray(remgcnDB)) {
+                const steamIDInRemgCNDB = remgcnDB.find(c => c.id !== "" && ids.includes(c.id));
+                if (steamIDInRemgCNDB) {
+                    return steamIDInRemgCNDB;
+                }
+            }
+
+            return null;
         }
 
-        function steamdb(db, ccfilterCriteria){
-            jQuery(document).ready(function() {
+        function steamdb(db, gamesCollectorsDB, club7000DB, remgcnDB, ccfilterCriteria) {
+            jQuery(document).ready(function () {
                 let i = 0;
-                jQuery("tr[id]").each(function() {
+                jQuery("tr[id]").each(function () {
                     const id = jQuery(this).prop("id");
-                    const steamID = getSteamID(id, db);
-                    if (steamID.length > 0) {
+                    const steamID = getSteamID(id, db, gamesCollectorsDB, club7000DB, remgcnDB);
+
+                    if (steamID) {
                         if (ccfilterCriteria) {
-                            if (!steamID[0]["region"].includes(ccfilterCriteria)) {
+                            if (!steamID.region.includes(ccfilterCriteria)) {
                                 jQuery(this).hide();
                                 return;
                             }
                             jQuery(this).find(".rank").text(`#${++i}`);
                         }
-                        const countries = steamID[0]["region"]
+                        const countries = steamID.region
                         .filter(r => r !== "ZZ")
                         .map(r => {
                             // Add a click event to the flag
@@ -175,11 +228,12 @@
                         .join("");
                         jQuery(this).children("td").eq(2).html(countries);
                     } else {
+                        // Handle the case where steamID is null or undefined
                         jQuery(this).hide();
                     }
                 });
 
-                jQuery(".flag").on("click", function() {
+                jQuery(".flag").on("click", function () {
                     const flagTitle = jQuery(this).attr("title");
                     const urlp = new URL(window.location.href);
                     urlp.searchParams.set('cc', flagTitle);
