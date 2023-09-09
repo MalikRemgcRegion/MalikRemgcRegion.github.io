@@ -1,12 +1,12 @@
 // ==UserScript==
 // @name         rrgc userscript
 // @namespace    malikremgcregion.github.io/
-// @version      0.12
+// @version      0.13
 // @description  try to take over the world!
 // @author       rrgc
 // @match        https://malikremgcregion.github.io/*
 // @match        https://steam-tracker.com/ranking/apps
-// @match        https://steamdb.info/badge/13/
+// @match        https://steamdb.info/badge/13/*
 // @connect     malikremgcregion.github.io
 // @connect     raw.githubusercontent.com
 // @connect     steamcommunity.com
@@ -129,51 +129,78 @@
                 const currentURL = window.location.href;
 
                 if (currentURL.includes("steam-tracker")) {
-                    const rows = document.querySelectorAll("tr");
-                    rows.forEach(row => {
-                        const id = row.getAttribute("id");
-                        const steamID = getSteamID("s" + id, db);
-                        if (steamID.length > 0) {
-                            const countries = steamID[0]["region"]
-                            .filter(r => r !== "ZZ")
-                            .map(r => `<img src="https://steam-tracker.com/images/cc16px/${r.toLowerCase()}.png">`)
-                            .join("");
-                            row.children[2].innerHTML = countries;
-                        }
-                    });
+                    steamtracker(db)
                 }
 
                 if (currentURL.includes("steamdb")) {
-                    jQuery(document).ready(function() {
-                        let i = 0;
-                        jQuery("tr[id]").each(function() {
-                            const id = jQuery(this).prop("id");
-                            const steamID = getSteamID(id, db);
-                            if (steamID.length > 0) {
-                                if (ccfilterCriteria) {
-                                    if (!steamID[0]["region"].includes(ccfilterCriteria)) {
-                                        jQuery(this).hide();
-                                        return;
-                                    }
-                                    jQuery(this).find(".rank").text(`#${++i}`);
-                                }
-                                const countries = steamID[0]["region"]
-                                .filter(r => r !== "ZZ")
-                                .map(r => `<img style="margin-right: 3px;" src="https://steamdb.info/static/country/${r.toLowerCase()}.svg" title="${r}">`)
-                                .join("");
-                                jQuery(this).children("td").eq(2).html(countries);
-                            } else {
-                                jQuery(this).hide();
-                            }
-                        });
-                    });
+                    const urlp = new URL(window.location.href);
+                    if (urlp.searchParams.has('cc')) {
+                        const cc = urlp.searchParams.get("cc");
+                        if (cc && cc.length === 2 && cc.match(/[A-Z]/i)) {
+                            steamdb(db, cc);
+                        } else {
+                            steamdb(db, "");
+                        }
+                    } else {
+                        steamdb(db, "");
+                    }
                 }
-
             }
         });
 
         function getSteamID(ids, db) {
             return db.filter(c => c.id !== "" && ids.includes(c.id));
+        }
+
+        function steamdb(db, ccfilterCriteria){
+            jQuery(document).ready(function() {
+                let i = 0;
+                jQuery("tr[id]").each(function() {
+                    const id = jQuery(this).prop("id");
+                    const steamID = getSteamID(id, db);
+                    if (steamID.length > 0) {
+                        if (ccfilterCriteria) {
+                            if (!steamID[0]["region"].includes(ccfilterCriteria)) {
+                                jQuery(this).hide();
+                                return;
+                            }
+                            jQuery(this).find(".rank").text(`#${++i}`);
+                        }
+                        const countries = steamID[0]["region"]
+                        .filter(r => r !== "ZZ")
+                        .map(r => {
+                            // Add a click event to the flag
+                            return `<img src="https://steamdb.info/static/country/${r.toLowerCase()}.svg" title="${r}" class="flag">`;
+                        })
+                        .join("");
+                        jQuery(this).children("td").eq(2).html(countries);
+                    } else {
+                        jQuery(this).hide();
+                    }
+                });
+
+                jQuery(".flag").on("click", function() {
+                    const flagTitle = jQuery(this).attr("title");
+                    const urlp = new URL(window.location.href);
+                    urlp.searchParams.set('cc', flagTitle);
+                    window.location.href = urlp.toString();
+                });
+            });
+        }
+
+        function steamtracker(db){
+            const rows = document.querySelectorAll("tr");
+            rows.forEach(row => {
+                const id = row.getAttribute("id");
+                const steamID = getSteamID("s" + id, db);
+                if (steamID.length > 0) {
+                    const countries = steamID[0]["region"]
+                    .filter(r => r !== "ZZ")
+                    .map(r => `<img src="https://steam-tracker.com/images/cc16px/${r.toLowerCase()}.png">`)
+                    .join("");
+                    row.children[2].innerHTML = countries;
+                }
+            });
         }
     }
 })();
