@@ -2684,12 +2684,12 @@
         }
     },
     {
-        "time_stamp": 1693570273,
+        "time_stamp": 1694347938,
         "id": "76561199264598496",
         "response": {
             "allowed": false,
             "reason": 16488,
-            "allowed_at_time": 1694175073,
+            "allowed_at_time": 1694952739,
             "steamguard_required_days": 15,
             "new_device_cooldown_days": 0
         }
