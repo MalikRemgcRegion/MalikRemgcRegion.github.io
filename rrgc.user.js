@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         rrgc userscript
 // @namespace    malikremgcregion.github.io/
-// @version      0.13
+// @version      0.14
 // @description  try to take over the world!
 // @author       rrgc
 // @match        https://malikremgcregion.github.io/*
@@ -119,29 +119,44 @@
         jQuery( "tr" ).each(function() {
             $(this).children('td').eq(2).css("width","200px");
         });
-        let gamescollectorsDB,club7000DB,remgcnDB;
-        GM_xmlhttpRequest({
+        let steamDB1000,club7000DB,remgcnDB;
+        /*GM_xmlhttpRequest({
             method: "GET",
             url: "https://raw.githubusercontent.com/MalikRemgcRegion/malikremgcregion.github.io/main/db_gamescollectors/db/db.json",
             synchronous: true,
             onload: function(res) {
                 gamescollectorsDB = JSON.parse(res.responseText);
+                console.log(gamescollectorsDB);
+            }
+        });*/
+        //this steamdb1000
+        GM_xmlhttpRequest({
+            method: "GET",
+            url: "https://raw.githubusercontent.com/MalikRemgcRegion/malikremgcregion.github.io/main/db_steamdb1000/db/db.json",
+            synchronous: true,
+            onload: function(res) {
+                steamDB1000 = JSON.parse(res.responseText);
+                console.log(steamDB1000);
             }
         });
+
         GM_xmlhttpRequest({
             method: "GET",
             url: "https://raw.githubusercontent.com/MalikRemgcRegion/malikremgcregion.github.io/main/db_club7000/db/db.json",
             synchronous: true,
             onload: function(res) {
                 club7000DB = JSON.parse(res.responseText);
+                console.log(steamDB1000);
             }
         });
+        console.log(club7000DB);
         GM_xmlhttpRequest({
             method: "GET",
             url: "https://raw.githubusercontent.com/MalikRemgcRegion/malikremgcregion.github.io/main/db_remgcn/db/db.json",
             synchronous: true,
             onload: function(res) {
                 remgcnDB = JSON.parse(res.responseText);
+                console.log(remgcnDB);
             }
         });
 
@@ -162,28 +177,28 @@
                     if (urlp.searchParams.has('cc')) {
                         const cc = urlp.searchParams.get("cc");
                         if (cc && cc.length === 2 && cc.match(/[A-Z]/i)) {
-                            steamdb(db, gamescollectorsDB, club7000DB, remgcnDB, cc);
+                            steamdb(db, steamDB1000, club7000DB, remgcnDB, cc);
                         } else {
-                            steamdb(db, gamescollectorsDB, club7000DB, remgcnDB, "");
+                            steamdb(db, steamDB1000, club7000DB, remgcnDB, "");
                         }
                     } else {
-                        steamdb(db, gamescollectorsDB, club7000DB, remgcnDB, "");
+                        steamdb(db, steamDB1000, club7000DB, remgcnDB, "");
                     }
                 }
             }
         });
 
-        function getSteamID(ids, db, gamescollectorsDB, club7000DB, remgcnDB) {
+        function getSteamID(ids, db, steamDB1000, club7000DB, remgcnDB) {
             const steamIDInDB = db.find(c => c.id !== "" && ids.includes(c.id));
 
             if (steamIDInDB) {
                 return steamIDInDB;
             }
 
-            if (Array.isArray(gamescollectorsDB)) {
-                const steamIDInGamesCollectorsDB = gamescollectorsDB.find(c => c.id !== "" && ids.includes(c.id));
-                if (steamIDInGamesCollectorsDB) {
-                    return steamIDInGamesCollectorsDB;
+            if (Array.isArray(steamDB1000)) {
+                const steamIDInsteamDB1000 = steamDB1000.find(c => c.id !== "" && ids.includes(c.id));
+                if (steamIDInsteamDB1000) {
+                    return steamIDInsteamDB1000;
                 }
             }
 
@@ -204,12 +219,12 @@
             return null;
         }
 
-        function steamdb(db, gamesCollectorsDB, club7000DB, remgcnDB, ccfilterCriteria) {
+        function steamdb(db, steamDB1000, club7000DB, remgcnDB, ccfilterCriteria) {
             jQuery(document).ready(function () {
                 let i = 0;
                 jQuery("tr[id]").each(function () {
                     const id = jQuery(this).prop("id");
-                    const steamID = getSteamID(id, db, gamesCollectorsDB, club7000DB, remgcnDB);
+                    const steamID = getSteamID(id, db, steamDB1000, club7000DB, remgcnDB);
 
                     if (steamID) {
                         if (ccfilterCriteria) {
