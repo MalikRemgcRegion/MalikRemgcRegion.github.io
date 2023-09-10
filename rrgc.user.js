@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         rrgc userscript
 // @namespace    malikremgcregion.github.io/
-// @version      0.13
+// @version      0.14
 // @description  try to take over the world!
 // @author       rrgc
 // @match        https://malikremgcregion.github.io/*
@@ -119,7 +119,7 @@
         jQuery( "tr" ).each(function() {
             $(this).children('td').eq(2).css("width","200px");
         });
-        let gamescollectorsDB,club7000DB,remgcnDB;
+        let gamescollectorsDB,club7000DB,remgcnDB, steamDB1000;
         GM_xmlhttpRequest({
             method: "GET",
             url: "https://raw.githubusercontent.com/MalikRemgcRegion/malikremgcregion.github.io/main/db_gamescollectors/db/db.json",
@@ -144,6 +144,15 @@
                 remgcnDB = JSON.parse(res.responseText);
             }
         });
+		
+		GM_xmlhttpRequest({
+            method: "GET",
+            url: "https://raw.githubusercontent.com/MalikRemgcRegion/malikremgcregion.github.io/main/db_steamdb1000/db/db.json",
+            synchronous: true,
+            onload: function(res) {
+                steamDB1000 = JSON.parse(res.responseText);
+            }
+        });
 
         GM_xmlhttpRequest({
             method: "GET",
@@ -162,18 +171,18 @@
                     if (urlp.searchParams.has('cc')) {
                         const cc = urlp.searchParams.get("cc");
                         if (cc && cc.length === 2 && cc.match(/[A-Z]/i)) {
-                            steamdb(db, gamescollectorsDB, club7000DB, remgcnDB, cc);
+                            steamdb(db, gamescollectorsDB, club7000DB, remgcnDB, steamDB1000, cc);
                         } else {
-                            steamdb(db, gamescollectorsDB, club7000DB, remgcnDB, "");
+                            steamdb(db, gamescollectorsDB, club7000DB, remgcnDB, steamDB1000, "");
                         }
                     } else {
-                        steamdb(db, gamescollectorsDB, club7000DB, remgcnDB, "");
+                        steamdb(db, gamescollectorsDB, club7000DB, remgcnDB, steamDB1000, "");
                     }
                 }
             }
         });
 
-        function getSteamID(ids, db, gamescollectorsDB, club7000DB, remgcnDB) {
+        function getSteamID(ids, db, gamescollectorsDB, club7000DB, remgcnDB, steamDB1000) {
             const steamIDInDB = db.find(c => c.id !== "" && ids.includes(c.id));
 
             if (steamIDInDB) {
@@ -198,6 +207,13 @@
                 const steamIDInRemgCNDB = remgcnDB.find(c => c.id !== "" && ids.includes(c.id));
                 if (steamIDInRemgCNDB) {
                     return steamIDInRemgCNDB;
+                }
+            }
+			
+			if (Array.isArray(steamDB1000)) {
+                const steamIDInRemgCNDB = steamDB1000.find(c => c.id !== "" && ids.includes(c.id));
+                if (steamIDInSteamDB1000) {
+                    return steamIDInSteamDB1000;
                 }
             }
 
