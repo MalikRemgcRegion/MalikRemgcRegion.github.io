@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         rrgc userscript
 // @namespace    malikremgcregion.github.io/
-// @version      0.16
+// @version      0.17
 // @description  try to take over the world!
 // @author       rrgc
 // @match        https://malikremgcregion.github.io/*
@@ -118,7 +118,9 @@
 
     // Steam-tracker + SteamDB
     if (window.location.href.indexOf("steamdb") > -1 || window.location.href.indexOf("steam-tracker") > -1) {
-        CCdropdownMenu();
+        $(document).ready(function() {
+            CCdropdownMenu();
+        });
         jQuery("tr").each(function() {
             $(this).children('td').eq(2).css("width", "200px");
         });
@@ -254,12 +256,12 @@
                             jQuery(this).find(".rank").text(`#${++i}`);
                         }
                         const countries = steamID.region
-                            .filter(r => r !== "ZZ")
-                            .map(r => {
-                                // Add a click event to the flag
-                                return `<img src="https://steamdb.info/static/country/${r.toLowerCase()}.svg" title="${r}" class="flag">`;
-                            })
-                            .join("");
+                        .filter(r => r !== "ZZ")
+                        .map(r => {
+                            // Add a click event to the flag
+                            return `<img src="https://steamdb.info/static/country/${r.toLowerCase()}.svg" title="${r}" class="flag">`;
+                        })
+                        .join("");
                         jQuery(this).children("td").eq(2).html(countries);
                     } else {
                         // Handle the case where steamID is null or undefined
@@ -277,767 +279,276 @@
         }
 
         function CCdropdownMenu() {
-            $('#main > div:nth-child(2) > table > thead > tr > th:nth-child(3)').append(`
-        <select id="SelectCountry">
-        <option value="Country">Country</option>
-		<option value="US">United States</option>
-		<option value="CA">Canada</option>
-		<option value="AF">Afghanistan</option>
-		<option value="AX">Aland Islands</option>
-		<option value="AL">Albania</option>
-		<option value="DZ">Algeria</option>
-		<option value="AS">American Samoa</option>
-		<option value="AD">Andorra</option>
-		<option value="AO">Angola</option>
-		<option value="AI">Anguilla</option>
-		<option value="AQ">Antarctica</option>
-		<option value="AG">Antigua & Barbuda</option>
-		<option value="AR">Argentina</option>
-		<option value="AM">Armenia</option>
-		<option value="AW">Aruba</option>
-		<option value="AU">Australia</option>
-		<option value="AT">Austria</option>
-		<option value="AZ">Azerbaijan</option>
-		<option value="BS">Bahamas</option>
-		<option value="BH">Bahrain</option>
-		<option value="BD">Bangladesh</option>
-		<option value="BB">Barbados</option>
-		<option value="BY">Belarus</option>
-		<option value="BE">Belgium</option>
-		<option value="BZ">Belize</option>
-		<option value="BJ">Benin</option>
-		<option value="BM">Bermuda</option>
-		<option value="BT">Bhutan</option>
-		<option value="BO">Bolivia</option>
-		<option value="BQ">Bonaire, Sint Eustatius and Saba</option>
-		<option value="BA">Bosnia and Herzegovina</option>
-		<option value="BW">Botswana</option>
-		<option value="BV">Bouvet Island</option>
-		<option value="BR">Brazil</option>
-		<option value="IO">British Indian Ocean Territory</option>
-		<option value="VG">British Virgin Islands</option>
-		<option value="BN">Brunei Darussalam</option>
-		<option value="BG">Bulgaria</option>
-		<option value="BF">Burkina Faso</option>
-		<option value="BI">Burundi</option>
-		<option value="KH">Cambodia</option>
-		<option value="CM">Cameroon</option>
-		<option value="CV">Cape Verde</option>
-		<option value="KY">Cayman Islands</option>
-		<option value="CF">Central African Republic</option>
-		<option value="TD">Chad</option>
-		<option value="CL">Chile</option>
-		<option value="CN">China</option>
-		<option value="CX">Christmas Island</option>
-		<option value="CC">Cocos (Keeling) Islands</option>
-		<option value="CO">Colombia</option>
-		<option value="KM">Comoros</option>
-		<option value="CG">Congo</option>
-		<option value="CD">Congo, the Democratic Republic of the</option>
-		<option value="CK">Cook Islands</option>
-		<option value="CR">Costa Rica</option>
-		<option value="CI">Cote D'ivoire (Ivory Coast)</option>
-		<option value="HR">Croatia</option>
-		<option value="CU">Cuba</option>
-		<option value="CW">Curacao</option>
-		<option value="CY">Cyprus</option>
-		<option value="CZ">Czech Republic</option>
-		<option value="DK">Denmark</option>
-		<option value="DJ">Djibouti</option>
-		<option value="DM">Dominica</option>
-		<option value="DO">Dominican Republic</option>
-		<option value="EC">Ecuador</option>
-		<option value="EG">Egypt</option>
-		<option value="SV">El Salvador</option>
-		<option value="GQ">Equatorial Guinea</option>
-		<option value="ER">Eritrea</option>
-		<option value="EE">Estonia</option>
-		<option value="ET">Ethiopia</option>
-		<option value="FK">Falkland Islands (Malvinas)</option>
-		<option value="FO">Faroe Islands</option>
-		<option value="FJ">Fiji</option>
-		<option value="FI">Finland</option>
-		<option value="FR">France</option>
-		<option value="GF">French Guiana</option>
-		<option value="PF">French Polynesia</option>
-		<option value="TF">French Southern Territories</option>
-		<option value="GA">Gabon</option>
-		<option value="GM">Gambia</option>
-		<option value="GE">Georgia</option>
-		<option value="DE">Germany</option>
-		<option value="GH">Ghana</option>
-		<option value="GI">Gibraltar</option>
-		<option value="GR">Greece</option>
-		<option value="GL">Greenland</option>
-		<option value="GD">Grenada</option>
-		<option value="GP">Guadeloupe</option>
-		<option value="GU">Guam</option>
-		<option value="GT">Guatemala</option>
-		<option value="GG">Guernsey</option>
-		<option value="GN">Guinea</option>
-		<option value="GW">Guinea-Bissau</option>
-		<option value="GY">Guyana</option>
-		<option value="HT">Haiti</option>
-		<option value="HM">Heard & McDonald Islands</option>
-		<option value="HN">Honduras</option>
-		<option value="HK">Hong Kong</option>
-		<option value="HU">Hungary</option>
-		<option value="IS">Iceland</option>
-		<option value="IN">India</option>
-		<option value="ID">Indonesia</option>
-		<option value="IQ">Iraq</option>
-		<option value="IE">Ireland</option>
-		<option value="IR">Islamic Republic of Iran</option>
-		<option value="IM">Isle of Man</option>
-		<option value="IL">Israel</option>
-		<option value="IT">Italy</option>
-		<option value="JM">Jamaica</option>
-		<option value="JP">Japan</option>
-		<option value="JE">Jersey</option>
-		<option value="JO">Jordan</option>
-		<option value="KZ">Kazakhstan</option>
-		<option value="KE">Kenya</option>
-		<option value="KI">Kiribati</option>
-		<option value="KP">Korea, Democratic People's Republic of</option>
-		<option value="KR">Korea, Republic of</option>
-		<option value="XK">Kosovo</option>
-		<option value="KW">Kuwait</option>
-		<option value="KG">Kyrgyzstan</option>
-		<option value="LA">Laos</option>
-		<option value="LV">Latvia</option>
-		<option value="LB">Lebanon</option>
-		<option value="LS">Lesotho</option>
-		<option value="LR">Liberia</option>
-		<option value="LY">Libya</option>
-		<option value="LI">Liechtenstein</option>
-		<option value="LT">Lithuania</option>
-		<option value="LU">Luxembourg</option>
-		<option value="MO">Macau</option>
-		<option value="MK">Macedonia, The Former Yugoslav Republic of</option>
-		<option value="MG">Madagascar</option>
-		<option value="MW">Malawi</option>
-		<option value="MY">Malaysia</option>
-		<option value="MV">Maldives</option>
-		<option value="ML">Mali</option>
-		<option value="MT">Malta</option>
-		<option value="MH">Marshall Islands</option>
-		<option value="MQ">Martinique</option>
-		<option value="MR">Mauritania</option>
-		<option value="MU">Mauritius</option>
-		<option value="YT">Mayotte</option>
-		<option value="MX">Mexico</option>
-		<option value="FM">Micronesia</option>
-		<option value="MD">Moldova, Republic of</option>
-		<option value="MC">Monaco</option>
-		<option value="MN">Mongolia</option>
-		<option value="MS">Monserrat</option>
-		<option value="ME">Montenegro</option>
-		<option value="MA">Morocco</option>
-		<option value="MZ">Mozambique</option>
-		<option value="MM">Myanmar</option>
-		<option value="NA">Namibia</option>
-		<option value="NR">Nauru</option>
-		<option value="NP">Nepal</option>
-		<option value="NL">Netherlands</option>
-		<option value="NC">New Caledonia</option>
-		<option value="NZ">New Zealand</option>
-		<option value="NI">Nicaragua</option>
-		<option value="NE">Niger</option>
-		<option value="NG">Nigeria</option>
-		<option value="NU">Niue</option>
-		<option value="NF">Norfolk Island</option>
-		<option value="MP">Northern Mariana Islands</option>
-		<option value="NO">Norway</option>
-		<option value="OM">Oman</option>
-		<option value="PK">Pakistan</option>
-		<option value="PW">Palau</option>
-		<option value="PS">Palestinian Territory, Occupied</option>
-		<option value="PA">Panama</option>
-		<option value="PG">Papua New Guinea</option>
-		<option value="PY">Paraguay</option>
-		<option value="PE">Peru</option>
-		<option value="PH">Philippines</option>
-		<option value="PN">Pitcairn</option>
-		<option value="PL">Poland</option>
-		<option value="PT">Portugal</option>
-		<option value="PR">Puerto Rico</option>
-		<option value="QA">Qatar</option>
-		<option value="RE">Reunion</option>
-		<option value="RO">Romania</option>
-		<option value="RU">Russian Federation</option>
-		<option value="RW">Rwanda</option>
-		<option value="BL">Saint Barthelemy</option>
-		<option value="LC">Saint Lucia</option>
-		<option value="MF">Saint Martin (French part)</option>
-		<option value="WS">Samoa</option>
-		<option value="SM">San Marino</option>
-		<option value="ST">Sao Tome & Principe</option>
-		<option value="SA">Saudi Arabia</option>
-		<option value="SN">Senegal</option>
-		<option value="RS">Serbia</option>
-		<option value="SC">Seychelles</option>
-		<option value="SL">Sierra Leone</option>
-		<option value="SG">Singapore</option>
-		<option value="SX">Sint Maarten (Dutch part)</option>
-		<option value="SK">Slovakia</option>
-		<option value="SI">Slovenia</option>
-		<option value="SB">Solomon Islands</option>
-		<option value="SO">Somalia</option>
-		<option value="ZA">South Africa</option>
-		<option value="GS">South Georgia and the South Sandwich Islands</option>
-		<option value="SS">South Sudan</option>
-		<option value="ES">Spain</option>
-		<option value="LK">Sri Lanka</option>
-		<option value="SH">St. Helena</option>
-		<option value="KN">St. Kitts and Nevis</option>
-		<option value="PM">St. Pierre & Miquelon</option>
-		<option value="VC">St. Vincent & the Grenadines</option>
-		<option value="SD">Sudan</option>
-		<option value="SR">Suriname</option>
-		<option value="SJ">Svalbard & Jan Mayen Islands</option>
-		<option value="SZ">Swaziland</option>
-		<option value="SE">Sweden</option>
-		<option value="CH">Switzerland</option>
-		<option value="SY">Syrian Arab Republic</option>
-		<option value="TW">Taiwan</option>
-		<option value="TJ">Tajikistan</option>
-		<option value="TZ">Tanzania, United Republic of</option>
-		<option value="TH">Thailand</option>
-		<option value="TL">Timor-Leste</option>
-		<option value="TG">Togo</option>
-		<option value="TK">Tokelau</option>
-		<option value="TO">Tonga</option>
-		<option value="TT">Trinidad & Tobago</option>
-		<option value="TN">Tunisia</option>
-		<option value="TR">Turkey</option>
-		<option value="TM">Turkmenistan</option>
-		<option value="TC">Turks & Caicos Islands</option>
-		<option value="TV">Tuvalu</option>
-		<option value="UG">Uganda</option>
-		<option value="UA">Ukraine</option>
-		<option value="AE">United Arab Emirates</option>
-		<option value="GB">United Kingdom (Great Britain)</option>
-		<option value="UM">United States Minor Outlying</option>
-		<option value="VI">United States Virgin Islands</option>
-		<option value="UY">Uruguay</option>
-		<option value="UZ">Uzbekistan</option>
-		<option value="VU">Vanuatu</option>
-		<option value="VA">Vatican City State (Holy See)</option>
-		<option value="VE">Venezuela</option>
-		<option value="VN">Viet Nam</option>
-		<option value="WF">Wallis & Futuna Islands</option>
-		<option value="EH">Western Sahara</option>
-		<option value="YE">Yemen</option>
-		<option value="ZM">Zambia</option>
-		<option value="ZW">Zimbabwe</option>
-        </select>`)
+            var countries = [
+                { value: 'Country', text: 'Country' },
+                { value: 'US', text: 'United States' },
+                { value: 'CA', text: 'Canada' },
+                { value: 'AF', text: 'Afghanistan' },
+                { value: 'AX', text: 'Aland Islands' },
+                { value: 'AL', text: 'Albania' },
+                { value: 'DZ', text: 'Algeria' },
+                { value: 'AS', text: 'American Samoa' },
+                { value: 'AD', text: 'Andorra' },
+                { value: 'AO', text: 'Angola' },
+                { value: 'AI', text: 'Anguilla' },
+                { value: 'AQ', text: 'Antarctica' },
+                { value: 'AG', text: 'Antigua & Barbuda' },
+                { value: 'AR', text: 'Argentina' },
+                { value: 'AM', text: 'Armenia' },
+                { value: 'AW', text: 'Aruba' },
+                { value: 'AU', text: 'Australia' },
+                { value: 'AT', text: 'Austria' },
+                { value: 'AZ', text: 'Azerbaijan' },
+                { value: 'BS', text: 'Bahamas' },
+                { value: 'BH', text: 'Bahrain' },
+                { value: 'BD', text: 'Bangladesh' },
+                { value: 'BB', text: 'Barbados' },
+                { value: 'BY', text: 'Belarus' },
+                { value: 'BE', text: 'Belgium' },
+                { value: 'BZ', text: 'Belize' },
+                { value: 'BJ', text: 'Benin' },
+                { value: 'BM', text: 'Bermuda' },
+                { value: 'BT', text: 'Bhutan' },
+                { value: 'BO', text: 'Bolivia' },
+                { value: 'BQ', text: 'Bonaire, Sint Eustatius and Saba' },
+                { value: 'BA', text: 'Bosnia and Herzegovina' },
+                { value: 'BW', text: 'Botswana' },
+                { value: 'BV', text: 'Bouvet Island' },
+                { value: 'BR', text: 'Brazil' },
+                { value: 'IO', text: 'British Indian Ocean Territory' },
+                { value: 'VG', text: 'British Virgin Islands' },
+                { value: 'BN', text: 'Brunei Darussalam' },
+                { value: 'BG', text: 'Bulgaria' },
+                { value: 'BF', text: 'Burkina Faso' },
+                { value: 'BI', text: 'Burundi' },
+                { value: 'KH', text: 'Cambodia' },
+                { value: 'CM', text: 'Cameroon' },
+                { value: 'CV', text: 'Cape Verde' },
+                { value: 'KY', text: 'Cayman Islands' },
+                { value: 'CF', text: 'Central African Republic' },
+                { value: 'TD', text: 'Chad' },
+                { value: 'CL', text: 'Chile' },
+                { value: 'CN', text: 'China' },
+                { value: 'CX', text: 'Christmas Island' },
+                { value: 'CC', text: 'Cocos (Keeling) Islands' },
+                { value: 'CO', text: 'Colombia' },
+                { value: 'KM', text: 'Comoros' },
+                { value: 'CG', text: 'Congo' },
+                { value: 'CD', text: 'Congo, the Democratic Republic of the' },
+                { value: 'CK', text: 'Cook Islands' },
+                { value: 'CR', text: 'Costa Rica' },
+                { value: 'CI', text: "Cote D'ivoire (Ivory Coast)" },
+                { value: 'HR', text: 'Croatia' },
+                { value: 'CU', text: 'Cuba' },
+                { value: 'CW', text: 'Curacao' },
+                { value: 'CY', text: 'Cyprus' },
+                { value: 'CZ', text: 'Czech Republic' },
+                { value: 'DK', text: 'Denmark' },
+                { value: 'DJ', text: 'Djibouti' },
+                { value: 'DM', text: 'Dominica' },
+                { value: 'DO', text: 'Dominican Republic' },
+                { value: 'EC', text: 'Ecuador' },
+                { value: 'EG', text: 'Egypt' },
+                { value: 'SV', text: 'El Salvador' },
+                { value: 'GQ', text: 'Equatorial Guinea' },
+                { value: 'ER', text: 'Eritrea' },
+                { value: 'EE', text: 'Estonia' },
+                { value: 'ET', text: 'Ethiopia' },
+                { value: 'FK', text: 'Falkland Islands (Malvinas)' },
+                { value: 'FO', text: 'Faroe Islands' },
+                { value: 'FJ', text: 'Fiji' },
+                { value: 'FI', text: 'Finland' },
+                { value: 'FR', text: 'France' },
+                { value: 'GF', text: 'French Guiana' },
+                { value: 'PF', text: 'French Polynesia' },
+                { value: 'TF', text: 'French Southern Territories' },
+                { value: 'GA', text: 'Gabon' },
+                { value: 'GM', text: 'Gambia' },
+                { value: 'GE', text: 'Georgia' },
+                { value: 'DE', text: 'Germany' },
+                { value: 'GH', text: 'Ghana' },
+                { value: 'GI', text: 'Gibraltar' },
+                { value: 'GR', text: 'Greece' },
+                { value: 'GL', text: 'Greenland' },
+                { value: 'GD', text: 'Grenada' },
+                { value: 'GP', text: 'Guadeloupe' },
+                { value: 'GU', text: 'Guam' },
+                { value: 'GT', text: 'Guatemala' },
+                { value: 'GG', text: 'Guernsey' },
+                { value: 'GN', text: 'Guinea' },
+                { value: 'GW', text: 'Guinea-Bissau' },
+                { value: 'GY', text: 'Guyana' },
+                { value: 'HT', text: 'Haiti' },
+                { value: 'HM', text: 'Heard & McDonald Islands' },
+                { value: 'HN', text: 'Honduras' },
+                { value: 'HK', text: 'Hong Kong' },
+                { value: 'HU', text: 'Hungary' },
+                { value: 'IS', text: 'Iceland' },
+                { value: 'IN', text: 'India' },
+                { value: 'ID', text: 'Indonesia' },
+                { value: 'IQ', text: 'Iraq' },
+                { value: 'IE', text: 'Ireland' },
+                { value: 'IR', text: 'Islamic Republic of Iran' },
+                { value: 'IM', text: 'Isle of Man' },
+                { value: 'IL', text: 'Israel' },
+                { value: 'IT', text: 'Italy' },
+                { value: 'JM', text: 'Jamaica' },
+                { value: 'JP', text: 'Japan' },
+                { value: 'JE', text: 'Jersey' },
+                { value: 'JO', text: 'Jordan' },
+                { value: 'KZ', text: 'Kazakhstan' },
+                { value: 'KE', text: 'Kenya' },
+                { value: 'KI', text: 'Kiribati' },
+                { value: 'KP', text: "Korea, Democratic People's Republic of" },
+                { value: 'KR', text: 'Korea, Republic of' },
+                { value: 'XK', text: 'Kosovo' },
+                { value: 'KW', text: 'Kuwait' },
+                { value: 'KG', text: 'Kyrgyzstan' },
+                { value: 'LA', text: 'Laos' },
+                { value: 'LV', text: 'Latvia' },
+                { value: 'LB', text: 'Lebanon' },
+                { value: 'LS', text: 'Lesotho' },
+                { value: 'LR', text: 'Liberia' },
+                { value: 'LY', text: 'Libya' },
+                { value: 'LI', text: 'Liechtenstein' },
+                { value: 'LT', text: 'Lithuania' },
+                { value: 'LU', text: 'Luxembourg' },
+                { value: 'MO', text: 'Macau' },
+                { value: 'MK', text: 'Macedonia, The Former Yugoslav Republic of' },
+                { value: 'MG', text: 'Madagascar' },
+                { value: 'MW', text: 'Malawi' },
+                { value: 'MY', text: 'Malaysia' },
+                { value: 'MV', text: 'Maldives' },
+                { value: 'ML', text: 'Mali' },
+                { value: 'MT', text: 'Malta' },
+                { value: 'MH', text: 'Marshall Islands' },
+                { value: 'MQ', text: 'Martinique' },
+                { value: 'MR', text: 'Mauritania' },
+                { value: 'MU', text: 'Mauritius' },
+                { value: 'YT', text: 'Mayotte' },
+                { value: 'MX', text: 'Mexico' },
+                { value: 'FM', text: 'Micronesia' },
+                { value: 'MD', text: 'Moldova, Republic of' },
+                { value: 'MC', text: 'Monaco' },
+                { value: 'MN', text: 'Mongolia' },
+                { value: 'MS', text: 'Montserrat' },
+                { value: 'ME', text: 'Montenegro' },
+                { value: 'MA', text: 'Morocco' },
+                { value: 'MZ', text: 'Mozambique' },
+                { value: 'MM', text: 'Myanmar' },
+                { value: 'NA', text: 'Namibia' },
+                { value: 'NR', text: 'Nauru' },
+                { value: 'NP', text: 'Nepal' },
+                { value: 'NL', text: 'Netherlands' },
+                { value: 'NC', text: 'New Caledonia' },
+                { value: 'NZ', text: 'New Zealand' },
+                { value: 'NI', text: 'Nicaragua' },
+                { value: 'NE', text: 'Niger' },
+                { value: 'NG', text: 'Nigeria' },
+                { value: 'NU', text: 'Niue' },
+                { value: 'NF', text: 'Norfolk Island' },
+                { value: 'MP', text: 'Northern Mariana Islands' },
+                { value: 'NO', text: 'Norway' },
+                { value: 'OM', text: 'Oman' },
+                { value: 'PK', text: 'Pakistan' },
+                { value: 'PW', text: 'Palau' },
+                { value: 'PS', text: 'Palestinian Territory, Occupied' },
+                { value: 'PA', text: 'Panama' },
+                { value: 'PG', text: 'Papua New Guinea' },
+                { value: 'PY', text: 'Paraguay' },
+                { value: 'PE', text: 'Peru' },
+                { value: 'PH', text: 'Philippines' },
+                { value: 'PN', text: 'Pitcairn' },
+                { value: 'PL', text: 'Poland' },
+                { value: 'PT', text: 'Portugal' },
+                { value: 'PR', text: 'Puerto Rico' },
+                { value: 'QA', text: 'Qatar' },
+                { value: 'RE', text: 'Reunion' },
+                { value: 'RO', text: 'Romania' },
+                { value: 'RU', text: 'Russian Federation' },
+                { value: 'RW', text: 'Rwanda' },
+                { value: 'BL', text: 'Saint Barthelemy' },
+                { value: 'LC', text: 'Saint Lucia' },
+                { value: 'MF', text: 'Saint Martin (French part)' },
+                { value: 'WS', text: 'Samoa' },
+                { value: 'SM', text: 'San Marino' },
+                { value: 'ST', text: 'Sao Tome & Principe' },
+                { value: 'SA', text: 'Saudi Arabia' },
+                { value: 'SN', text: 'Senegal' },
+                { value: 'RS', text: 'Serbia' },
+                { value: 'SC', text: 'Seychelles' },
+                { value: 'SL', text: 'Sierra Leone' },
+                { value: 'SG', text: 'Singapore' },
+                { value: 'SX', text: 'Sint Maarten (Dutch part)' },
+                { value: 'SK', text: 'Slovakia' },
+                { value: 'SI', text: 'Slovenia' },
+                { value: 'SB', text: 'Solomon Islands' },
+                { value: 'SO', text: 'Somalia' },
+                { value: 'ZA', text: 'South Africa' },
+                { value: 'GS', text: 'South Georgia and the South Sandwich Islands' },
+                { value: 'SS', text: 'South Sudan' },
+                { value: 'ES', text: 'Spain' },
+                { value: 'LK', text: 'Sri Lanka' },
+                { value: 'SH', text: 'St. Helena' },
+                { value: 'KN', text: 'St. Kitts and Nevis' },
+                { value: 'PM', text: 'St. Pierre & Miquelon' },
+                { value: 'VC', text: 'St. Vincent & the Grenadines' },
+                { value: 'SD', text: 'Sudan' },
+                { value: 'SR', text: 'Suriname' },
+                { value: 'SJ', text: 'Svalbard & Jan Mayen Islands' },
+                { value: 'SZ', text: 'Swaziland' },
+                { value: 'SE', text: 'Sweden' },
+                { value: 'CH', text: 'Switzerland' },
+                { value: 'SY', text: 'Syrian Arab Republic' },
+                { value: 'TW', text: 'Taiwan' },
+                { value: 'TJ', text: 'Tajikistan' },
+                { value: 'TZ', text: 'Tanzania, United Republic of' },
+                { value: 'TH', text: 'Thailand' },
+                { value: 'TL', text: 'Timor-Leste' },
+                { value: 'TG', text: 'Togo' },
+                { value: 'TK', text: 'Tokelau' },
+                { value: 'TO', text: 'Tonga' },
+                { value: 'TT', text: 'Trinidad & Tobago' },
+                { value: 'TN', text: 'Tunisia' },
+                { value: 'TR', text: 'Turkey' },
+                { value: 'TM', text: 'Turkmenistan' },
+                { value: 'TC', text: 'Turks & Caicos Islands' },
+                { value: 'TV', text: 'Tuvalu' },
+                { value: 'UG', text: 'Uganda' },
+                { value: 'UA', text: 'Ukraine' },
+                { value: 'AE', text: 'United Arab Emirates' },
+                { value: 'GB', text: 'United Kingdom (Great Britain)' },
+                { value: 'UM', text: 'United States Minor Outlying' },
+                { value: 'VI', text: 'United States Virgin Islands' },
+                { value: 'UY', text: 'Uruguay' },
+                { value: 'UZ', text: 'Uzbekistan' },
+                { value: 'VU', text: 'Vanuatu' },
+                { value: 'VA', text: 'Vatican City State (Holy See)' },
+                { value: 'VE', text: 'Venezuela' },
+                { value: 'VN', text: 'Viet Nam' },
+                { value: 'WF', text: 'Wallis & Futuna Islands' },
+                { value: 'EH', text: 'Western Sahara' },
+                { value: 'YE', text: 'Yemen' },
+                { value: 'ZM', text: 'Zambia' },
+                { value: 'ZW', text: 'Zimbabwe' }
+            ];
+
+            var selectHTML = '<select id="countryDropdown">';
+            countries.forEach(function(country) {
+                selectHTML += `<option value="${country.value}">${country.text}</option>`;
+            });
+            selectHTML += '</select>';
+
+            $('#main > div:nth-child(2) > table > thead > tr > th:nth-child(3)').append(selectHTML);
+            $('#countryDropdown').on('change', SelectCountry);
         }
-        var menu = document.getElementById("SelectCountry");
-        menu.addEventListener("change", SelectCountry);
 
         function SelectCountry(event) {
-            if (menu.value == 'Country') {
-                window.location.href = `https://steamdb.info/badge/13/`;
-            } else if (menu.value == 'US') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'CA') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'AF') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'AX') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'AL') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'DZ') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'AS') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'AD') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'AO') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'AI') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'AQ') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'AG') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'AR') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'AM') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'AW') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'AU') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'AT') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'AZ') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'BS') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'BH') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'BD') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'BB') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'BY') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'BE') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'BZ') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'BJ') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'BM') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'BT') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'BO') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'BQ') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'BA') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'BW') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'BV') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'BR') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'IO') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'VG') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'BN') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'BG') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'BF') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'BI') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'KH') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'CM') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'CV') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'KY') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'CF') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'TD') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'CL') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'CN') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'CX') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'CC') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'CO') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'KM') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'CG') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'CD') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'CK') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'CR') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'CI') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'HR') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'CU') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'CW') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'CY') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'CZ') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'DK') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'DJ') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'DM') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'DO') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'EC') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'EG') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'SV') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'GQ') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'ER') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'EE') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'ET') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'FK') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'FO') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'FJ') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'FI') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'FR') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'GF') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'PF') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'TF') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'GA') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'GM') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'GE') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'DE') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'GH') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'GI') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'GR') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'GL') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'GD') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'GP') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'GU') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'GT') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'GG') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'GN') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'GW') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'GY') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'HT') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'HM') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'HN') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'HK') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'HU') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'IS') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'IN') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'ID') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'IQ') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'IE') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'IR') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'IM') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'IL') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'IT') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'JM') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'JP') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'JE') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'JO') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'KZ') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'KE') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'KI') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'KP') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'KR') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'XK') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'KW') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'KG') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'LA') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'LV') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'LB') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'LS') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'LR') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'LY') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'LI') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'LT') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'LU') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'MO') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'MK') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'MG') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'MW') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'MY') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'MV') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'ML') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'MT') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'MH') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'MQ') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'MR') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'MU') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'YT') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'MX') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'FM') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'MD') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'MC') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'MN') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'MS') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'ME') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'MA') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'MZ') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'MM') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'NA') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'NR') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'NP') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'NL') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'NC') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'NZ') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'NI') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'NE') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'NG') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'NU') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'NF') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'MP') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'NO') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'OM') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'PK') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'PW') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'PS') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'PA') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'PG') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'PY') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'PE') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'PH') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'PN') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'PL') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'PT') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'PR') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'QA') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'RE') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'RO') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'RU') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'RW') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'BL') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'LC') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'MF') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'WS') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'SM') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'ST') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'SA') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'SN') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'RS') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'SC') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'SL') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'SG') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'SX') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'SK') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'SI') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'SB') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'SO') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'ZA') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'GS') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'SS') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'ES') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'LK') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'SH') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'KN') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'PM') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'VC') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'SD') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'SR') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'SJ') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'SZ') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'SE') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'CH') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'SY') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'TW') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'TJ') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'TZ') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'TH') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'TL') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'TG') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'TK') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'TO') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'TT') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'TN') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'TR') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'TM') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'TC') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'TV') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'UG') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'UA') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'AE') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'GB') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'UM') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'VI') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'UY') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'UZ') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'VU') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'VA') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'VE') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'VN') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'WF') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'EH') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'YE') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'ZM') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
-            } else if (menu.value == 'ZW') {
-                window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
+            var menu = document.getElementById("countryDropdown");
+            var selectedCountry = menu.value;
+
+            if (selectedCountry !== 'Country') {
+                window.location.href = `https://steamdb.info/badge/13/?cc=${selectedCountry}`;
             }
         }
     }
