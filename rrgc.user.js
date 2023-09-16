@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         rrgc userscript
 // @namespace    malikremgcregion.github.io/
-// @version      0.15
+// @version      0.16
 // @description  try to take over the world!
 // @author       rrgc
 // @match        https://malikremgcregion.github.io/*
@@ -536,7 +536,9 @@
         menu.addEventListener("change", SelectCountry);
 
         function SelectCountry(event) {
-            if (menu.value == 'Country') {} else if (menu.value == 'US') {
+            if (menu.value == 'Country') {
+                window.location.href = `https://steamdb.info/badge/13/`;
+            } else if (menu.value == 'US') {
                 window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
             } else if (menu.value == 'CA') {
                 window.location.href = `https://steamdb.info/badge/13/?cc=${menu.value}`;
