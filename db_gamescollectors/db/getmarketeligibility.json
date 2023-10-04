@@ -3410,7 +3410,7 @@
         }
     },
     {
-        "time_stamp": 1694168193,
+        "time_stamp": 1696407130,
         "id": "76561197979899401",
         "response": {
             "allowed": true,
@@ -27841,7 +27841,7 @@
         }
     },
     {
-        "time_stamp": 1690703669,
+        "time_stamp": 1696405356,
         "id": "76561198348328904",
         "response": {
             "allowed": true,
@@ -35233,7 +35233,7 @@
         }
     },
     {
-        "time_stamp": 1690704733,
+        "time_stamp": 1696404348,
         "id": "76561198062024111",
         "response": {
             "allowed": true,
@@ -51425,7 +51425,7 @@
         }
     },
     {
-        "time_stamp": 1690707052,
+        "time_stamp": 1696407415,
         "id": "76561198068916868",
         "response": {
             "allowed": true,
@@ -54021,7 +54021,7 @@
         }
     },
     {
-        "time_stamp": 1690708097,
+        "time_stamp": 1696408519,
         "id": "76561197998915780",
         "response": {
             "allowed": true,
@@ -55605,12 +55605,12 @@
         }
     },
     {
-        "time_stamp": 1690708294,
+        "time_stamp": 1696407963,
         "id": "76561197976802594",
         "response": {
             "allowed": false,
             "reason": 16416,
-            "allowed_at_time": 1691313094,
+            "allowed_at_time": 1697012763,
             "steamguard_required_days": 15,
             "new_device_cooldown_days": 0
         }
@@ -61402,7 +61402,7 @@
         }
     },
     {
-        "time_stamp": 1690709014,
+        "time_stamp": 1696409732,
         "id": "76561198046300691",
         "response": {
             "allowed": true,
@@ -70039,6 +70039,17 @@
     {
         "time_stamp": 1696158458,
         "id": "76561198077880422",
+        "response": {
+            "allowed": true,
+            "reason": 0,
+            "allowed_at_time": 0,
+            "steamguard_required_days": 15,
+            "new_device_cooldown_days": 0
+        }
+    },
+    {
+        "time_stamp": 1696406447,
+        "id": "76561197970275441",
         "response": {
             "allowed": true,
             "reason": 0,
