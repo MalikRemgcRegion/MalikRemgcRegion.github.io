@@ -9141,11 +9141,11 @@
         }
     },
     {
-        "time_stamp": 1696150125,
+        "time_stamp": 1696638850,
         "id": "76561198029532782",
         "response": {
             "allowed": false,
-            "reason": 384,
+            "reason": 128,
             "allowed_at_time": 1697238422,
             "steamguard_required_days": 15,
             "new_device_cooldown_days": 0
