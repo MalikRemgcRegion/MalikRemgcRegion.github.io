@@ -3,14 +3,14 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>RRGC Ladder</title>
-	<meta name="description" content="RRGC Ladder">
+	<title>C7K Suspects</title>
+	<meta name="description" content="C7K Suspects">
 	<meta property="og:type" content="website">
 	<meta property="og:title" content="malikremgcregion.github.io">
-	<meta property="og:description" content="Showing you the RRGC Ladder">
-	<meta property="og:url" content="https://malikremgcregion.github.io/ladder.html">
+	<meta property="og:description" content="Showing you the C7K Suspects">
+	<meta property="og:url" content="https://malikremgcregion.github.io/c7k_suspects.html">
 	<meta property="og:image" content="https://malikremgcregion.github.io/assets/colored_body_top2.png">
-	<meta name="twitter:site" content="@RRGC Ladder">
+	<meta name="twitter:site" content="@C7K Suspects">
 	<meta name="twitter:image" content="https://malikremgcregion.github.io/assets/colored_body_top2.png">
 	<meta name="twitter:card" content="summary_large_image">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -47,16 +47,32 @@
     </div>
 	
 	
+    <div class="container">
+        <table class="table sortable text-light">
+		  <thead class="thead-dark">
+			<tr>
+			  <th scope="col">id</th>
+			  <th scope="col">region</th>
+			  <th scope="col">games count</th>
+			  <th scope="col">time</th>
+			</tr>
+		  </thead>
+		  <tbody id="rrgc">
+		  </tbody>
+		</table>
+    </div>
+	
+	
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.1/bootstrap-table.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 	<script>
 
-		document.title = "Sus | RRGC Ladder";
+		document.title = "Sus | C7K Suspects";
 	
 		$.ajax({
-		   url: "https://raw.githubusercontent.com/MalikRemgcRegion/MalikRemgcRegion.github.io/main/db/db.json",
+		   url: "https://raw.githubusercontent.com/MalikRemgcRegion/MalikRemgcRegion.github.io/main/db_club7000/db/db.json",
 			type:"get",
 			dataType: 'text',  
 			error: function(data){

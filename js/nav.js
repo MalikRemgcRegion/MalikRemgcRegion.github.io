@@ -20,24 +20,30 @@ $("#myNavbar").append(
           <div>
             <div class="dropdown-header">gamescollectors</div>
             <a class="dropdown-item" href="./gc_ladder.html">GC Ladder</a>
-            <!--<a class="dropdown-item" href="">Shame Ladder</a><a class="dropdown-item" href="">Suspects Ladder</a><a class="dropdown-item" href="">GC Restricted Ladder</a>-->
+            <a class="dropdown-item" href="./gc_shame.html">Shame Ladder</a>
+            <a class="dropdown-item" href="./gc_suspects.html">Suspects Ladder</a>
+            <a class="dropdown-item" href="./gc_restricted.html">Restricted Ladder</a>
           </div>
           <div>
             <div class="dropdown-header">RemGC</div>
             <a class="dropdown-item" href="./ladder.html">RRGC Ladder</a>
             <a class="dropdown-item" href="./shame.html">Shame Ladder</a>
             <a class="dropdown-item" href="./suspects.html">Suspects Ladder</a>
-            <a class="dropdown-item" href="./restricted.html">RRGC Restricted Ladder</a>
+            <a class="dropdown-item" href="./restricted.html">Restricted Ladder</a>
           </div>
           <div>
             <div class="dropdown-header">RemGCN</div>
             <a class="dropdown-item" href="./remgcn_ladder.html">RemGCN Ladder</a>
-            <!--<a class="dropdown-item" href="">Shame Ladder</a><a class="dropdown-item" href="">Suspects Ladder</a><a class="dropdown-item" href="">GC Restricted Ladder</a>-->
+            <a class="dropdown-item" href="./remgcn_shame.html">Shame Ladder</a>
+            <a class="dropdown-item" href="./remgcn_suspects.html">Suspects Ladder</a>
+            <a class="dropdown-item" href="./remgcn_restricted.html">Restricted Ladder</a>
           </div>
           <div>
             <div class="dropdown-header">club7000</div>
             <a class="dropdown-item" href="./c7k_ladder.html">C7K Ladder</a>
-            <!--<a class="dropdown-item" href="">Shame Ladder</a><a class="dropdown-item" href="">Suspects Ladder</a><a class="dropdown-item" href="">GC Restricted Ladder</a>-->
+            <a class="dropdown-item" href="./c7k_shame.html">Shame Ladder</a>
+            <a class="dropdown-item" href="./c7k_suspects.html">Suspects Ladder</a>
+            <a class="dropdown-item" href="./c7k_restricted.html">Restricted Ladder</a>
           </div>
         </div>
         <div class="dropdown-divider"></div>
