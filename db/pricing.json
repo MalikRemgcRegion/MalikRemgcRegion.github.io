@@ -40,7 +40,9 @@
         "input-base_40": 50000,
         "input-base_41": 3200,
         "input-CIS_1": 90,
-        "input-SASIA_1": 90
+        "input-SASIA_1": 90,
+        "input-LATAM_1": 89,
+        "input-MENA_1": 89
     },
     "usd2": {
         "input-base_1": 199,
@@ -83,7 +85,9 @@
         "input-base_40": 95000,
         "input-base_41": 6400,
         "input-CIS_1": 139,
-        "input-SASIA_1": 129
+        "input-SASIA_1": 129,
+        "input-LATAM_1": 149,
+        "input-MENA_1": 149
     },
     "usd3": {
         "input-base_1": 299,
@@ -126,7 +130,9 @@
         "input-base_40": 140000,
         "input-base_41": 9500,
         "input-CIS_1": 219,
-        "input-SASIA_1": 189
+        "input-SASIA_1": 189,
+        "input-LATAM_1": 199,
+        "input-MENA_1": 199
     },
     "usd4": {
         "input-base_1": 399,
@@ -169,7 +175,9 @@
         "input-base_40": 190000,
         "input-base_41": 12600,
         "input-CIS_1": 269,
-        "input-SASIA_1": 249
+        "input-SASIA_1": 249,
+        "input-LATAM_1": 249,
+        "input-MENA_1": 249
     },
     "usd5": {
         "input-base_1": 499,
@@ -212,7 +220,9 @@
         "input-base_40": 240000,
         "input-base_41": 15900,
         "input-CIS_1": 329,
-        "input-SASIA_1": 299
+        "input-SASIA_1": 299,
+        "input-LATAM_1": 299,
+        "input-MENA_1": 299
     },
     "usd6": {
         "input-base_1": 599,
@@ -255,7 +265,9 @@
         "input-base_40": 280000,
         "input-base_41": 18900,
         "input-CIS_1": 399,
-        "input-SASIA_1": 349
+        "input-SASIA_1": 349,
+        "input-LATAM_1": 359,
+        "input-MENA_1": 359
     },
     "usd7": {
         "input-base_1": 699,
@@ -298,7 +310,9 @@
         "input-base_40": 330000,
         "input-base_41": 22000,
         "input-CIS_1": 469,
-        "input-SASIA_1": 399
+        "input-SASIA_1": 399,
+        "input-LATAM_1": 399,
+        "input-MENA_1": 399
     },
     "usd8": {
         "input-base_1": 799,
@@ -341,7 +355,9 @@
         "input-base_40": 375000,
         "input-base_41": 24900,
         "input-CIS_1": 499,
-        "input-SASIA_1": 449
+        "input-SASIA_1": 449,
+        "input-LATAM_1": 449,
+        "input-MENA_1": 449
     },
     "usd9": {
         "input-base_1": 899,
@@ -384,7 +400,9 @@
         "input-base_40": 420000,
         "input-base_41": 27900,
         "input-CIS_1": 579,
-        "input-SASIA_1": 499
+        "input-SASIA_1": 499,
+        "input-LATAM_1": 499,
+        "input-MENA_1": 499
     },
     "usd10": {
         "input-base_1": 999,
@@ -427,7 +445,9 @@
         "input-base_40": 460000,
         "input-base_41": 31000,
         "input-CIS_1": 629,
-        "input-SASIA_1": 549
+        "input-SASIA_1": 549,
+        "input-LATAM_1": 579,
+        "input-MENA_1": 579
     },
     "usd11": {
         "input-base_1": 1099,
@@ -470,7 +490,9 @@
         "input-base_40": 500000,
         "input-base_41": 33800,
         "input-CIS_1": 669,
-        "input-SASIA_1": 589
+        "input-SASIA_1": 589,
+        "input-LATAM_1": 629,
+        "input-MENA_1": 629
     },
     "usd12": {
         "input-base_1": 1199,
@@ -513,7 +535,9 @@
         "input-base_40": 520000,
         "input-base_41": 36900,
         "input-CIS_1": 699,
-        "input-SASIA_1": 619
+        "input-SASIA_1": 619,
+        "input-LATAM_1": 659,
+        "input-MENA_1": 659
     },
     "usd13": {
         "input-base_1": 1299,
@@ -556,7 +580,9 @@
         "input-base_40": 580000,
         "input-base_41": 39900,
         "input-CIS_1": 749,
-        "input-SASIA_1": 649
+        "input-SASIA_1": 649,
+        "input-LATAM_1": 729,
+        "input-MENA_1": 729
     },
     "usd14": {
         "input-base_1": 1399,
@@ -599,7 +625,9 @@
         "input-base_40": 600000,
         "input-base_41": 42500,
         "input-CIS_1": 799,
-        "input-SASIA_1": 679
+        "input-SASIA_1": 679,
+        "input-LATAM_1": 779,
+        "input-MENA_1": 779
     },
     "usd15": {
         "input-base_1": 1499,
@@ -642,7 +670,9 @@
         "input-base_40": 650000,
         "input-base_41": 45500,
         "input-CIS_1": 849,
-        "input-SASIA_1": 699
+        "input-SASIA_1": 699,
+        "input-LATAM_1": 799,
+        "input-MENA_1": 799
     },
     "usd16": {
         "input-base_1": 1599,
@@ -685,7 +715,9 @@
         "input-base_40": 690000,
         "input-base_41": 48500,
         "input-CIS_1": 899,
-        "input-SASIA_1": 729
+        "input-SASIA_1": 729,
+        "input-LATAM_1": 849,
+        "input-MENA_1": 849
     },
     "usd17": {
         "input-base_1": 1699,
@@ -728,7 +760,9 @@
         "input-base_40": 740000,
         "input-base_41": 51000,
         "input-CIS_1": 949,
-        "input-SASIA_1": 749
+        "input-SASIA_1": 749,
+        "input-LATAM_1": 899,
+        "input-MENA_1": 899
     },
     "usd18": {
         "input-base_1": 1799,
@@ -771,7 +805,9 @@
         "input-base_40": 780000,
         "input-base_41": 54000,
         "input-CIS_1": 989,
-        "input-SASIA_1": 779
+        "input-SASIA_1": 779,
+        "input-LATAM_1": 929,
+        "input-MENA_1": 929
     },
     "usd19": {
         "input-base_1": 1899,
@@ -814,7 +850,9 @@
         "input-base_40": 810000,
         "input-base_41": 56900,
         "input-CIS_1": 1029,
-        "input-SASIA_1": 799
+        "input-SASIA_1": 799,
+        "input-LATAM_1": 989,
+        "input-MENA_1": 989
     },
     "usd20": {
         "input-base_1": 1999,
@@ -857,7 +895,9 @@
         "input-base_40": 850000,
         "input-base_41": 59500,
         "input-CIS_1": 1049,
-        "input-SASIA_1": 819
+        "input-SASIA_1": 819,
+        "input-LATAM_1": 1049,
+        "input-MENA_1": 1049
     },
     "usd25": {
         "input-base_1": 2499,
@@ -900,7 +940,9 @@
         "input-base_40": 1050000,
         "input-base_41": 74000,
         "input-CIS_1": 1249,
-        "input-SASIA_1": 849
+        "input-SASIA_1": 849,
+        "input-LATAM_1": 1249,
+        "input-MENA_1": 1249
     },
     "usd30": {
         "input-base_1": 2999,
@@ -943,7 +985,9 @@
         "input-base_40": 1240000,
         "input-base_41": 88500,
         "input-CIS_1": 1449,
-        "input-SASIA_1": 1049
+        "input-SASIA_1": 1049,
+        "input-LATAM_1": 1499,
+        "input-MENA_1": 1499
     },
     "usd35": {
         "input-base_1": 3499,
@@ -986,7 +1030,9 @@
         "input-base_40": 1450000,
         "input-base_41": 103000,
         "input-CIS_1": 1649,
-        "input-SASIA_1": 1199
+        "input-SASIA_1": 1199,
+        "input-LATAM_1": 1799,
+        "input-MENA_1": 1799
     },
     "usd40": {
         "input-base_1": 3999,
@@ -1029,7 +1075,9 @@
         "input-base_40": 1590000,
         "input-base_41": 115000,
         "input-CIS_1": 1849,
-        "input-SASIA_1": 1299
+        "input-SASIA_1": 1299,
+        "input-LATAM_1": 1899,
+        "input-MENA_1": 1899
     },
     "usd45": {
         "input-base_1": 4499,
@@ -1072,7 +1120,9 @@
         "input-base_40": 1780000,
         "input-base_41": 128000,
         "input-CIS_1": 2049,
-        "input-SASIA_1": 1499
+        "input-SASIA_1": 1499,
+        "input-LATAM_1": 2099,
+        "input-MENA_1": 2099
     },
     "usd50": {
         "input-base_1": 4999,
@@ -1115,7 +1165,9 @@
         "input-base_40": 1990000,
         "input-base_41": 145000,
         "input-CIS_1": 2299,
-        "input-SASIA_1": 1599
+        "input-SASIA_1": 1599,
+        "input-LATAM_1": 2299,
+        "input-MENA_1": 2299
     },
     "usd55": {
         "input-base_1": 5499,
@@ -1158,7 +1210,9 @@
         "input-base_40": 2180000,
         "input-base_41": 156900,
         "input-CIS_1": 2549,
-        "input-SASIA_1": 1799
+        "input-SASIA_1": 1799,
+        "input-LATAM_1": 2599,
+        "input-MENA_1": 2599
     },
     "usd60": {
         "input-base_1": 5999,
@@ -1201,7 +1255,9 @@
         "input-base_40": 2390000,
         "input-base_41": 170000,
         "input-CIS_1": 2799,
-        "input-SASIA_1": 1999
+        "input-SASIA_1": 1999,
+        "input-LATAM_1": 2699,
+        "input-MENA_1": 2699
     },
     "usd65": {
         "input-base_1": 6499,
@@ -1244,7 +1300,9 @@
         "input-base_40": 2580000,
         "input-base_41": 185000,
         "input-CIS_1": 2999,
-        "input-SASIA_1": 1999
+        "input-SASIA_1": 1999,
+        "input-LATAM_1": 2999,
+        "input-MENA_1": 2999
     },
     "usd70": {
         "input-base_1": 6999,
@@ -1287,7 +1345,9 @@
         "input-base_40": 2790000,
         "input-base_41": 199900,
         "input-CIS_1": 3199,
-        "input-SASIA_1": 2299
+        "input-SASIA_1": 2299,
+        "input-LATAM_1": 3299,
+        "input-MENA_1": 3299
     },
     "usd75": {
         "input-base_1": 7499,
@@ -1330,7 +1390,9 @@
         "input-base_40": 2980000,
         "input-base_41": 215000,
         "input-CIS_1": 3499,
-        "input-SASIA_1": 2499
+        "input-SASIA_1": 2499,
+        "input-LATAM_1": 3499,
+        "input-MENA_1": 3499
     },
     "usd80": {
         "input-base_1": 7999,
@@ -1373,7 +1435,9 @@
         "input-base_40": 3190000,
         "input-base_41": 229900,
         "input-CIS_1": 3699,
-        "input-SASIA_1": 2599
+        "input-SASIA_1": 2599,
+        "input-LATAM_1": 3699,
+        "input-MENA_1": 3699
     },
     "usd85": {
         "input-base_1": 8499,
@@ -1416,7 +1480,9 @@
         "input-base_40": 3380000,
         "input-base_41": 240000,
         "input-CIS_1": 3899,
-        "input-SASIA_1": 2699
+        "input-SASIA_1": 2699,
+        "input-LATAM_1": 3899,
+        "input-MENA_1": 3899
     },
     "usd90": {
         "input-base_1": 8999,
@@ -1459,7 +1525,9 @@
         "input-base_40": 3590000,
         "input-base_41": 260000,
         "input-CIS_1": 3999,
-        "input-SASIA_1": 2899
+        "input-SASIA_1": 2899,
+        "input-LATAM_1": 4199,
+        "input-MENA_1": 4199
     },
     "usd100": {
         "input-base_1": 9999,
@@ -1502,7 +1570,9 @@
         "input-base_40": 3990000,
         "input-base_41": 285000,
         "input-CIS_1": 4599,
-        "input-SASIA_1": 3199
+        "input-SASIA_1": 3199,
+        "input-LATAM_1": 4599,
+        "input-MENA_1": 4599
     },
     "usd110": {
         "input-base_1": 10999,
@@ -1545,7 +1615,9 @@
         "input-base_40": 4390000,
         "input-base_41": 315000,
         "input-CIS_1": 5099,
-        "input-SASIA_1": 3499
+        "input-SASIA_1": 3499,
+        "input-LATAM_1": 5099,
+        "input-MENA_1": 5099
     },
     "usd120": {
         "input-base_1": 11999,
@@ -1588,7 +1660,9 @@
         "input-base_40": 4780000,
         "input-base_41": 340000,
         "input-CIS_1": 5499,
-        "input-SASIA_1": 3899
+        "input-SASIA_1": 3899,
+        "input-LATAM_1": 5599,
+        "input-MENA_1": 5599
     },
     "usd130": {
         "input-base_1": 12999,
@@ -1631,7 +1705,9 @@
         "input-base_40": 5180000,
         "input-base_41": 370000,
         "input-CIS_1": 5999,
-        "input-SASIA_1": 4199
+        "input-SASIA_1": 4199,
+        "input-LATAM_1": 5999,
+        "input-MENA_1": 5999
     },
     "usd140": {
         "input-base_1": 13999,
@@ -1674,7 +1750,9 @@
         "input-base_40": 5590000,
         "input-base_41": 400000,
         "input-CIS_1": 6499,
-        "input-SASIA_1": 4499
+        "input-SASIA_1": 4499,
+        "input-LATAM_1": 6499,
+        "input-MENA_1": 6499
     },
     "usd150": {
         "input-base_1": 14999,
@@ -1717,7 +1795,9 @@
         "input-base_40": 5990000,
         "input-base_41": 430000,
         "input-CIS_1": 6899,
-        "input-SASIA_1": 4799
+        "input-SASIA_1": 4799,
+        "input-LATAM_1": 6999,
+        "input-MENA_1": 6999
     },
     "usd200": {
         "input-base_1": 19999,
@@ -1760,7 +1840,9 @@
         "input-base_40": 7990000,
         "input-base_41": 570000,
         "input-CIS_1": 8999,
-        "input-SASIA_1": 6399
+        "input-SASIA_1": 6399,
+        "input-LATAM_1": 9299,
+        "input-MENA_1": 9299
     },
     "timestamp": {
         "time": 0
