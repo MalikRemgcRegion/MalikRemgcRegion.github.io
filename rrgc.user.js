@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         rrgc userscript
 // @namespace    malikremgcregion.github.io/
-// @version      0.17
+// @version      0.18
 // @description  try to take over the world!
 // @author       rrgc
 // @match        https://malikremgcregion.github.io/*
@@ -23,6 +23,9 @@
     'use strict';
 
     // Your code here...
+    const c7k_ladderUrl = "https://malikremgcregion.github.io/c7k_ladder.html";
+    const remgcn_ladderUrl = "https://malikremgcregion.github.io/remgcn_ladder.html";
+    const ladderdUrl = "https://malikremgcregion.github.io/ladder.html";
     const restrictedUrl = "https://malikremgcregion.github.io/restricted.html";
     const shameUrl = "https://malikremgcregion.github.io/shame.html";
     const suspectsUrl = "https://malikremgcregion.github.io/suspects.html";
@@ -35,7 +38,13 @@
 
     $(document).ready(function() {
         // Shame page
-        if (window.location.href === restrictedUrl || window.location.href === shameUrl || window.location.href === suspectsUrl || window.location.href.includes("cc")) {
+        if (window.location.href === c7k_ladderUrl ||
+            window.location.href === remgcn_ladderUrl ||
+            window.location.href === ladderdUrl ||
+            window.location.href === restrictedUrl ||
+            window.location.href === shameUrl ||
+            window.location.href === suspectsUrl ||
+            window.location.href.includes("cc")) {
             $('td:first-child').each(function() {
                 const $td = $(this);
                 const steamids = $td[0].innerText;
@@ -181,7 +190,17 @@
                 const currentURL = window.location.href;
 
                 if (currentURL.includes("steam-tracker")) {
-                    steamtracker(db)
+                    const urlp = new URL(window.location.href);
+                    if (urlp.searchParams.has('cc')) {
+                        const cc = urlp.searchParams.get("cc");
+                        if (cc && cc.length === 2 && cc.match(/[A-Z]/i)) {
+                            GetSteamAccountRegion(0, db, steamDB1000, club7000DB, remgcnDB, gamescollectorsDB, cc);
+                        } else {
+                            GetSteamAccountRegion(0, db, steamDB1000, club7000DB, remgcnDB, gamescollectorsDB, "");
+                        }
+                    } else {
+                        GetSteamAccountRegion(0, db, steamDB1000, club7000DB, remgcnDB, gamescollectorsDB, "");
+                    }
                 }
 
                 if (currentURL.includes("steamdb")) {
@@ -189,12 +208,12 @@
                     if (urlp.searchParams.has('cc')) {
                         const cc = urlp.searchParams.get("cc");
                         if (cc && cc.length === 2 && cc.match(/[A-Z]/i)) {
-                            steamdb(db, steamDB1000, club7000DB, remgcnDB, gamescollectorsDB, cc);
+                            GetSteamAccountRegion(1, db, steamDB1000, club7000DB, remgcnDB, gamescollectorsDB, cc);
                         } else {
-                            steamdb(db, steamDB1000, club7000DB, remgcnDB, gamescollectorsDB, "");
+                            GetSteamAccountRegion(1, db, steamDB1000, club7000DB, remgcnDB, gamescollectorsDB, "");
                         }
                     } else {
-                        steamdb(db, steamDB1000, club7000DB, remgcnDB, gamescollectorsDB, "");
+                        GetSteamAccountRegion(1, db, steamDB1000, club7000DB, remgcnDB, gamescollectorsDB, "");
                     }
                 }
             }
@@ -240,8 +259,10 @@
             return null;
         }
 
-        function steamdb(db, steamDB1000, club7000DB, remgcnDB, gamescollectorsDB, ccfilterCriteria) {
+        function GetSteamAccountRegion(site,db, steamDB1000, club7000DB, remgcnDB, gamescollectorsDB, ccfilterCriteria) {
             jQuery(document).ready(function() {
+                let cc_image = "";
+
                 let i = 0;
                 jQuery("tr[id]").each(function() {
                     const id = jQuery(this).prop("id");
@@ -255,13 +276,17 @@
                             }
                             jQuery(this).find(".rank").text(`#${++i}`);
                         }
-                        const countries = steamID.region
-                        .filter(r => r !== "ZZ")
-                        .map(r => {
+                        const countries = steamID.region.filter(r => r !== "ZZ").map(r => {
                             // Add a click event to the flag
-                            return `<img src="https://steamdb.info/static/country/${r.toLowerCase()}.svg" title="${r}" class="flag">`;
-                        })
-                        .join("");
+                            if(site == 0){
+                                cc_image = `<img src="https://steam-tracker.com/images/cc16px/${r.toLowerCase()}.png" title="${r}" class="flag">`;
+                            }else if(site == 1){
+                                cc_image = `<img src="https://steamdb.info/static/country/${r.toLowerCase()}.svg" title="${r}" class="flag">`;
+                            }else{
+                                //something else.
+                            }
+                            return cc_image;
+                        }).join("");
                         jQuery(this).children("td").eq(2).html(countries);
                     } else {
                         // Handle the case where steamID is null or undefined
@@ -275,6 +300,7 @@
                     urlp.searchParams.set('cc', flagTitle);
                     window.location.href = urlp.toString();
                 });
+
             });
         }
 
