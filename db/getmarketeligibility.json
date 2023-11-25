@@ -6831,11 +6831,11 @@
         }
     },
     {
-        "time_stamp": 1691541684,
+        "time_stamp": 1700872455,
         "id": "76561198071743939",
         "response": {
-            "allowed": true,
-            "reason": 0,
+            "allowed": false,
+            "reason": 4,
             "allowed_at_time": 0,
             "steamguard_required_days": 15,
             "new_device_cooldown_days": 0
