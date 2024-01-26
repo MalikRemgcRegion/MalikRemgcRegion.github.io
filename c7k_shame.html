@@ -38,7 +38,8 @@
 			  <th scope="col">id</th>
 			  <th scope="col">region</th>
 			  <th scope="col">games count</th>
-			  <th scope="col">time</th>
+			  <!--<th scope="col">time</th>-->
+  			  <th scope="col">regions</th>
 			</tr>
 		  </thead>
 		  <tbody id="rrgc">
@@ -77,7 +78,8 @@
 					profile_game_count = data[i].game_count;
 					
 					if(profile_region.length >= 2 && profile_region[0] !== "ZZ"){
-						tr += '<tr><td><a href="https://malikremgcregion.github.io/?id='+profile_id+'">' + profile_id +'</a></td><td>'  + '<a href="' + window.location.href + '?cc=' + profile_region[profile_region.length - 1] +'"><img class="card-img-top" src="./assets/cc_flags/png_16px/'+profile_region[profile_region.length - 1].toLowerCase()+'.png" alt="'+profile_region[profile_region.length - 1]+'" title="'+profile_region[profile_region.length - 1]+'" style="width:16px;height:16px;"></a>' /* profile_region*/ /*profile_region[profile_region.length - 1]*/ + '</td><td>'+profile_game_count[profile_game_count.length - 1] + '</td><td>' + profile_time_stamp[profile_time_stamp.length - 1] + '</td></tr>';
+						//tr += '<tr><td><a href="https://malikremgcregion.github.io/?id='+profile_id+'">' + profile_id +'</a></td><td>'  + '<a href="' + window.location.href + '?cc=' + profile_region +'"><img class="card-img-top" src="./assets/cc_flags/png_16px/'+profile_region[profile_region.length - 1].toLowerCase()+'.png" alt="'+profile_region[profile_region.length - 1]+'" title="'+profile_region[profile_region.length - 1]+'" style="width:16px;height:16px;"></a>' /* profile_region*/ /*profile_region[profile_region.length - 1]*/ + '</td><td>'+profile_game_count[profile_game_count.length - 1] + '</td><td>' + profile_time_stamp[profile_time_stamp.length - 1] + '</td></tr>';
+						tr += '<tr><td><a href="https://malikremgcregion.github.io/?id='+profile_id+'">' + profile_id +'</a></td><td>'  + '<a href="' + window.location.href + '?cc=' + profile_region +'"><img class="card-img-top" src="./assets/cc_flags/png_16px/'+profile_region[profile_region.length - 1].toLowerCase()+'.png" alt="'+profile_region[profile_region.length - 1]+'" title="'+profile_region[profile_region.length - 1]+'" style="width:16px;height:16px;"></a>' /* profile_region*/ /*profile_region[profile_region.length - 1]*/ + '</td><td>'+profile_game_count[profile_game_count.length - 1] + '</td><td>' + profile_region + '</td></tr>';
 					}
 					
 					
