@@ -37631,7 +37631,7 @@
         }
     },
     {
-        "time_stamp": 1701249670,
+        "time_stamp": 1709709892,
         "id": "76561198153444879",
         "response": {
             "allowed": true,
@@ -38445,7 +38445,7 @@
         }
     },
     {
-        "time_stamp": 1708500700,
+        "time_stamp": 1709711704,
         "id": "76561198101523563",
         "response": {
             "allowed": true,
@@ -50853,7 +50853,7 @@
         }
     },
     {
-        "time_stamp": 1700640684,
+        "time_stamp": 1709710523,
         "id": "76561198426034921",
         "response": {
             "allowed": true,
@@ -51579,12 +51579,12 @@
         }
     },
     {
-        "time_stamp": 1694169077,
+        "time_stamp": 1709714846,
         "id": "76561198063218960",
         "response": {
             "allowed": false,
-            "reason": 16416,
-            "allowed_at_time": 1694773877,
+            "reason": 32,
+            "allowed_at_time": 1710032928,
             "steamguard_required_days": 15,
             "new_device_cooldown_days": 0
         }
@@ -71258,7 +71258,7 @@
         }
     },
     {
-        "time_stamp": 1707894987,
+        "time_stamp": 1709711415,
         "id": "76561198031733677",
         "response": {
             "allowed": true,
@@ -71447,6 +71447,105 @@
     {
         "time_stamp": 1709112301,
         "id": "76561198833402770",
+        "response": {
+            "allowed": true,
+            "reason": 0,
+            "allowed_at_time": 0,
+            "steamguard_required_days": 15,
+            "new_device_cooldown_days": 0
+        }
+    },
+    {
+        "time_stamp": 1709709125,
+        "id": "76561197961495733",
+        "response": {
+            "allowed": true,
+            "reason": 0,
+            "allowed_at_time": 0,
+            "steamguard_required_days": 15,
+            "new_device_cooldown_days": 0
+        }
+    },
+    {
+        "time_stamp": 1709711073,
+        "id": "76561199099525135",
+        "response": {
+            "allowed": true,
+            "reason": 0,
+            "allowed_at_time": 0,
+            "steamguard_required_days": 15,
+            "new_device_cooldown_days": 0
+        }
+    },
+    {
+        "time_stamp": 1709711291,
+        "id": "76561198158417531",
+        "response": {
+            "allowed": true,
+            "reason": 0,
+            "allowed_at_time": 0,
+            "steamguard_required_days": 15,
+            "new_device_cooldown_days": 0
+        }
+    },
+    {
+        "time_stamp": 1709711788,
+        "id": "76561198425697937",
+        "response": {
+            "allowed": true,
+            "reason": 0,
+            "allowed_at_time": 0,
+            "steamguard_required_days": 15,
+            "new_device_cooldown_days": 0
+        }
+    },
+    {
+        "time_stamp": 1709711801,
+        "id": "76561198131150610",
+        "response": {
+            "allowed": true,
+            "reason": 0,
+            "allowed_at_time": 0,
+            "steamguard_required_days": 15,
+            "new_device_cooldown_days": 0
+        }
+    },
+    {
+        "time_stamp": 1709712080,
+        "id": "76561199167523581",
+        "response": {
+            "allowed": true,
+            "reason": 0,
+            "allowed_at_time": 0,
+            "steamguard_required_days": 15,
+            "new_device_cooldown_days": 0
+        }
+    },
+    {
+        "time_stamp": 1709714176,
+        "id": "76561198027831352",
+        "response": {
+            "allowed": true,
+            "reason": 0,
+            "allowed_at_time": 0,
+            "steamguard_required_days": 15,
+            "new_device_cooldown_days": 0
+        }
+    },
+    {
+        "time_stamp": 1709714691,
+        "id": "76561198052707118",
+        "response": {
+            "allowed": true,
+            "reason": 0,
+            "allowed_at_time": 0,
+            "steamguard_required_days": 15,
+            "new_device_cooldown_days": 0
+        }
+    },
+    {
+        "time_stamp": 1709715677,
+        "id": "76561198422527851",
         "response": {
             "allowed": true,
             "reason": 0,
