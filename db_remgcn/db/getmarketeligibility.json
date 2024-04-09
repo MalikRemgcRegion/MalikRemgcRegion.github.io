@@ -2836,5 +2836,16 @@
             "steamguard_required_days": 15,
             "new_device_cooldown_days": 0
         }
+    },
+    {
+        "time_stamp": 1712664794,
+        "id": "76561199263935477",
+        "response": {
+            "allowed": false,
+            "reason": 16488,
+            "allowed_at_time": 1713269594,
+            "steamguard_required_days": 15,
+            "new_device_cooldown_days": 0
+        }
     }
 ]
