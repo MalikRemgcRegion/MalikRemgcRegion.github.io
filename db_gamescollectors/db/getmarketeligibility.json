@@ -65450,7 +65450,7 @@
         }
     },
     {
-        "time_stamp": 1705478876,
+        "time_stamp": 1713341873,
         "id": "76561198176940511",
         "response": {
             "allowed": true,
@@ -71214,12 +71214,12 @@
         }
     },
     {
-        "time_stamp": 1710314286,
+        "time_stamp": 1713338582,
         "id": "76561199492215670",
         "response": {
-            "allowed": true,
-            "reason": 0,
-            "allowed_at_time": 0,
+            "allowed": false,
+            "reason": 128,
+            "allowed_at_time": 1714125020,
             "steamguard_required_days": 15,
             "new_device_cooldown_days": 0
         }
@@ -71788,6 +71788,50 @@
     {
         "time_stamp": 1712736418,
         "id": "76561198127408221",
+        "response": {
+            "allowed": true,
+            "reason": 0,
+            "allowed_at_time": 0,
+            "steamguard_required_days": 15,
+            "new_device_cooldown_days": 0
+        }
+    },
+    {
+        "time_stamp": 1713338527,
+        "id": "76561198265537802",
+        "response": {
+            "allowed": true,
+            "reason": 0,
+            "allowed_at_time": 0,
+            "steamguard_required_days": 15,
+            "new_device_cooldown_days": 0
+        }
+    },
+    {
+        "time_stamp": 1713338946,
+        "id": "76561199141173286",
+        "response": {
+            "allowed": true,
+            "reason": 0,
+            "allowed_at_time": 0,
+            "steamguard_required_days": 15,
+            "new_device_cooldown_days": 0
+        }
+    },
+    {
+        "time_stamp": 1713339044,
+        "id": "76561198066313226",
+        "response": {
+            "allowed": true,
+            "reason": 0,
+            "allowed_at_time": 0,
+            "steamguard_required_days": 15,
+            "new_device_cooldown_days": 0
+        }
+    },
+    {
+        "time_stamp": 1713339262,
+        "id": "76561198047680456",
         "response": {
             "allowed": true,
             "reason": 0,
