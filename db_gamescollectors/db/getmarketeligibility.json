@@ -4631,7 +4631,7 @@
         }
     },
     {
-        "time_stamp": 1690700695,
+        "time_stamp": 1713942904,
         "id": "76561198147298672",
         "response": {
             "allowed": true,
@@ -65879,7 +65879,7 @@
         }
     },
     {
-        "time_stamp": 1690709755,
+        "time_stamp": 1713951197,
         "id": "76561198300668804",
         "response": {
             "allowed": true,
@@ -71832,6 +71832,61 @@
     {
         "time_stamp": 1713339262,
         "id": "76561198047680456",
+        "response": {
+            "allowed": true,
+            "reason": 0,
+            "allowed_at_time": 0,
+            "steamguard_required_days": 15,
+            "new_device_cooldown_days": 0
+        }
+    },
+    {
+        "time_stamp": 1713942578,
+        "id": "76561198222854400",
+        "response": {
+            "allowed": true,
+            "reason": 0,
+            "allowed_at_time": 0,
+            "steamguard_required_days": 15,
+            "new_device_cooldown_days": 0
+        }
+    },
+    {
+        "time_stamp": 1713943078,
+        "id": "76561198152429013",
+        "response": {
+            "allowed": true,
+            "reason": 0,
+            "allowed_at_time": 0,
+            "steamguard_required_days": 15,
+            "new_device_cooldown_days": 0
+        }
+    },
+    {
+        "time_stamp": 1713944233,
+        "id": "76561198057101434",
+        "response": {
+            "allowed": true,
+            "reason": 0,
+            "allowed_at_time": 0,
+            "steamguard_required_days": 15,
+            "new_device_cooldown_days": 0
+        }
+    },
+    {
+        "time_stamp": 1713944994,
+        "id": "76561198018938491",
+        "response": {
+            "allowed": true,
+            "reason": 0,
+            "allowed_at_time": 0,
+            "steamguard_required_days": 15,
+            "new_device_cooldown_days": 0
+        }
+    },
+    {
+        "time_stamp": 1713946245,
+        "id": "76561198060258372",
         "response": {
             "allowed": true,
             "reason": 0,
