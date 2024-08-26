@@ -51,7 +51,8 @@
             1722217543,
             1722822340,
             1723427234,
-            1724031981
+            1724031981,
+            1724636779
         ]
     },
     {
@@ -107,12 +108,14 @@
             11,
             11,
             10,
+            10,
             10
         ]
     },
     {
         "countrycode": "CA",
         "countrycount": [
+            1,
             1,
             1,
             1,
@@ -219,12 +222,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "CD",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -331,12 +336,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "CG",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -443,12 +450,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "CI",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -555,6 +564,7 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
@@ -611,12 +621,14 @@
             1,
             1,
             1,
+            1,
             1
         ]
     },
     {
         "countrycode": "CM",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -723,12 +735,14 @@
             80,
             79,
             79,
-            80
+            80,
+            84
         ]
     },
     {
         "countrycode": "CO",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -835,12 +849,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "CU",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -947,12 +963,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "CW",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -1059,12 +1077,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "CY",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -1171,12 +1191,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "DE",
         "countrycount": [
+            2,
             2,
             2,
             2,
@@ -1283,12 +1305,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "DK",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -1395,12 +1419,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "DO",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -1507,12 +1533,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "EC",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -1619,12 +1647,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "EG",
         "countrycount": [
+            1,
             1,
             1,
             1,
@@ -1731,12 +1761,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "ER",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -1843,12 +1875,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "ET",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -1955,12 +1989,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "FJ",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -2067,12 +2103,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "FM",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -2179,6 +2217,7 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
@@ -2235,12 +2274,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "GA",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -2347,12 +2388,14 @@
             3,
             3,
             3,
+            3,
             3
         ]
     },
     {
         "countrycode": "GD",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -2459,12 +2502,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "GF",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -2571,12 +2616,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "GH",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -2683,12 +2730,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "GL",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -2795,12 +2844,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "GN",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -2907,12 +2958,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "GQ",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -3019,12 +3072,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "GS",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -3131,12 +3186,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "GU",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -3243,12 +3300,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "GY",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -3355,12 +3414,14 @@
             14,
             14,
             14,
-            14
+            14,
+            12
         ]
     },
     {
         "countrycode": "HM",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -3467,12 +3528,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "HR",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -3579,12 +3642,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "HU",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -3691,12 +3756,14 @@
             2,
             2,
             2,
+            2,
             2
         ]
     },
     {
         "countrycode": "IE",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -3803,12 +3870,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "IM",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -3915,12 +3984,14 @@
             2,
             2,
             2,
+            2,
             2
         ]
     },
     {
         "countrycode": "IO",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -4027,12 +4098,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "IR",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -4139,6 +4212,7 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
@@ -4195,12 +4269,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "JE",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -4307,12 +4383,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "JO",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -4419,12 +4497,14 @@
             7,
             7,
             7,
+            6,
             6
         ]
     },
     {
         "countrycode": "KE",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -4531,12 +4611,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "KH",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -4643,12 +4725,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "KM",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -4755,12 +4839,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "KP",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -4867,12 +4953,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "KW",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -4979,6 +5067,7 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
@@ -5035,12 +5124,14 @@
             1,
             1,
             1,
+            1,
             1
         ]
     },
     {
         "countrycode": "LA",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -5147,12 +5238,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "LC",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -5259,12 +5352,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "LK",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -5371,12 +5466,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "LS",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -5483,12 +5580,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "LU",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -5595,12 +5694,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "LY",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -5707,12 +5808,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "MC",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -5819,12 +5922,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "ME",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -5931,12 +6036,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "MG",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -6043,12 +6150,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "MK",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -6155,12 +6264,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "MM",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -6267,12 +6378,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "MO",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -6379,12 +6492,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "MQ",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -6491,12 +6606,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "MS",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -6603,12 +6720,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "MU",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -6715,12 +6834,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "MW",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -6827,12 +6948,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "MY",
         "countrycount": [
+            1,
             1,
             1,
             1,
@@ -6939,12 +7062,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "NA",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -7051,12 +7176,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "NE",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -7163,12 +7290,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "NG",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -7275,12 +7404,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "NL",
         "countrycount": [
+            1,
             1,
             1,
             1,
@@ -7387,6 +7518,7 @@
             1,
             1,
             1,
+            1,
             1
         ]
     },
@@ -7443,12 +7575,14 @@
             1,
             1,
             1,
+            1,
             1
         ]
     },
     {
         "countrycode": "NR",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -7555,12 +7689,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "NZ",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -7667,12 +7803,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "PA",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -7779,12 +7917,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "PF",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -7891,6 +8031,7 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
@@ -7905,6 +8046,7 @@
             1,
             1,
             1,
+            0,
             0,
             0,
             0,
@@ -8003,12 +8145,14 @@
             5,
             5,
             5,
+            5,
             5
         ]
     },
     {
         "countrycode": "PL",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -8115,12 +8259,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "PN",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -8227,12 +8373,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "PS",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -8339,12 +8487,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "PW",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -8451,12 +8601,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "QA",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -8563,6 +8715,7 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
@@ -8619,12 +8772,14 @@
             1,
             1,
             1,
+            1,
             1
         ]
     },
     {
         "countrycode": "RS",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -8731,12 +8886,14 @@
             16,
             16,
             16,
+            16,
             16
         ]
     },
     {
         "countrycode": "RW",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -8843,12 +9000,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "SB",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -8955,12 +9114,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "SD",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -9067,6 +9228,7 @@
             2,
             2,
             2,
+            2,
             2
         ]
     },
@@ -9123,12 +9285,14 @@
             0,
             0,
             1,
+            1,
             1
         ]
     },
     {
         "countrycode": "SH",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -9235,12 +9399,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "SJ",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -9347,12 +9513,14 @@
             1,
             1,
             1,
+            1,
             1
         ]
     },
     {
         "countrycode": "SL",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -9459,12 +9627,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "SN",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -9571,12 +9741,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "SR",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -9683,12 +9855,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "ST",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -9795,12 +9969,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "SX",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -9907,12 +10083,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "SZ",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -10019,12 +10197,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "TD",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -10131,12 +10311,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "TG",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -10243,12 +10425,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "TJ",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -10355,12 +10539,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "TL",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -10467,12 +10653,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "TN",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -10579,6 +10767,7 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
@@ -10635,12 +10824,14 @@
             10,
             10,
             9,
-            9
+            9,
+            7
         ]
     },
     {
         "countrycode": "TT",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -10747,6 +10938,7 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
@@ -10803,12 +10995,14 @@
             6,
             6,
             6,
+            6,
             6
         ]
     },
     {
         "countrycode": "TZ",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -10915,12 +11109,14 @@
             8,
             9,
             10,
+            12,
             12
         ]
     },
     {
         "countrycode": "UG",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -11027,12 +11223,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "UY",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -11139,12 +11337,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "VA",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -11251,12 +11451,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "VE",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -11363,12 +11565,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "VI",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -11475,12 +11679,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "VU",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -11587,12 +11793,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "WS",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -11703,12 +11911,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "YT",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -11815,12 +12025,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "ZM",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -11927,12 +12139,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "AD",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -12039,12 +12253,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "AF",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -12151,12 +12367,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "AI",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -12263,12 +12481,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "AM",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -12375,12 +12595,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "AQ",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -12487,12 +12709,14 @@
             11,
             11,
             11,
+            11,
             11
         ]
     },
     {
         "countrycode": "AS",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -12599,12 +12823,14 @@
             1,
             1,
             1,
+            1,
             1
         ]
     },
     {
         "countrycode": "AU",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -12711,12 +12937,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "AX",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -12823,12 +13051,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "BA",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -12935,12 +13165,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "BD",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -13047,12 +13279,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "BF",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -13159,12 +13393,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "BH",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -13271,12 +13507,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "BJ",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -13383,12 +13621,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "BM",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -13495,12 +13735,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "BO",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -13607,6 +13849,7 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
@@ -13663,12 +13906,14 @@
             2,
             2,
             2,
+            2,
             2
         ]
     },
     {
         "countrycode": "BS",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -13775,12 +14020,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "BV",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -13887,12 +14134,14 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
     {
         "countrycode": "BY",
         "countrycount": [
+            0,
             0,
             0,
             0,
@@ -13999,6 +14248,7 @@
             0,
             0,
             0,
+            0,
             0
         ]
     },
@@ -14055,6 +14305,7 @@
             71,
             71,
             72,
+            74,
             74
         ]
     }
