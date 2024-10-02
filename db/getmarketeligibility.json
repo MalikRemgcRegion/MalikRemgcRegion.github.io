@@ -913,7 +913,7 @@
         }
     },
     {
-        "time_stamp": 1719535096,
+        "time_stamp": 1727830128,
         "id": "76561198251835488",
         "response": {
             "allowed": true,
@@ -6710,7 +6710,7 @@
         }
     },
     {
-        "time_stamp": 1713055142,
+        "time_stamp": 1727829721,
         "id": "76561198368348725",
         "response": {
             "allowed": true,
@@ -13926,7 +13926,7 @@
         }
     },
     {
-        "time_stamp": 1681523136,
+        "time_stamp": 1727829773,
         "id": "76561197963251851",
         "response": {
             "allowed": true,
@@ -15741,12 +15741,12 @@
         }
     },
     {
-        "time_stamp": 1719621899,
+        "time_stamp": 1727829942,
         "id": "76561198008597182",
         "response": {
-            "allowed": false,
-            "reason": 32,
-            "allowed_at_time": 1719742004,
+            "allowed": true,
+            "reason": 0,
+            "allowed_at_time": 0,
             "steamguard_required_days": 15,
             "new_device_cooldown_days": 0
         }
