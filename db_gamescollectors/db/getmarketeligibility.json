@@ -23859,7 +23859,7 @@
         }
     },
     {
-        "time_stamp": 1759304033,
+        "time_stamp": 1769586359,
         "id": "76561198167332112",
         "response": {
             "allowed": true,
@@ -77992,6 +77992,72 @@
     {
         "time_stamp": 1768984832,
         "id": "76561198064593290",
+        "response": {
+            "allowed": true,
+            "reason": 0,
+            "allowed_at_time": 0,
+            "steamguard_required_days": 15,
+            "new_device_cooldown_days": 0
+        }
+    },
+    {
+        "time_stamp": 1769585052,
+        "id": "76561199006389141",
+        "response": {
+            "allowed": true,
+            "reason": 0,
+            "allowed_at_time": 0,
+            "steamguard_required_days": 15,
+            "new_device_cooldown_days": 0
+        }
+    },
+    {
+        "time_stamp": 1769586061,
+        "id": "76561198087609413",
+        "response": {
+            "allowed": true,
+            "reason": 0,
+            "allowed_at_time": 0,
+            "steamguard_required_days": 15,
+            "new_device_cooldown_days": 0
+        }
+    },
+    {
+        "time_stamp": 1769587171,
+        "id": "76561199197682184",
+        "response": {
+            "allowed": true,
+            "reason": 0,
+            "allowed_at_time": 0,
+            "steamguard_required_days": 15,
+            "new_device_cooldown_days": 0
+        }
+    },
+    {
+        "time_stamp": 1769587246,
+        "id": "76561198401815122",
+        "response": {
+            "allowed": true,
+            "reason": 0,
+            "allowed_at_time": 0,
+            "steamguard_required_days": 15,
+            "new_device_cooldown_days": 0
+        }
+    },
+    {
+        "time_stamp": 1769589810,
+        "id": "76561199121346004",
+        "response": {
+            "allowed": true,
+            "reason": 0,
+            "allowed_at_time": 0,
+            "steamguard_required_days": 15,
+            "new_device_cooldown_days": 0
+        }
+    },
+    {
+        "time_stamp": 1769589821,
+        "id": "76561199310167351",
         "response": {
             "allowed": true,
             "reason": 0,
