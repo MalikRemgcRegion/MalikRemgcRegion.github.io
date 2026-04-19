@@ -1914,12 +1914,12 @@
         }
     },
     {
-        "time_stamp": 1771762969,
+        "time_stamp": 1776602091,
         "id": "76561198113554588",
         "response": {
-            "allowed": true,
-            "reason": 0,
-            "allowed_at_time": 0,
+            "allowed": false,
+            "reason": 384,
+            "allowed_at_time": 1777882168,
             "steamguard_required_days": 15,
             "new_device_cooldown_days": 0
         }
